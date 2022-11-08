@@ -1,9 +1,9 @@
 # FS-App-Template
 
-Kyle added to README
+Kyle < Cadre
 
 ## Setup
-Mike was here
+Mike < Cadre
 
 To use this as boilerplate, you'll need to take the following steps:
 
