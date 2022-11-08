@@ -2,8 +2,12 @@ const router = require('express').Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    const airlines = await Airlines.findAll();
-    res.json(airlines);
+    const orders = await Orders.findAll({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.json(orders);
   } catch (err) {
     next(err);
   }
@@ -11,8 +15,8 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const airline = await Airlines.findByPk(req.params.id);
-    res.json(airline);
+    const order = await Orders.findByPk(req.params.id);
+    res.json(order);
   } catch (err) {
     next(err);
   }
