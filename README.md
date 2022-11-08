@@ -6,7 +6,7 @@ Kyle < Cadre
 
 Mike was here
 Mike is leaving.
-
+Thank God Mike is leaving.
 
 To use this as boilerplate, you'll need to take the following steps:
 
