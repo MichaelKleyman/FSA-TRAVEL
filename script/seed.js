@@ -2,6 +2,53 @@
 
 const {db, models: {User} } = require('../server/db')
 
+const flights = {
+  "2022-11-07": {
+    "origin": "MSY",
+    "destination": "WAS",
+    "price": 23374,
+    "airline": "",
+    "flight_number": 6114,
+    "departure_at": "2022-11-07T12:15:00-06:00",
+    "return_at": "2022-12-07T06:06:00-05:00",
+    "transfers": 1,
+    "expires_at": "2022-11-08T05:16:51Z"
+},
+"2022-11-08": {
+    "origin": "MSY",
+    "destination": "WAS",
+    "price": 35774,
+    "airline": "UA",
+    "flight_number": 786,
+    "departure_at": "2022-11-08T08:00:00-06:00",
+    "return_at": "2022-11-30T17:28:00-05:00",
+    "transfers": 0,
+    "expires_at": "2022-11-08T05:16:51Z"
+},
+"2022-11-09": {
+    "origin": "MSY",
+    "destination": "WAS",
+    "price": 24939,
+    "airline": "UA",
+    "flight_number": 786,
+    "departure_at": "2022-11-09T08:00:00-06:00",
+    "return_at": "2022-11-30T17:28:00-05:00",
+    "transfers": 0,
+    "expires_at": "2022-11-08T05:16:51Z"
+},
+"2022-11-10": {
+    "origin": "MSY",
+    "destination": "WAS",
+    "price": 20407,
+    "airline": "NK",
+    "flight_number": 452,
+    "departure_at": "2022-11-10T10:25:00-06:00",
+    "return_at": "2022-11-13T14:45:00-05:00",
+    "transfers": 1,
+    "expires_at": "2022-11-08T05:16:51Z"
+},
+}
+
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -12,8 +59,8 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
+    User.create({ username: 'cody', password: '123', firstName : "Cody", lastName : "Mcmillan", email: "cm@gmail.com", phone : "1234567890"}),
+    User.create({ username: 'murphy', password: '456', firstName : "Murphy", lastName : "Cordova", email: "mc@gmail.com", phone : "0123456789" }),
   ])
 
   console.log(`seeded ${users.length} users`)
