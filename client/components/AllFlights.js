@@ -5,18 +5,9 @@ const luxon = require("luxon");
 const selected_origin = "MSY";
 const selected_destination = "IAD";
 
-function AllFlights() {
-  const [flights, setFlights] = useState([]);
-  useEffect(() => {
-    fetchData();
-  }, []);
+function AllFlights(props) {
 
-  const fetchData = async () => {
-    const { data } = await axios.get(
-      `http://api.travelpayouts.com/v1/prices/calendar?depart_date=2022-11&currency=USD&origin=${selected_origin}&destination=${selected_destination}&token=ed36fb1a96dc9c4593b94a42e1a6825a`
-    );
-    setFlights(data.data);
-  };
+  const flights = props.flights
 
   return (
     <div className="card-container">
@@ -24,15 +15,12 @@ function AllFlights() {
         let dt = luxon.DateTime.fromISO(flight.departure_at);
         return (
         <div key={k}>
-          {/* <p>{JSON.stringify(flights[k], null, 2)}</p> */}
           <div className="card">
             <div>
               <p>
-                {/* 22/12/12 8:42am - 12:20pm */}
-                {/* Date:{flight.departure_at.slice(0, 10)}  */}
+
                 Departure:
                 {dt.toLocaleString(luxon.DateTime.DATETIME_MED)}
-                {/* {flight.departure_at.slice(11)} - {Date(flight.return_at)}{" "} */}
               </p>
             </div>
 
