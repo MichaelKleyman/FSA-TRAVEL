@@ -17,30 +17,34 @@ const AuthForm = (props) => {
     const formName = evt.target.name;
     const username = evt.target.username.value;
     const password = evt.target.password.value;
-    dispatch(authenticate(username, password, formName));
+    dispatch(authenticate({ username, password }, formName));
     history.push("/home");
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name} className="container">
+      <form onSubmit={handleSubmit} name={name} className="login-container">
         <h2>{displayName}</h2>
         <div>
           <label htmlFor="username">
-            <small>Username</small>
+            <small>Username:</small>
           </label>
           <input name="username" type="text" />
         </div>
         <div>
           <label htmlFor="password">
-            <small>Password</small>
+            <small>Password:</small>
           </label>
           <input name="password" type="password" />
         </div>
         <div>
-          <button type="submit" className="form-button">{displayName}</button>
+          <button type="submit" className="form-button">
+            {displayName}
+          </button>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        {error && error.response && (
+          <div className="auth-error">*{error.response.data}</div>
+        )}
       </form>
     </div>
   );
@@ -61,25 +65,13 @@ const mapLogin = (state) => {
   };
 };
 
-const mapSignup = (state) => {
-  return {
-    name: "signup",
-    displayName: "Sign Up",
-    error: state.auth.error,
-  };
-};
-
-// const mapDispatch = (dispatch) => {
+// const mapSignup = (state) => {
 //   return {
-//     handleSubmit(evt) {
-//       evt.preventDefault();
-//       const formName = evt.target.name;
-//       const username = evt.target.username.value;
-//       const password = evt.target.password.value;
-//       dispatch(authenticate(username, password, formName));
-//     },
+//     name: "signup",
+//     displayName: "Sign Up",
+//     error: state.auth.error,
 //   };
 // };
 
 export const Login = connect(mapLogin)(AuthForm);
-export const Signup = connect(mapSignup)(AuthForm);
+// export const Signup = connect(mapSignup)(AuthForm);

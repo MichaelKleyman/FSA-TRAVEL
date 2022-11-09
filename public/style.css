@@ -33,8 +33,18 @@ form div {
   display: inline-block;
 }
 
+.container, .login-container {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  flex-direction: column;
+  margin-left: 17rem;
+  border: solid lightgray;
+  border-radius: 30px;
+  width: 60%;
+}
 
-.container {
+.signup-container {
   display: flex;
   align-items: center;
   justify-self: center;
@@ -75,7 +85,7 @@ input {
   background-color: #f8f8f8;
   border-radius: 10px;
   transition: 0.4s;
-  margin: 1rem;
+  margin: 0.1rem;
 }
 
 input:focus {
@@ -97,4 +107,10 @@ input:focus {
 
 .cart {
   width: 20%;
+}
+
+.auth-error {
+  color: red;
+  font-size: 13px;
+  margin: 1px;
 }
