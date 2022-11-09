@@ -21,14 +21,18 @@ export const Home = (props) => {
     console.log("in searchbutton")
     console.log(props)
     console.log("in searchbutton")
-
-     fetchData();
+    console.log(event.target.from);
+    const from = event.target.from.value;
+    console.log(from)
+    const destination = event.target.destination.value;
+    console.log(destination);
+     fetchData(from, destination);
 
   };
 
-  const fetchData = async () => {
+  const fetchData = async (from, destination) => {
     const { data } = await axios.get(
-      `http://api.travelpayouts.com/v1/prices/calendar?depart_date=2022-11&currency=USD&origin=${selected_origin}&destination=${selected_destination}&token=ed36fb1a96dc9c4593b94a42e1a6825a`
+      `http://api.travelpayouts.com/v1/prices/calendar?depart_date=2022-11&currency=USD&origin=${from}&destination=${destination}&token=ed36fb1a96dc9c4593b94a42e1a6825a`
     );
     setFlights(data.data);
   };
@@ -38,10 +42,10 @@ export const Home = (props) => {
       <h3 className="title">Book Your Flights {username}</h3>
       <div className="outer-form">
         <form onSubmit={handleSearchButton}>
-          <label>From:</label>
-          <input type="text" placeholder="Leaving from..."></input>
-          <label>To:</label>
-          <input type="text" placeholder="Going to..." />
+          <label htmlFor="from">From:</label>
+          <input name="from" type="text" placeholder="Leaving from..."></input>
+          <label htmlFor="destination">To:</label>
+          <input name="destination" type="text" placeholder="Going to..." />
           <button type="submit" className="form-button">
             Search
           </button>
