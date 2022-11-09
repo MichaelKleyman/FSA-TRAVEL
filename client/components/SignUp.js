@@ -11,8 +11,38 @@ const SignUp = () => {
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
 
-  const handleChange = (event) => {
-    setUser({ ...user, [event.target.name]: event.target.value });
+  const handleUsername = (event) => {
+    setUser({ ...user, username: event.target.value });
+    setSubmitted(false);
+    setValid(false);
+  };
+
+  const handlePassword = (event) => {
+    setUser({ ...user, password: event.target.value });
+    setSubmitted(false);
+    setValid(false);
+  };
+
+  const handleFirstName = (event) => {
+    setUser({ ...user, firstName: event.target.value });
+    setSubmitted(false);
+    setValid(false);
+  };
+
+  const handleLastName = (event) => {
+    setUser({ ...user, lastName: event.target.value });
+    setSubmitted(false);
+    setValid(false);
+  };
+
+  const handleEmail = (event) => {
+    setUser({ ...user, email: event.target.value });
+    setSubmitted(false);
+    setValid(false);
+  };
+
+  const handlePhone = (event) => {
+    setUser({ ...user, phone: event.target.value });
     setSubmitted(false);
     setValid(false);
   };
@@ -20,7 +50,14 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
-    if (user.username && user.email && user.phone) {
+    if (
+      user.username &&
+      user.email &&
+      user.phone &&
+      user.password &&
+      user.firstName &&
+      user.lastName
+    ) {
       setValid(true);
     }
     dispatch(createUser({ ...user }));
@@ -53,7 +90,7 @@ const SignUp = () => {
       <input
         name="username"
         value={user.username || ""}
-        onChange={handleChange}
+        onChange={handleUsername}
       />
       {!user.username && submitted ? <span>Username is Required</span> : null}
 
@@ -61,7 +98,7 @@ const SignUp = () => {
       <input
         name="password"
         value={user.password || ""}
-        onChange={handleChange}
+        onChange={handlePassword}
       />
       {!user.password && submitted ? <span>Password is Required</span> : null}
 
@@ -69,7 +106,7 @@ const SignUp = () => {
       <input
         name="firstName"
         value={user.firstName || ""}
-        onChange={handleChange}
+        onChange={handleFirstName}
       />
       {!user.firstName && submitted ? (
         <span>First Name is Required</span>
@@ -79,16 +116,16 @@ const SignUp = () => {
       <input
         name="lastName"
         value={user.lastName || ""}
-        onChange={handleChange}
+        onChange={handleLastName}
       />
       {!user.lastName && submitted ? <span>Last Name is Required</span> : null}
 
       <label htmlFor="email">Email Address:</label>
-      <input name="email" value={user.email || ""} onChange={handleChange} />
+      <input name="email" value={user.email || ""} onChange={handleEmail} />
       {!user.email && submitted ? <span>Email is Required</span> : null}
 
       <label htmlFor="phone">Phone Number:</label>
-      <input name="phone" value={user.phone || ""} onChange={handleChange} />
+      <input name="phone" value={user.phone || ""} onChange={handlePhone} />
       {!user.phone && submitted ? <span>Phone Number is Required</span> : null}
 
       {submitted && valid ? (
