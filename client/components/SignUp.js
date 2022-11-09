@@ -95,9 +95,9 @@ const SignUp = () => {
       />
       {!user.password && submitted ? <span>Password is Required</span> : null}
 
-      <label htmlFor="firstName">First Name:</label>
+      <label htmlFor="firstname">First Name:</label>
       <input
-        firstName="firstName"
+        firstName="firstname"
         value={user.firstName || ''}
         onChange={handleFirstName}
       />
