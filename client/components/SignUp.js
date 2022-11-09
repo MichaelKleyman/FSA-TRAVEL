@@ -52,15 +52,15 @@ const SignUp = () => {
     setSubmitted(true);
     if (
       user.username &&
-      user.email &&
-      user.phone &&
       user.password &&
       user.firstName &&
-      user.lastName
+      user.lastName &&
+      user.email &&
+      user.phone
     ) {
       setValid(true);
+      dispatch(createUser({ ...user }));
     }
-    dispatch(createUser({ ...user }));
   };
 
   const handleClear = (event) => {
