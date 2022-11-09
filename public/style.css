@@ -19,3 +19,21 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  border-radius: 5%;
+  background-color: lightblue;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+}
+.add-toCart {
+  float: right;
+  margin-bottom: 20px;
+}
