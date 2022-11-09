@@ -6,6 +6,7 @@ import SignUp from './components/SignUp';
 import Home from './components/Home';
 import { me } from './store';
 import AllFlights from './components/AllFlights';
+import { AccountCreated } from './components/AccountCreated';
 
 /**
  * COMPONENT
@@ -24,6 +25,7 @@ class Routes extends Component {
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/created" component={AccountCreated} />
           <Route path="/flights" component={AllFlights} />
         </Switch>
       </div>
