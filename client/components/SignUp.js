@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { createUser } from '../store/signUp';
+import { useHistory } from 'react-router-dom';
 
 const SignUp = () => {
   const dispatch = useDispatch();
   const params = useParams();
+  const history = useHistory();
 
   const [user, setUser] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -50,10 +52,18 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
-    if (user.username && user.email && user.phone) {
+    if (
+      user.username &&
+      user.password &&
+      user.firstName &&
+      user.lastName &&
+      user.email &&
+      user.phone
+    ) {
       setValid(true);
+      dispatch(createUser({ ...user }));
+      history.push('/created');
     }
-    dispatch(createUser({ ...user }));
   };
 
   const handleClear = (event) => {

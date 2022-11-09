@@ -39,10 +39,12 @@ export const Home = (props) => {
       <div className="outer-form">
         <form onSubmit={handleSearchButton}>
           <label>From:</label>
-          <input type="text" placeholder="Leaving from..."/>
+          <input type="text" placeholder="Leaving from..."></input>
           <label>To:</label>
           <input type="text" placeholder="Going to..." />
-          <button type="submit" className="search" >Search</button>
+          <button type="submit" className="form-button">
+            Search
+          </button>
         </form>
       </div>
       <AllFlights flights = {flights}/>
