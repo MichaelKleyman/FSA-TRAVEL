@@ -9,8 +9,8 @@ import { useHistory } from "react-router-dom";
  */
 const AuthForm = (props) => {
   const { name, displayName, error } = props;
-  const dispatch = useDispatch()
-  const history = useHistory()
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -18,8 +18,8 @@ const AuthForm = (props) => {
     const username = evt.target.username.value;
     const password = evt.target.password.value;
     dispatch(authenticate(username, password, formName));
-    history.push('/home');
-  }
+    history.push("/home");
+  };
 
   return (
     <div>
