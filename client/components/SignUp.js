@@ -50,10 +50,19 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
-    if (user.username && user.email && user.phone) {
+    if (
+      user.username &&
+      user.password &&
+      user.firstName &&
+      user.lastName &&
+      user.email &&
+      user.phone
+    ) {
       setValid(true);
     }
-    dispatch(createUser({ ...user }));
+    if (valid && submitted) {
+      dispatch(createUser({ ...user }));
+    }
   };
 
   const handleClear = (event) => {
