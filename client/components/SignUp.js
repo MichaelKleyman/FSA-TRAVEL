@@ -81,7 +81,7 @@ const SignUp = () => {
       ) : null}
       <label htmlFor="username">Username:</label>
       <input
-        username="username"
+        name="username"
         value={user.username || ''}
         onChange={handleUsername}
       />
@@ -89,7 +89,7 @@ const SignUp = () => {
 
       <label htmlFor="password">Password:</label>
       <input
-        password="password"
+        name="password"
         value={user.password || ''}
         onChange={handlePassword}
       />
@@ -97,7 +97,7 @@ const SignUp = () => {
 
       <label htmlFor="firstName">First Name:</label>
       <input
-        firstName="firstName"
+        name="firstName"
         value={user.firstName || ''}
         onChange={handleFirstName}
       />
@@ -107,24 +107,24 @@ const SignUp = () => {
 
       <label htmlFor="lastName">Last Name:</label>
       <input
-        lastName="lastName"
+        name="lastName"
         value={user.lastName || ''}
         onChange={handleLastName}
       />
       {!user.lastName && submitted ? <span>Last Name is Required</span> : null}
 
       <label htmlFor="email">Email Address:</label>
-      <input email="email" value={user.email || ''} onChange={handleEmail} />
+      <input name="email" value={user.email || ''} onChange={handleEmail} />
       {!user.email && submitted ? <span>Email is Required</span> : null}
 
       <label htmlFor="phone">Phone Number:</label>
-      <input phone="phone" value={user.phone || ''} onChange={handlePhone} />
+      <input name="phone" value={user.phone || ''} onChange={handlePhone} />
       {!user.phone && submitted ? <span>Phone Number is Required</span> : null}
 
       {submitted && valid ? (
         <button onClick={handleClear}>Clear</button>
       ) : (
-        <button onClick={handleSubmit}>"Create Account"</button>
+        <button onClick={handleSubmit}>Create Account</button>
       )}
     </form>
   );
