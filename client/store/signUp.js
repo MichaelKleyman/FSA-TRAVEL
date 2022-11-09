@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 //ACTION TYPES
-const CREATE_USER = 'CREATE_USER';
+const CREATE_USER = "CREATE_USER";
 
 //ACTION CREATORS
 const _createUser = (user) => {
@@ -14,8 +14,12 @@ const _createUser = (user) => {
 //THUNK CREATORS
 export const createUser = (user) => {
   return async (dispatch) => {
-    const { data: created } = await axios.post('/auth/signUp', user);
-    dispatch(_createUser(created));
+    try {
+      const { data: created } = await axios.post("/auth/signUp", user);
+      dispatch(_createUser(created));
+    } catch (e) {
+      console.error("My Error: ", e);
+    }
   };
 };
 
