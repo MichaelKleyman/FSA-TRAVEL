@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { createUser } from '../store/signUp';
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { createUser } from "../store/signUp";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -59,8 +59,6 @@ const SignUp = () => {
       user.phone
     ) {
       setValid(true);
-    }
-    if (valid && submitted) {
       dispatch(createUser({ ...user }));
     }
   };
@@ -91,7 +89,7 @@ const SignUp = () => {
       <label htmlFor="username">Username:</label>
       <input
         name="username"
-        value={user.username || ''}
+        value={user.username || ""}
         onChange={handleUsername}
       />
       {!user.username && submitted ? <span>Username is Required</span> : null}
@@ -99,7 +97,7 @@ const SignUp = () => {
       <label htmlFor="password">Password:</label>
       <input
         name="password"
-        value={user.password || ''}
+        value={user.password || ""}
         onChange={handlePassword}
       />
       {!user.password && submitted ? <span>Password is Required</span> : null}
@@ -107,7 +105,7 @@ const SignUp = () => {
       <label htmlFor="firstName">First Name:</label>
       <input
         name="firstName"
-        value={user.firstName || ''}
+        value={user.firstName || ""}
         onChange={handleFirstName}
       />
       {!user.firstName && submitted ? (
@@ -117,17 +115,17 @@ const SignUp = () => {
       <label htmlFor="lastName">Last Name:</label>
       <input
         name="lastName"
-        value={user.lastName || ''}
+        value={user.lastName || ""}
         onChange={handleLastName}
       />
       {!user.lastName && submitted ? <span>Last Name is Required</span> : null}
 
       <label htmlFor="email">Email Address:</label>
-      <input name="email" value={user.email || ''} onChange={handleEmail} />
+      <input name="email" value={user.email || ""} onChange={handleEmail} />
       {!user.email && submitted ? <span>Email is Required</span> : null}
 
       <label htmlFor="phone">Phone Number:</label>
-      <input name="phone" value={user.phone || ''} onChange={handlePhone} />
+      <input name="phone" value={user.phone || ""} onChange={handlePhone} />
       {!user.phone && submitted ? <span>Phone Number is Required</span> : null}
 
       {submitted && valid ? (
