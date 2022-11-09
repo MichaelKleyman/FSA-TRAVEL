@@ -33,6 +33,7 @@ form div {
   display: inline-block;
 }
 
+
 .container {
   display: flex;
   align-items: center;
@@ -93,3 +94,22 @@ button:hover {
   cursor: pointer;
   color: white;
 }
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.card {
+  border-radius: 5%;
+  background-color: lightblue;
+  width: 300px;
+  height: 200px;
+  margin: 10px;
+  padding: 10px;
+}
+.add-toCart {
+  float: right;
+  margin-bottom: 20px;
+}
+
