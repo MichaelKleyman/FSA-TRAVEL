@@ -35,7 +35,7 @@ const User = db.define('user', {
     allowNull: false,
     validate:{
       isNumeric: true,
-      len: [10,10]
+      len: [10]
     }
   }
 })

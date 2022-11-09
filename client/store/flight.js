@@ -4,7 +4,7 @@ import axios from "axios";
 const ADD_FLIGHT = 'ADD_FLIGHTS';
 
 //ACTION CREATORS
-const _assFlight = (flight) => ({type: ADD_FLIGHT, flight})
+const _addFlight = (flight) => ({type: ADD_FLIGHT, flight})
 
 //THUNK CREATORS
 
