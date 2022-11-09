@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Orders} } = require('../server/db')
 
 const flights = {
   "2022-11-07": {
@@ -63,12 +63,19 @@ async function seed() {
     User.create({ username: 'murphy', password: '456', firstName : "Murphy", lastName : "Cordova", email: "mc@gmail.com", phone : "0123456789" }),
   ])
 
+  const orders = await Promise.all([
+    Orders.create({ completed: true, date : '2022-11-08', invoice : 200}),
+  ])
+
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
   return {
     users: {
       cody: users[0],
       murphy: users[1]
+    },
+    orders: {
+      orderOne : orders[0]
     }
   }
 }
