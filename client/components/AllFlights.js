@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { format } from "date-fns";
 
 const selected_origin = "MSY";
 const selected_destination = "IAD";
