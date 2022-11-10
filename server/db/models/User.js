@@ -28,7 +28,6 @@ const User = db.define('user', {
     validate: {
       notEmpty: true,
     },
-
   },
   lastName: {
     type: Sequelize.STRING,
@@ -55,14 +54,13 @@ const User = db.define('user', {
       len: [10],
     },
   },
-  role: {
-    type: Sequelize.STRING,
-    defaultvalue: 'user',
-  },
+  // role: {
+  //   type: Sequelize.STRING,
+  //   defaultvalue: 'user',
+  // },
 });
 
 module.exports = User;
-
 
 User.prototype.correctPassword = function (candidatePwd) {
   //we need to compare the plain version to an encrypted version of the password
@@ -72,7 +70,6 @@ User.prototype.correctPassword = function (candidatePwd) {
 User.prototype.generateToken = function () {
   return jwt.sign({ id: this.id }, process.env.JWT);
 };
-
 
 User.authenticate = async function ({ username, password }) {
   const user = await this.findOne({ where: { username } });
