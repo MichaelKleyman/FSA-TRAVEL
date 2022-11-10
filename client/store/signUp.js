@@ -14,12 +14,8 @@ const _createUser = (user) => {
 //THUNK CREATORS
 export const createUser = (user) => {
   return async (dispatch) => {
-    try {
-      const { data: created } = await axios.post("/auth/signUp", user);
-      dispatch(_createUser(created));
-    } catch (e) {
-      console.error("My Error: ", e);
-    }
+    const { data: created } = await axios.post('/auth/signup', user);
+    dispatch(_createUser(created));
   };
 };
 

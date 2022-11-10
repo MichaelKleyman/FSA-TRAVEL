@@ -4,6 +4,7 @@ import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * COMPONENT
@@ -26,7 +27,6 @@ const AuthForm = (props) => {
   const handleChange = (event) => {
     setUser({ [event.target.name]: event.target.value });
     setSubmitted(false);
-    setValid(false);
   };
 
   const handleSubmit = (evt) => {
@@ -41,8 +41,7 @@ const AuthForm = (props) => {
     dispatch(
       authenticate(
         { username, password, firstName, lastName, email, phone },
-        formName,
-        history
+        formName
       )
     );
   };
@@ -52,55 +51,67 @@ const AuthForm = (props) => {
       <form onSubmit={handleSubmit} name={name} className='signup-container'>
         <h2>{displayName}</h2>
         <div>
-          <label htmlFor='username'>
-            <small>Username:</small>
-          </label>
-          <input name='username' type='text' onChange={handleChange} />
+          <input
+            name='username'
+            type='text'
+            onChange={handleChange}
+            placeholder='Your Username'
+          />
           {/* {!user.username && error ? (
             <div className="auth-error">*Username is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor='password'>
-            <small>Password:</small>
-          </label>
-          <input name='password' type='password' onChange={handleChange} />
+          <input
+            name='password'
+            type='password'
+            onChange={handleChange}
+            placeholder='Your Password'
+          />
           {/* {!user.password && error ? (
             <div className="auth-error">*Password is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor='firstName'>
-            <small>First Name:</small>
-          </label>
-          <input name='firstName' type='firstName' onChange={handleChange} />
+          <input
+            name='firstName'
+            type='firstName'
+            onChange={handleChange}
+            placeholder='Your First Name'
+          />
           {/* {!user.firstName && error ? (
             <div className="auth-error">*First name is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor='lastName'>
-            <small>Last Name:</small>
-          </label>
-          <input name='lastName' type='lastName' onChange={handleChange} />
+          <input
+            name='lastName'
+            type='lastName'
+            onChange={handleChange}
+            placeholder='Your Last Name'
+          />
           {/* {!user.lastName && error ? (
             <div className="auth-error">*Last name is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor='email'>
-            <small>Email:</small>
-          </label>
-          <input name='email' type='email' onChange={handleChange} />
+          <input
+            name='email'
+            type='email'
+            onChange={handleChange}
+            placeholder='Your Email'
+          />
           {/* {!user.email && error ? (
             <div className="auth-error">*Email is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor='phone'>
-            <small>Phone Number:</small>
-          </label>
-          <input name='phone' type='phone' onChange={handleChange} />
+          <input
+            name='phone'
+            type='phone'
+            onChange={handleChange}
+            placeholder='Your Phone Number'
+          />
           {/* {!user.phone && error ? (
             <div className="auth-error">*Phone number is Required</div>
           ) : null} */}
@@ -113,6 +124,12 @@ const AuthForm = (props) => {
         {error && error.response && (
           <div className='auth-error'>*{error.response.data}</div>
         )}
+        <p className='signup-prompt'>
+          Already have an account?{' '}
+          <Link to='/login' className='signup-link'>
+            Log in
+          </Link>
+        </p>
       </form>
     </div>
   );
