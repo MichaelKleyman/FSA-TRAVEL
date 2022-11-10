@@ -19,9 +19,22 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/:username', async (req, res, next) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        username: req.params.username
+      }
+    })
+    res.send(user);
+  }
+  catch (e) {
+    next(e);
+  }
+})
+
 router.post('/', async (req, res, next) => {
   try {
-    console.log("VVVVVVVVVVVVVVVVVVVVVVVVV", req.body)
     const newUser = User.create({
       //creating a new user to the database, I am assuming the body sent will be the same as the database fields
       username : req.body.username,
@@ -31,7 +44,6 @@ router.post('/', async (req, res, next) => {
       email : req.body.email,
       phone : req.body.phone,
     })
-    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", req.body);
     res.status(200).send(newUser);
   } catch (err) {
     next(err);

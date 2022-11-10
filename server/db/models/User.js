@@ -11,23 +11,39 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   password: {
     type: Sequelize.STRING,
+    validate: {
+      notEmpty: true,
+    },
   },
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
+
+    validate: {
+      notEmpty: true,
+    },
+
   },
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
+
+    validate: {
+      notEmpty: true,
+    },
   },
   email: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
       isEmail: true,
+      notEmpty: true,
     },
   },
   phone: {
@@ -35,6 +51,7 @@ const User = db.define('user', {
     allowNull: false,
     validate: {
       isNumeric: true,
+      notEmpty: true,
       len: [10],
     },
   },
@@ -46,9 +63,7 @@ const User = db.define('user', {
 
 module.exports = User;
 
-/**
- * instanceMethods
- */
+
 User.prototype.correctPassword = function (candidatePwd) {
   //we need to compare the plain version to an encrypted version of the password
   return bcrypt.compare(candidatePwd, this.password);
@@ -58,9 +73,7 @@ User.prototype.generateToken = function () {
   return jwt.sign({ id: this.id }, process.env.JWT);
 };
 
-/**
- * classMethods
- */
+
 User.authenticate = async function ({ username, password }) {
   const user = await this.findOne({ where: { username } });
   if (!user || !(await user.correctPassword(password))) {

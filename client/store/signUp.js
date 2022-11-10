@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 //ACTION TYPES
-const CREATE_USER = 'CREATE_USER';
+const CREATE_USER = "CREATE_USER";
 
 //ACTION CREATORS
 const _createUser = (user) => {

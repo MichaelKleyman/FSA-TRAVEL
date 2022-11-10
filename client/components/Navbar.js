@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
-import { FaShoppingCart } from 'react-icons/fa';
+
+import { BsFillCartFill } from 'react-icons/bs';
+
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
@@ -19,7 +21,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             Logout
           </a>
           <button className='cart float-cart'>
-            <FaShoppingCart size={35} />
+
+            <BsFillCartFill size={35} />
+
           </button>
         </div>
       ) : (
@@ -31,11 +35,13 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
             <Link to='/login' className='nav-link float-login'>
               Login
             </Link>
-            <Link to='/signup' className='nav-link float-signup'>
-              Sign Up
+
+            <Link to="/home" className="nav-link float-signup">
+              Home
             </Link>
             <button className='cart float-cart'>
-              <FaShoppingCart size={35} />
+              <BsFillCartFill size={35} />
+
             </button>
           </div>
         </div>

@@ -2,27 +2,31 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+
+import { Link } from 'react-router-dom';
+import { getUser } from '../store';
+
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const { name, displayName, error } = props;
+  const { name, displayName, error, user } = props;
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const formName = evt.target.name;
     const username = evt.target.username.value;
     const password = evt.target.password.value;
-    dispatch(authenticate(username, password, formName));
-    history.push('/home');
+
+    dispatch(authenticate({ username, password }, formName));
+    dispatch(getUser(username));
   };
 
   return (
-    <div className='booking-container'>
+    <div className='login-container'>
+
       <form onSubmit={handleSubmit} name={name} className='container'>
         <h2>{displayName}</h2>
         <div>
@@ -38,7 +42,15 @@ const AuthForm = (props) => {
             {displayName}
           </button>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        {error && error.response && (
+          <div className='auth-error'>*{error.response.data}</div>
+        )}
+        <p className='signup-prompt'>
+          New here?{' '}
+          <Link to='/signup' className='signup-link'>
+            Sign up
+          </Link>
+        </p>
       </form>
     </div>
   );
@@ -56,28 +68,10 @@ const mapLogin = (state) => {
     name: 'login',
     displayName: 'Login',
     error: state.auth.error,
+    user: state.auth.user,
   };
 };
 
-const mapSignup = (state) => {
-  return {
-    name: 'signup',
-    displayName: 'Sign Up',
-    error: state.auth.error,
-  };
-};
-
-// const mapDispatch = (dispatch) => {
-//   return {
-//     handleSubmit(evt) {
-//       evt.preventDefault();
-//       const formName = evt.target.name;
-//       const username = evt.target.username.value;
-//       const password = evt.target.password.value;
-//       dispatch(authenticate(username, password, formName));
-//     },
-//   };
-// };
 
 export const Login = connect(mapLogin)(AuthForm);
-export const Signup = connect(mapSignup)(AuthForm);
+// export const Signup = connect(mapSignup)(AuthForm);
