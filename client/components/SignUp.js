@@ -111,10 +111,11 @@ const SignUp = () => {
         <span style={{ color: "red" }}>Password is Required</span>
       ) : null}
 
-      <label htmlFor="firstName"></label>
+
+      <label htmlFor="firstname">First Name:</label>
       <input
-        name="firstName"
-        value={user.firstName || ""}
+        firstName="firstname"
+        value={user.firstName || ''}
         onChange={handleFirstName}
         placeholder="Your First Name:"
       />
