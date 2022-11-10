@@ -1,6 +1,10 @@
 'use strict'
+const papa = require("papaparse");
+const fs = require("fs/promises");
+const options = {header : true, skipEmptyLines : true};
+const {db, models: {User, Orders, Airports} } = require('../server/db');
+const { default: tr } = require("date-fns/locale/tr");
 
-const {db, models: {User, Orders} } = require('../server/db')
 
 const flights = {
   "2022-11-07": {
@@ -49,6 +53,52 @@ const flights = {
 },
 }
 
+const dummy = [{
+  IATA_CODE : "VLD",
+  city : "Valdosta",
+  airport : "Valdosta Regional Airport"
+},
+{
+  IATA_CODE : "VPS",
+  city : "Destin-Fort Walton Beach Airport",
+  airport : "Valparaiso"
+},
+]
+async function testParse(){
+
+  try {
+   dummy.forEach( async (obj)=>{
+      const airp = await Airports.create({
+        IATA : obj.IATA_CODE,
+        city : obj.city,
+        airport : obj.airport,
+      })
+
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function parseCSV(){
+  try {
+    const data = await fs.readFile("./airports.csv", {encoding: "utf8"});
+    const arr =  papa.parse(data, options).data;
+    for (let i=0; i <arr.length; i++){
+      try {
+        await Airports.create({
+          IATA : arr[i].IATA_CODE,
+          city : arr[i].CITY,
+          airport : arr[i].AIRPORT,
+        })
+      } catch (error) {
+        console.log("in for each", error)
+      }
+    }
+  } catch (error) {
+    console.log("my err", error);
+  }
+}
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
@@ -62,10 +112,18 @@ async function seed() {
     User.create({ username: 'cody', password: '123', firstName : "Cody", lastName : "Mcmillan", email: "cm@gmail.com", phone : "1234567890"}),
     User.create({ username: 'murphy', password: '456', firstName : "Murphy", lastName : "Cordova", email: "mc@gmail.com", phone : "0123456789" }),
   ])
-
+  //create an order test
   const orders = await Promise.all([
     Orders.create({ completed: true, date : '2022-11-08', invoice : 200}),
   ])
+
+  //seeding airport table
+
+
+  await parseCSV();
+  // await testParse();
+
+
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)

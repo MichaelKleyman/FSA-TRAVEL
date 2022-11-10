@@ -4,13 +4,14 @@ const db = require('./db')
 
 const User = require('./models/User')
 const Orders = require('./models/Orders')
-
+const Airports = require('./models/Airports')
 //associations could go here!
 
 module.exports = {
   db,
   models: {
     User,
-    Orders
+    Orders,
+    Airports
   },
 }
