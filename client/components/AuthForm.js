@@ -1,8 +1,8 @@
-import React from "react";
-import { connect } from "react-redux";
-import { authenticate } from "../store";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { authenticate } from '../store';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 /**
  * COMPONENT
@@ -18,23 +18,23 @@ const AuthForm = (props) => {
     const username = evt.target.username.value;
     const password = evt.target.password.value;
     dispatch(authenticate(username, password, formName));
-    history.push("/home");
+    history.push('/home');
   };
 
   return (
-    <div className="booking-container">
-      <form onSubmit={handleSubmit} name={name} className="container">
+    <div className='booking-container'>
+      <form onSubmit={handleSubmit} name={name} className='container'>
         <h2>{displayName}</h2>
         <div>
-          <label htmlFor="username"></label>
-          <input name="username" type="text" placeholder="Your Username" />
+          <label htmlFor='username'></label>
+          <input name='username' type='text' placeholder='Your Username' />
         </div>
         <div>
-          <label htmlFor="password"></label>
-          <input name="password" type="password" placeholder="Your Password" />
+          <label htmlFor='password'></label>
+          <input name='password' type='password' placeholder='Your Password' />
         </div>
         <div>
-          <button type="submit" className="form-button">
+          <button type='submit' className='form-button'>
             {displayName}
           </button>
         </div>
@@ -53,16 +53,16 @@ const AuthForm = (props) => {
  */
 const mapLogin = (state) => {
   return {
-    name: "login",
-    displayName: "Login",
+    name: 'login',
+    displayName: 'Login',
     error: state.auth.error,
   };
 };
 
 const mapSignup = (state) => {
   return {
-    name: "signup",
-    displayName: "Sign Up",
+    name: 'signup',
+    displayName: 'Sign Up',
     error: state.auth.error,
   };
 };
