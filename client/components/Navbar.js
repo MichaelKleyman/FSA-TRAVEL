@@ -8,44 +8,34 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
     <nav className="nav-menu">
       {isLoggedIn ? (
-        <div>
-          <div className="home-link">
-            <h3>
-              <Link to="/home" className="link">
-                FSA-TRAVEL
-              </Link>
-            </h3>
-          </div>
-          <div className="sign-log-link">
-            <Link to="/home" className="link">
-              Home
-            </Link>
-            <a href="#" onClick={handleClick} className="link">
-              Logout
-            </a>
-
-            <button className="cart">
-              <BsFillCartFill size={70} />
-            </button>
-          </div>
+        <div className="sign-log-link">
+          <Link to="/home" className="nav-link logo">
+            FSA-TRAVEL
+          </Link>
+          <Link to="/home" className="nav-link float-home">
+            Home
+          </Link>
+          <a href="#" onClick={handleClick} className="nav-link float-logout">
+            Logout
+          </a>
+          <button className="cart float-cart">
+            <BsFillCartFill size={35} />
+          </button>
         </div>
       ) : (
         <div>
-          <div className="home-link">
-            <Link to="/home" className="link">
+          <div className="sign-log-link">
+            <Link to="/home" className="nav-link logo">
               FSA-TRAVEL
             </Link>
-          </div>
-          <div className="sign-log-link">
-            <Link to="/login" className="link">
+            <Link to="/login" className="nav-link float-login">
               Login
             </Link>
-            <Link to="/signup" className="link">
+            <Link to="/signup" className="nav-link float-signup">
               Sign Up
             </Link>
-
-            <button className="cart">
-              <BsFillCartFill />
+            <button className="cart float-cart">
+              <BsFillCartFill size={35} />
             </button>
           </div>
         </div>

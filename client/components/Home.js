@@ -36,7 +36,7 @@ export const Home = (props) => {
   };
 
   return (
-    <div>
+    <div className="box-container">
       <div className="booking-container">
         <h3 className="title">Book Your Flights {username}</h3>
         <div className="outer-form">

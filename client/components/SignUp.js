@@ -85,70 +85,82 @@ const SignUp = () => {
     <form className="booking-container">
       <h2>Please fill out this form to create an account:</h2>
       {submitted && valid ? (
-        <div className="submitted">
+        <div className="submitted" style={{ color: "green" }}>
           "You have successfully created an account!"
         </div>
       ) : null}
-      <label htmlFor="username">Username:</label>
+      <label htmlFor="username"></label>
       <input
         name="username"
         value={user.username || ""}
         onChange={handleUsername}
-        placeholder="Your Username"
+        placeholder="Your Username:"
       />
-      {!user.username && submitted ? <span>Username is Required</span> : null}
+      {!user.username && submitted ? (
+        <span style={{ color: "red" }}>Username is Required</span>
+      ) : null}
 
-      <label htmlFor="password">Password:</label>
+      <label htmlFor="password"></label>
       <input
         name="password"
         value={user.password || ""}
         onChange={handlePassword}
-        placeholder="Your Password"
+        placeholder="Your Password:"
       />
-      {!user.password && submitted ? <span>Password is Required</span> : null}
+      {!user.password && submitted ? (
+        <span style={{ color: "red" }}>Password is Required</span>
+      ) : null}
 
-      <label htmlFor="firstName">First Name:</label>
+      <label htmlFor="firstName"></label>
       <input
         name="firstName"
         value={user.firstName || ""}
         onChange={handleFirstName}
-        placeholder="Your First Name"
+        placeholder="Your First Name:"
       />
       {!user.firstName && submitted ? (
-        <span>First Name is Required</span>
+        <span style={{ color: "red" }}>First Name is Required</span>
       ) : null}
 
-      <label htmlFor="lastName">Last Name:</label>
+      <label htmlFor="lastName"></label>
       <input
         name="lastName"
         value={user.lastName || ""}
         onChange={handleLastName}
-        placeholder="Your Last Name"
+        placeholder="Your Last Name:"
       />
-      {!user.lastName && submitted ? <span>Last Name is Required</span> : null}
+      {!user.lastName && submitted ? (
+        <span style={{ color: "red" }}>Last Name is Required</span>
+      ) : null}
 
-      <label htmlFor="email">Email Address:</label>
+      <label htmlFor="email"></label>
       <input
         name="email"
         value={user.email || ""}
         onChange={handleEmail}
-        placeholder="Your Email"
+        placeholder="Your Email:"
       />
-      {!user.email && submitted ? <span>Email is Required</span> : null}
+      {!user.email && submitted ? (
+        <span style={{ color: "red" }}>Email is Required</span>
+      ) : null}
 
-      <label htmlFor="phone">Phone Number:</label>
+      <label htmlFor="phone"></label>
       <input
         name="phone"
         value={user.phone || ""}
         onChange={handlePhone}
-        placeholder="Your Phone Number"
+        placeholder="Your Phone Number:"
       />
-      {!user.phone && submitted ? <span>Phone Number is Required</span> : null}
+      {!user.phone && submitted ? (
+        <span style={{ color: "red" }}>Phone Number is Required</span>
+      ) : null}
 
       {submitted && valid ? (
         <button onClick={handleClear}>Clear</button>
       ) : (
-        <button onClick={handleSubmit}>Create Account</button>
+        <button className="create-account-btn" onClick={handleSubmit}>
+          Create Account
+        </button>
       )}
     </form>
   );
