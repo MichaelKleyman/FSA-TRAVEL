@@ -2,8 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 import { getUser } from '../store';
+
 
 /**
  * COMPONENT
@@ -17,12 +19,14 @@ const AuthForm = (props) => {
     const formName = evt.target.name;
     const username = evt.target.username.value;
     const password = evt.target.password.value;
+
     dispatch(authenticate({ username, password }, formName));
     dispatch(getUser(username));
   };
 
   return (
     <div className='login-container'>
+
       <form onSubmit={handleSubmit} name={name} className='container'>
         <h2>{displayName}</h2>
         <div>
@@ -67,6 +71,7 @@ const mapLogin = (state) => {
     user: state.auth.user,
   };
 };
+
 
 export const Login = connect(mapLogin)(AuthForm);
 // export const Signup = connect(mapSignup)(AuthForm);
