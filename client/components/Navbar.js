@@ -1,41 +1,41 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { logout } from "../store";
-import { BsFillCartFill } from "react-icons/bs";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../store';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <nav className="nav-menu">
+    <nav className='nav-menu'>
       {isLoggedIn ? (
-        <div className="sign-log-link">
-          <Link to="/home" className="nav-link logo">
+        <div className='sign-log-link'>
+          <Link to='/home' className='nav-link logo'>
             FSA-TRAVEL
           </Link>
-          <Link to="/home" className="nav-link float-home">
+          <Link to='/home' className='nav-link float-home'>
             Home
           </Link>
-          <a href="#" onClick={handleClick} className="nav-link float-logout">
+          <a href='#' onClick={handleClick} className='nav-link float-logout'>
             Logout
           </a>
-          <button className="cart float-cart">
-            <BsFillCartFill size={35} />
+          <button className='cart float-cart'>
+            <FaShoppingCart size={35} />
           </button>
         </div>
       ) : (
         <div>
-          <div className="sign-log-link">
-            <Link to="/home" className="nav-link logo">
+          <div className='sign-log-link'>
+            <Link to='/home' className='nav-link logo'>
               FSA-TRAVEL
             </Link>
-            <Link to="/login" className="nav-link float-login">
+            <Link to='/login' className='nav-link float-login'>
               Login
             </Link>
-            <Link to="/signup" className="nav-link float-signup">
+            <Link to='/signup' className='nav-link float-signup'>
               Sign Up
             </Link>
-            <button className="cart float-cart">
-              <BsFillCartFill size={35} />
+            <button className='cart float-cart'>
+              <FaShoppingCart size={35} />
             </button>
           </div>
         </div>
