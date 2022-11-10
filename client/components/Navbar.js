@@ -1,23 +1,43 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { logout } from "../store";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../store';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <h3>Cardamom Travel</h3>
-    <nav className="nav-menu">
+    <nav className='nav-menu'>
       {isLoggedIn ? (
-        <div>
-          <Link to="/home" className="link">Home</Link>
-          <a href="#" onClick={handleClick} className="link">
+        <div className='sign-log-link'>
+          <Link to='/home' className='nav-link logo'>
+            FSA-TRAVEL
+          </Link>
+          <Link to='/home' className='nav-link float-home'>
+            Home
+          </Link>
+          <a href='#' onClick={handleClick} className='nav-link float-logout'>
             Logout
           </a>
+          <button className='cart float-cart'>
+            <FaShoppingCart size={35} />
+          </button>
         </div>
       ) : (
         <div>
-          <Link to="/login" className="link">Login</Link>
-          <Link to="/signup" className="link">Sign Up</Link>
+          <div className='sign-log-link'>
+            <Link to='/home' className='nav-link logo'>
+              FSA-TRAVEL
+            </Link>
+            <Link to='/login' className='nav-link float-login'>
+              Login
+            </Link>
+            <Link to='/signup' className='nav-link float-signup'>
+              Sign Up
+            </Link>
+            <button className='cart float-cart'>
+              <FaShoppingCart size={35} />
+            </button>
+          </div>
         </div>
       )}
     </nav>
