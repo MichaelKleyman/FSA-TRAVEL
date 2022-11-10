@@ -1,31 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Centra No2", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: rgb(226, 235, 237);
 }
 
 a {
   text-decoration: none;
 }
-
+.button {
+  cursor: pointer;
+}
 label {
   display: block;
 }
 
-nav a {
-  display: inline-block;
-  margin: 1em;
+.home-link {
+  display: flex;
+  align-items: left;
+  justify-content: left;
 }
 
+/* .sign-log-link {
+  flex: 0 0 64px;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  float: right;
+} */
+
 nav {
+  display: block;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
   display: flex;
   align-items: center;
-  background: #6a26cd;
+  background: #002530;
+  height: 100px;
 }
 
 .nav-menu {
-  flex: 0 0 64px;
+  /* flex: 0 0 64px; */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  /* align-items: right;
+  justify-content: right; */
+}
+.float-login {
+  font-size: 25px;
+  position: absolute;
+  top: 35px;
+  right: 155px;
+}
+.float-logout {
+  font-size: 25px;
+  position: absolute;
+  top: 35px;
+  right: 155px;
+}
+.float-signup {
+  font-size: 25px;
+  position: absolute;
+  top: 35px;
+  right: 55px;
+}
+.float-home {
+  font-size: 25px;
+  position: absolute;
+  top: 35px;
+  right: 55px;
+}
+.float-cart {
+  position: absolute;
+  top: 35px;
+  right: 5px;
 }
 
 form div {
@@ -33,15 +86,27 @@ form div {
   display: inline-block;
 }
 
-.container {
+.box-container {
+  display: block;
+  border-top: solid black 3px;
+  background-size: 100%;
+  height: 500px;
+  background-image: url(https://www.macmillandictionaryblog.com/wp-content/uploads/2018/04/cloud--810x528.jpg);
+}
+.booking-container {
+  display: inline-block;
+  margin: 50px;
+  padding: 100px;
+  background-color: white;
+  background-size: 100%;
   display: flex;
   align-items: center;
   justify-self: center;
   flex-direction: column;
-  margin-left: 17rem;
-  border: solid lightgray;
-  border-radius: 30px;
-  width: 60%;
+  box-shadow: 5px 5px 5px 5px black;
+}
+.input-from-to {
+  display: flex;
 }
 
 .search {
@@ -49,14 +114,11 @@ form div {
   margin: 1rem;
 }
 
-.title,
-h1 {
-  font-family: Comic Sans MS, Comic Sans, cursive;
-}
-
-.link {
-  margin: 12px;
-  color: aqua;
+.nav-link {
+  margin-right: 10px;
+  margin-left: 5px;
+  color: white;
+  cursor: pointer;
 }
 
 .link:hover {
@@ -86,6 +148,7 @@ input:focus {
   border-radius: 30px;
   width: 100%;
   padding: 5px;
+  margin-bottom: 10px;
 }
 
 .form-button:hover {
@@ -94,26 +157,65 @@ input:focus {
   color: white;
 }
 
-.cart {
-  width: 20%;
-}
-
 /* Start Card Css */
 .card-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-.card {
-  border-radius: 5%;
-  background-color: lightblue;
-  width: 300px;
-  height: 200px;
-  margin: 10px;
   padding: 10px;
 }
-.add-toCart {
-  float: right;
-  margin-bottom: 20px;
+.card {
+  border: 1px solid;
+  font-weight: bold;
+  background-color: white;
+  /* background-image: linear-gradient(white, rgb(186, 177, 177)); */
+  width: 300px;
+  height: 125px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 2px 2px 2px 2px black;
 }
+.card-date {
+  display: flex;
+  justify-content: center;
+}
+.card-direction-price {
+  display: flex;
+  justify-content: center;
+}
+.card-price {
+  padding: 5px;
+  margin: 5px;
+}
+.card-destination {
+  padding: 5px;
+  margin: 5px;
+}
+.card-buttons {
+  display: flex;
+  justify-content: center;
+}
+.card-btn1 {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+}
+.card-btn2 {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+}
+
 /* End Card Css */
+.logo {
+  font-size: 50px;
+}
+
+.card-login {
+  align-items: center;
+  justify-content: center;
+}
+
+.create-account-btn {
+  margin-top: 10px;
+}

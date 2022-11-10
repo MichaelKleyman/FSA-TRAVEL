@@ -6,35 +6,38 @@ import { BsFillCartFill } from "react-icons/bs";
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <h3>
-      <Link to="/home" className="link">
-        FSA-TRAVEL
-      </Link>
-    </h3>
     <nav className="nav-menu">
       {isLoggedIn ? (
-        <div>
-          <Link to="/home" className="link">
+        <div className="sign-log-link">
+          <Link to="/home" className="nav-link logo">
+            FSA-TRAVEL
+          </Link>
+          <Link to="/home" className="nav-link float-home">
             Home
           </Link>
-          <a href="#" onClick={handleClick} className="link">
+          <a href="#" onClick={handleClick} className="nav-link float-logout">
             Logout
           </a>
-          <button className="cart">
-            <BsFillCartFill />
+          <button className="cart float-cart">
+            <BsFillCartFill size={35} />
           </button>
         </div>
       ) : (
         <div>
-          <Link to="/login" className="link">
-            Login
-          </Link>
-          <Link to="/signup" className="link">
-            Sign Up
-          </Link>
-          <button className="cart">
-            <BsFillCartFill />
-          </button>
+          <div className="sign-log-link">
+            <Link to="/home" className="nav-link logo">
+              FSA-TRAVEL
+            </Link>
+            <Link to="/login" className="nav-link float-login">
+              Login
+            </Link>
+            <Link to="/signup" className="nav-link float-signup">
+              Sign Up
+            </Link>
+            <button className="cart float-cart">
+              <BsFillCartFill size={35} />
+            </button>
+          </div>
         </div>
       )}
     </nav>
