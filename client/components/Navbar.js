@@ -6,35 +6,48 @@ import { BsFillCartFill } from "react-icons/bs";
 
 const Navbar = ({ handleClick, isLoggedIn }) => (
   <div>
-    <h3>
-      <Link to="/home" className="link">
-        FSA-TRAVEL
-      </Link>
-    </h3>
     <nav className="nav-menu">
       {isLoggedIn ? (
         <div>
-          <Link to="/home" className="link">
-            Home
-          </Link>
-          <a href="#" onClick={handleClick} className="link">
-            Logout
-          </a>
-          <button className="cart">
-            <BsFillCartFill />
-          </button>
+          <div className="home-link">
+            <h3>
+              <Link to="/home" className="link">
+                FSA-TRAVEL
+              </Link>
+            </h3>
+          </div>
+          <div className="sign-log-link">
+            <Link to="/home" className="link">
+              Home
+            </Link>
+            <a href="#" onClick={handleClick} className="link">
+              Logout
+            </a>
+
+            <button className="cart">
+              <BsFillCartFill size={70} />
+            </button>
+          </div>
         </div>
       ) : (
         <div>
-          <Link to="/login" className="link">
-            Login
-          </Link>
-          <Link to="/signup" className="link">
-            Sign Up
-          </Link>
-          <button className="cart">
-            <BsFillCartFill />
-          </button>
+          <div className="home-link">
+            <Link to="/home" className="link">
+              FSA-TRAVEL
+            </Link>
+          </div>
+          <div className="sign-log-link">
+            <Link to="/login" className="link">
+              Login
+            </Link>
+            <Link to="/signup" className="link">
+              Sign Up
+            </Link>
+
+            <button className="cart">
+              <BsFillCartFill />
+            </button>
+          </div>
         </div>
       )}
     </nav>
