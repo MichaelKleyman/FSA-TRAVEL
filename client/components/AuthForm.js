@@ -18,7 +18,7 @@ const AuthForm = (props) => {
     const username = evt.target.username.value;
     const password = evt.target.password.value;
     dispatch(authenticate({ username, password }, formName));
-    history.push("/home");
+    // history.push("/home");
   };
 
   return (

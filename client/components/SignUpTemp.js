@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
-import { authenticate } from "../store";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import React from 'react';
+import { connect } from 'react-redux';
+import { authenticate } from '../store';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
 
 /**
  * COMPONENT
@@ -11,12 +11,12 @@ import { useState } from "react";
 const AuthForm = (props) => {
   const { name, displayName, error } = props;
   const [user, setUser] = useState({
-    username: "",
-    password: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [valid, setValid] = useState(false);
@@ -41,76 +41,77 @@ const AuthForm = (props) => {
     dispatch(
       authenticate(
         { username, password, firstName, lastName, email, phone },
-        formName, history
+        formName,
+        history
       )
     );
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name} className="signup-container">
+      <form onSubmit={handleSubmit} name={name} className='signup-container'>
         <h2>{displayName}</h2>
         <div>
-          <label htmlFor="username">
+          <label htmlFor='username'>
             <small>Username:</small>
           </label>
-          <input name="username" type="text" onChange={handleChange} />
+          <input name='username' type='text' onChange={handleChange} />
           {/* {!user.username && error ? (
             <div className="auth-error">*Username is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor="password">
+          <label htmlFor='password'>
             <small>Password:</small>
           </label>
-          <input name="password" type="password" onChange={handleChange} />
+          <input name='password' type='password' onChange={handleChange} />
           {/* {!user.password && error ? (
             <div className="auth-error">*Password is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor="firstName">
+          <label htmlFor='firstName'>
             <small>First Name:</small>
           </label>
-          <input name="firstName" type="firstName" onChange={handleChange} />
+          <input name='firstName' type='firstName' onChange={handleChange} />
           {/* {!user.firstName && error ? (
             <div className="auth-error">*First name is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor="lastName">
+          <label htmlFor='lastName'>
             <small>Last Name:</small>
           </label>
-          <input name="lastName" type="lastName" onChange={handleChange} />
+          <input name='lastName' type='lastName' onChange={handleChange} />
           {/* {!user.lastName && error ? (
             <div className="auth-error">*Last name is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor="email">
+          <label htmlFor='email'>
             <small>Email:</small>
           </label>
-          <input name="email" type="email" onChange={handleChange} />
+          <input name='email' type='email' onChange={handleChange} />
           {/* {!user.email && error ? (
             <div className="auth-error">*Email is Required</div>
           ) : null} */}
         </div>
         <div>
-          <label htmlFor="phone">
+          <label htmlFor='phone'>
             <small>Phone Number:</small>
           </label>
-          <input name="phone" type="phone" onChange={handleChange} />
+          <input name='phone' type='phone' onChange={handleChange} />
           {/* {!user.phone && error ? (
             <div className="auth-error">*Phone number is Required</div>
           ) : null} */}
         </div>
         <div>
-          <button type="submit" className="form-button">
+          <button type='submit' className='form-button'>
             {displayName}
           </button>
         </div>
         {error && error.response && (
-          <div className="auth-error">*{error.response.data}</div>
+          <div className='auth-error'>*{error.response.data}</div>
         )}
       </form>
     </div>
@@ -127,8 +128,8 @@ const AuthForm = (props) => {
 
 const mapSignup = (state) => {
   return {
-    name: "signup",
-    displayName: "Sign Up",
+    name: 'signup',
+    displayName: 'Sign Up',
     error: state.auth.error,
   };
 };
