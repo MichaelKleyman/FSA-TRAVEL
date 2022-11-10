@@ -5,12 +5,13 @@ import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Home from './Home';
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const { name, displayName, error } = props;
+  const { name, displayName, error, isLoggedIn } = props;
   const [user, setUser] = useState({
     username: '',
     password: '',
@@ -48,89 +49,93 @@ const AuthForm = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={name} className='signup-container'>
-        <h2>{displayName}</h2>
-        <div>
-          <input
-            name='username'
-            type='text'
-            onChange={handleChange}
-            placeholder='Your Username'
-          />
-          {/* {!user.username && error ? (
+      {!isLoggedIn ? (
+        <form onSubmit={handleSubmit} name={name} className='signup-container'>
+          <h2>{displayName}</h2>
+          <div>
+            <input
+              name='username'
+              type='text'
+              onChange={handleChange}
+              placeholder='Your Username'
+            />
+            {/* {!user.username && error ? (
             <div className="auth-error">*Username is Required</div>
           ) : null} */}
-        </div>
-        <div>
-          <input
-            name='password'
-            type='password'
-            onChange={handleChange}
-            placeholder='Your Password'
-          />
-          {/* {!user.password && error ? (
+          </div>
+          <div>
+            <input
+              name='password'
+              type='password'
+              onChange={handleChange}
+              placeholder='Your Password'
+            />
+            {/* {!user.password && error ? (
             <div className="auth-error">*Password is Required</div>
           ) : null} */}
-        </div>
-        <div>
-          <input
-            name='firstName'
-            type='firstName'
-            onChange={handleChange}
-            placeholder='Your First Name'
-          />
-          {/* {!user.firstName && error ? (
+          </div>
+          <div>
+            <input
+              name='firstName'
+              type='firstName'
+              onChange={handleChange}
+              placeholder='Your First Name'
+            />
+            {/* {!user.firstName && error ? (
             <div className="auth-error">*First name is Required</div>
           ) : null} */}
-        </div>
-        <div>
-          <input
-            name='lastName'
-            type='lastName'
-            onChange={handleChange}
-            placeholder='Your Last Name'
-          />
-          {/* {!user.lastName && error ? (
+          </div>
+          <div>
+            <input
+              name='lastName'
+              type='lastName'
+              onChange={handleChange}
+              placeholder='Your Last Name'
+            />
+            {/* {!user.lastName && error ? (
             <div className="auth-error">*Last name is Required</div>
           ) : null} */}
-        </div>
-        <div>
-          <input
-            name='email'
-            type='email'
-            onChange={handleChange}
-            placeholder='Your Email'
-          />
-          {/* {!user.email && error ? (
+          </div>
+          <div>
+            <input
+              name='email'
+              type='email'
+              onChange={handleChange}
+              placeholder='Your Email'
+            />
+            {/* {!user.email && error ? (
             <div className="auth-error">*Email is Required</div>
           ) : null} */}
-        </div>
-        <div>
-          <input
-            name='phone'
-            type='phone'
-            onChange={handleChange}
-            placeholder='Your Phone Number'
-          />
-          {/* {!user.phone && error ? (
+          </div>
+          <div>
+            <input
+              name='phone'
+              type='phone'
+              onChange={handleChange}
+              placeholder='Your Phone Number'
+            />
+            {/* {!user.phone && error ? (
             <div className="auth-error">*Phone number is Required</div>
           ) : null} */}
-        </div>
-        <div>
-          <button type='submit' className='form-button'>
-            {displayName}
-          </button>
-        </div>
-        {error && error.response && (
-          <div className='auth-error'>*{error.response.data}</div>
-        )}
-        <p className='signup-prompt'>
-          Already have an account?{' '}
-          <Link to='/login' className='signup-link'>
-            Log in
-          </Link>
-        </p>
-      </form>
+          </div>
+          <div>
+            <button type='submit' className='form-button'>
+              {displayName}
+            </button>
+          </div>
+          {error && error.response && (
+            <div className='auth-error'>*{error.response.data}</div>
+          )}
+          <p className='signup-prompt'>
+            Already have an account?{' '}
+            <Link to='/login' className='signup-link'>
+              Log in
+            </Link>
+          </p>
+        </form>
+      ) : (
+        <Home />
+      )}
     </div>
   );
 };
@@ -148,6 +153,7 @@ const mapSignup = (state) => {
     name: 'signup',
     displayName: 'Sign Up',
     error: state.auth.error,
+    isLoggedIn: !!state.auth.id,
   };
 };
 
