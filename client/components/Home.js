@@ -16,7 +16,7 @@ export const Home = (props) => {
   const [flights, setFlights] = useState([]);
   const [cities, setCities] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(20);
   console.log(flights);
 
   useEffect(() => {
