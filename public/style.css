@@ -96,6 +96,7 @@ form div {
 .booking-container {
   display: inline-block;
   margin: 50px;
+  margin-top: 120px;
   padding: 80px 50px;
   background-color: white;
   background-size: 100%;

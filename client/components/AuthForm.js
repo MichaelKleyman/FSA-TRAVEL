@@ -2,16 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
-
+import Home from './Home';
 import { Link } from 'react-router-dom';
 import { getUser } from '../store';
-
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const { name, displayName, error, user } = props;
+  const { name, displayName, error, isLoggedIn } = props;
   const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
@@ -25,33 +24,40 @@ const AuthForm = (props) => {
   };
 
   return (
-    <div className='login-container'>
-
-      <form onSubmit={handleSubmit} name={name} className='container'>
-        <h2>{displayName}</h2>
-        <div>
-          <label htmlFor='username'></label>
-          <input name='username' type='text' placeholder='Your Username' />
-        </div>
-        <div>
-          <label htmlFor='password'></label>
-          <input name='password' type='password' placeholder='Your Password' />
-        </div>
-        <div>
-          <button type='submit' className='form-button'>
-            {displayName}
-          </button>
-        </div>
-        {error && error.response && (
-          <div className='auth-error'>*{error.response.data}</div>
-        )}
-        <p className='signup-prompt'>
-          New here?{' '}
-          <Link to='/signup' className='signup-link'>
-            Sign up
-          </Link>
-        </p>
-      </form>
+    <div>
+      {!isLoggedIn ? (
+        <form onSubmit={handleSubmit} name={name} className='login-container'>
+          <h2>{displayName}</h2>
+          <div>
+            <label htmlFor='username'></label>
+            <input name='username' type='text' placeholder='Your Username' />
+          </div>
+          <div>
+            <label htmlFor='password'></label>
+            <input
+              name='password'
+              type='password'
+              placeholder='Your Password'
+            />
+          </div>
+          <div>
+            <button type='submit' className='form-button'>
+              {displayName}
+            </button>
+          </div>
+          {error && error.response && (
+            <div className='auth-error'>*{error.response.data}</div>
+          )}
+          <p className='signup-prompt'>
+            New here?{' '}
+            <Link to='/signup' className='signup-link'>
+              Sign up
+            </Link>
+          </p>
+        </form>
+      ) : (
+        <Home />
+      )}
     </div>
   );
 };
@@ -68,10 +74,9 @@ const mapLogin = (state) => {
     name: 'login',
     displayName: 'Login',
     error: state.auth.error,
-    user: state.auth.user,
+    isLoggedIn: !!state.auth.id,
   };
 };
-
 
 export const Login = connect(mapLogin)(AuthForm);
 // export const Signup = connect(mapSignup)(AuthForm);
