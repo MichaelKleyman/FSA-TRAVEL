@@ -14,17 +14,29 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 export const Home = (props) => {
   const { username } = props;
   const [flights, setFlights] = useState([]);
+  const [cities, setCities] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
   console.log(flights);
 
+  useEffect(() => {
+    fetchCities();
+  }, []);
+
   const handleSearchButton = (event) => {
     event.preventDefault();
-    const from = event.target.from.value;
-    const destination = event.target.destination.value;
+    const fromFull = event.target.from.value;
+    const fromSlice = fromFull.indexOf('-');
+    const destinationFull = event.target.destination.value;
+    const destSlice = destinationFull.indexOf('-');
+    const from = fromFull.slice(fromSlice + 1);
+    const destination = destinationFull.slice(destSlice + 1);
     fetchData(from, destination);
   };
-
+  const fetchCities = async () => {
+    const { data } = await axios.get('/api/airports');
+    setCities(data);
+  };
   const fetchData = async (from, destination) => {
     const { data } = await axios.get(
       `http://api.travelpayouts.com/v1/prices/calendar?depart_date=2022-11&currency=USD&origin=${from}&destination=${destination}&token=ed36fb1a96dc9c4593b94a42e1a6825a`
@@ -54,14 +66,29 @@ export const Home = (props) => {
             <div className='input-from-to'>
               <label htmlFor='from'></label>
               <input
+                list='data1'
                 name='from'
                 type='text'
                 placeholder='Leaving from...'
-              ></input>
+              />
+              <datalist id='data1'>
+                {cities.map((obj) => {
+                  return (
+                    <option>
+                      {obj.city}-{obj.IATA}
+                    </option>
+                  );
+                })}
+              </datalist>
 
               <BsFillArrowRightCircleFill size={70} />
               <label htmlFor='destination'></label>
-              <input name='destination' type='text' placeholder='Going to...' />
+              <input
+                list='data1'
+                name='destination'
+                type='text'
+                placeholder='Going to...'
+              />
             </div>
             <button type='submit' className='form-button'>
               Search
