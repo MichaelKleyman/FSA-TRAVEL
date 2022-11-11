@@ -293,3 +293,42 @@ input:focus {
   box-shadow: 1px 1px 1px 1px black;
 }
 
+.pop-up-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0, 0.5);
+
+  padding-top: 15%;
+}
+
+.pop-up-body {
+  width: 70%;
+  height: 70%;
+  background-color: white;
+  margin: auto;
+}
+.pop-up-header {
+  padding: 10px;
+  width: 100%;
+  text-align: right;
+  background-color: #002530;
+}
+.pop-up-x {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  padding: 10px;
+}
+/* .pop-up-card {
+  align-items: center;
+  justify-content: center;
+} */
+.pop-up-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
