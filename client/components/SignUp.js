@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { createUser } from "../store/signUp";
-import { useHistory } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { createUser } from '../store/signUp';
+import { useHistory } from 'react-router-dom';
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -62,7 +62,7 @@ const SignUp = () => {
     ) {
       setValid(true);
       dispatch(createUser({ ...user }));
-      history.push("/created");
+      history.push('/created');
     }
   };
 
@@ -82,84 +82,83 @@ const SignUp = () => {
   };
 
   return (
-    <form className="booking-container">
+    <form className='booking-container'>
       <h2>Please fill out this form to create an account:</h2>
       {submitted && valid ? (
-        <div className="submitted" style={{ color: "green" }}>
+        <div className='submitted' style={{ color: 'green' }}>
           "You have successfully created an account!"
         </div>
       ) : null}
-      <label htmlFor="username"></label>
+      <label htmlFor='username'></label>
       <input
-        name="username"
-        value={user.username || ""}
+        name='username'
+        value={user.username || ''}
         onChange={handleUsername}
-        placeholder="Your Username:"
+        placeholder='Your Username:'
       />
       {!user.username && submitted ? (
-        <span style={{ color: "red" }}>Username is Required</span>
+        <span style={{ color: 'red' }}>Username is Required</span>
       ) : null}
 
-      <label htmlFor="password"></label>
+      <label htmlFor='password'></label>
       <input
-        name="password"
-        value={user.password || ""}
+        name='password'
+        value={user.password || ''}
         onChange={handlePassword}
-        placeholder="Your Password:"
+        placeholder='Your Password:'
       />
       {!user.password && submitted ? (
-        <span style={{ color: "red" }}>Password is Required</span>
+        <span style={{ color: 'red' }}>Password is Required</span>
       ) : null}
 
-
-      <label htmlFor="firstname">First Name:</label>
+      <label htmlFor='firstname'>First Name:</label>
       <input
-        firstName="firstname"
+        firstName='firstname'
         value={user.firstName || ''}
         onChange={handleFirstName}
-        placeholder="Your First Name:"
+        placeholder='Your First Name:'
       />
       {!user.firstName && submitted ? (
-        <span style={{ color: "red" }}>First Name is Required</span>
+        <span style={{ color: 'red' }}>First Name is Required</span>
       ) : null}
 
-      <label htmlFor="lastName"></label>
+      <label htmlFor='lastName'></label>
       <input
-        name="lastName"
-        value={user.lastName || ""}
+        name='lastName'
+        value={user.lastName || ''}
         onChange={handleLastName}
-        placeholder="Your Last Name:"
+        placeholder='Your Last Name:'
       />
       {!user.lastName && submitted ? (
-        <span style={{ color: "red" }}>Last Name is Required</span>
+        <span style={{ color: 'red' }}>Last Name is Required</span>
       ) : null}
 
-      <label htmlFor="email"></label>
+      <label htmlFor='email'></label>
       <input
-        name="email"
-        value={user.email || ""}
+        name='email'
+        value={user.email || ''}
         onChange={handleEmail}
-        placeholder="Your Email:"
+        placeholder='Your Email:'
       />
       {!user.email && submitted ? (
-        <span style={{ color: "red" }}>Email is Required</span>
+        <span style={{ color: 'red' }}>Email is Required</span>
       ) : null}
 
-      <label htmlFor="phone"></label>
+      <label htmlFor='phone'></label>
       <input
-        name="phone"
-        value={user.phone || ""}
+        name='phone'
+        value={user.phone || ''}
         onChange={handlePhone}
-        placeholder="Your Phone Number:"
+        placeholder='Your Phone Number:'
       />
       {!user.phone && submitted ? (
-        <span style={{ color: "red" }}>Phone Number is Required</span>
+        <span style={{ color: 'red' }}>Phone Number is Required</span>
       ) : null}
 
       {submitted && valid ? (
         <button onClick={handleClear}>Clear</button>
       ) : (
-        <button className="create-account-btn" onClick={handleSubmit}>
+        <button className='create-account-btn' onClick={handleSubmit}>
           Create Account
         </button>
       )}

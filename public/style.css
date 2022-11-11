@@ -301,40 +301,48 @@ input:focus {
   box-shadow: 1px 1px 1px 1px black;
 }
 
-.popup {
+.pop-up-container {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgb(0, 0, 0, 0.5);
   padding-top: 15%;
 }
 
-.popup-inner {
+.pop-up-body {
   width: 70%;
   height: 70%;
   background-color: white;
   margin: auto;
 }
-
-.popup-box {
-  position: relative;
-  padding: 32px;
+.pop-up-header {
+  padding: 10px;
   width: 100%;
-  max-width: 640px;
-  background-color: white;
+  text-align: right;
+  background-color: #002530;
 }
-
-.close-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+.pop-up-x {
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  padding: 10px;
+}
+/* .pop-up-card {
+  align-items: center;
+  justify-content: center;
+} */
+.pop-up-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .logout-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10rem;
+  margin-top: 15rem;
 }
