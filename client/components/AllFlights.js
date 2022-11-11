@@ -1,12 +1,20 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import SingleFlight from './SingleFlight';
+import { useState } from 'react';
+// import axios from 'axios';
 const luxon = require('luxon');
-const selected_origin = 'MSY';
-const selected_destination = 'IAD';
+// const selected_origin = 'MSY';
+// const selected_destination = 'IAD';
 
 function AllFlights(props) {
   const flights = props.flights;
+  const [detailPopup, setDetailPopup] = useState([]);
+  const [popupToggle, setToggle] = useState(false);
+
+  const changeContent = (flight) => {
+    setDetailPopup([flight]);
+    setToggle(!popupToggle);
+  };
 
   return (
     <div className='card-container'>
@@ -27,12 +35,22 @@ function AllFlights(props) {
               </div>
               <div className='card-buttons'>
                 <button className='card-btn1'>Add to cart</button>
-                <button className='card-btn2'>Details</button>
+                <button
+                  className='card-btn2'
+                  onClick={() => changeContent(flight)}
+                >
+                  Details
+                </button>
               </div>
             </div>
           </div>
         );
       })}
+      <div>
+        {popupToggle && (
+          <SingleFlight content={detailPopup} changeContent={changeContent} />
+        )}
+      </div>
     </div>
   );
 }

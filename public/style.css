@@ -73,8 +73,16 @@ nav {
   font-size: 25px;
   position: absolute;
   top: 35px;
-  right: 55px;
+  right: 185px;
 }
+
+.float-account {
+  font-size: 25px;
+  position: absolute;
+  top: 35px;
+  right: 75px;
+}
+
 .float-cart {
   position: absolute;
   top: 35px;
@@ -293,3 +301,40 @@ input:focus {
   box-shadow: 1px 1px 1px 1px black;
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 15%;
+}
+
+.popup-inner {
+  width: 70%;
+  height: 70%;
+  background-color: white;
+  margin: auto;
+}
+
+.popup-box {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 640px;
+  background-color: white;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.logout-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}

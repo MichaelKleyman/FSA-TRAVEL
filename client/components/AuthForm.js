@@ -4,7 +4,6 @@ import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
 import Home from './Home';
 import { Link } from 'react-router-dom';
-import { getUser } from '../store';
 
 /**
  * COMPONENT
@@ -20,7 +19,6 @@ const AuthForm = (props) => {
     const password = evt.target.password.value;
 
     dispatch(authenticate({ username, password }, formName));
-    dispatch(getUser(username));
   };
 
   return (
