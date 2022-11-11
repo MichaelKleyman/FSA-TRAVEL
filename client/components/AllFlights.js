@@ -1,9 +1,10 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import SingleFlight from './SingleFlight';
+import { useState } from 'react';
+// import axios from 'axios';
 const luxon = require('luxon');
-const selected_origin = 'MSY';
-const selected_destination = 'IAD';
+// const selected_origin = 'MSY';
+// const selected_destination = 'IAD';
 
 function AllFlights(props) {
   const flights = props.flights;

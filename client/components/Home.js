@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AllFlights from './AllFlights';
 import Pagination from './Pagination';
@@ -15,6 +16,7 @@ export const Home = (props) => {
   const { username } = props;
   const [flights, setFlights] = useState([]);
   const [cities, setCities] = useState([]);
+  // const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(20);
   console.log(flights);
@@ -29,8 +31,8 @@ export const Home = (props) => {
     const fromSlice = fromFull.indexOf('-');
     const destinationFull = event.target.destination.value;
     const destSlice = destinationFull.indexOf('-');
-    const from = fromFull.slice(fromSlice + 1);
-    const destination = destinationFull.slice(destSlice + 1);
+    const from = fromFull.slice(fromSlice + 1) || 'empty';
+    const destination = destinationFull.slice(destSlice + 1) || 'empty';
     fetchData(from, destination);
   };
   const fetchCities = async () => {
@@ -41,6 +43,10 @@ export const Home = (props) => {
     const { data } = await axios.get(
       `http://api.travelpayouts.com/v1/prices/calendar?depart_date=2022-11&currency=USD&origin=${from}&destination=${destination}&token=ed36fb1a96dc9c4593b94a42e1a6825a`
     );
+    if (Object.keys(data.data).length === 0) {
+      window.alert('No Flights Available!');
+      // history.push('/login');
+    }
     setFlights(data.data);
   };
   //get current post
@@ -74,7 +80,7 @@ export const Home = (props) => {
               <datalist id='data1'>
                 {cities.map((obj) => {
                   return (
-                    <option>
+                    <option key={obj.id}>
                       {obj.city}-{obj.IATA}
                     </option>
                   );

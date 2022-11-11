@@ -5,8 +5,7 @@ import { logout } from '../store';
 
 import { BsFillCartFill } from 'react-icons/bs';
 
-
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const Navbar = ({ isLoggedIn, handleClick }) => (
   <div>
     <nav className='nav-menu'>
       {isLoggedIn ? (
@@ -17,13 +16,14 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
           <Link to='/home' className='nav-link float-home'>
             Home
           </Link>
-          <a href='#' onClick={handleClick} className='nav-link float-logout'>
+          <Link to='/profile/id' className='nav-link float-account'>
+            Account
+          </Link>
+          {/* <a href='#' onClick={handleClick} className='nav-link float-logout'>
             Logout
-          </a>
+          </a> */}
           <button className='cart float-cart'>
-
             <BsFillCartFill size={35} />
-
           </button>
         </div>
       ) : (
@@ -36,12 +36,11 @@ const Navbar = ({ handleClick, isLoggedIn }) => (
               Login
             </Link>
 
-            <Link to="/home" className="nav-link float-signup">
+            <Link to='/home' className='nav-link float-signup'>
               Home
             </Link>
             <button className='cart float-cart'>
               <BsFillCartFill size={35} />
-
             </button>
           </div>
         </div>
@@ -60,12 +59,12 @@ const mapState = (state) => {
   };
 };
 
-const mapDispatch = (dispatch) => {
-  return {
-    handleClick() {
-      dispatch(logout());
-    },
-  };
-};
+// const mapDispatch = (dispatch) => {
+//   return {
+//     handleClick() {
+//       dispatch(logout());
+//     },
+//   };
+// };
 
-export default connect(mapState, mapDispatch)(Navbar);
+export default connect(mapState)(Navbar);

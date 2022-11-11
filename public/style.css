@@ -73,8 +73,16 @@ nav {
   font-size: 25px;
   position: absolute;
   top: 35px;
-  right: 55px;
+  right: 185px;
 }
+
+.float-account {
+  font-size: 25px;
+  position: absolute;
+  top: 35px;
+  right: 75px;
+}
+
 .float-cart {
   position: absolute;
   top: 35px;
@@ -300,7 +308,6 @@ input:focus {
   left: 0;
   right: 0;
   background-color: rgb(0, 0, 0, 0.5);
-
   padding-top: 15%;
 }
 
@@ -331,4 +338,11 @@ input:focus {
   align-items: center;
   justify-content: center;
   padding: 10px;
+}
+
+.logout-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rem;
 }
