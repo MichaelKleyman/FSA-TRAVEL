@@ -1,4 +1,7 @@
 const router = require('express').Router();
+const {
+  models: { Airports },
+} = require('../db');
 
 router.get('/', async (req, res, next) => {
   try {
