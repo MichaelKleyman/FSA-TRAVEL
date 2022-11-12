@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Flights = require('../db/models/Flights');
 const Carts = require('../db/models/Cart');
 const axios = require('axios').default;
-
+const Users = require('../db/models/User');
 router.get('/', async (req, res, next) => {
   try {
     const flights = await Flights.findAll({
@@ -61,11 +61,11 @@ router.post('/', async (req, res, next) => {
       airline: req.body.airline,
       travelers: req.body.travelers,
     });
-    console.log(req.body.cartId);
-    flight.addCart(req.body.cartId);
-    const cart = await Carts.create({
-      total: 777,
-    });
+    console.log(req.body.userId);
+    const user = await Users.findByPk(req.body.userId);
+    const cart = await user.getCart();
+    console.log(cart);
+    flight.addCart(cart.id);
     res.json(flight);
   } catch (error) {
     console.log('post flight', error);
