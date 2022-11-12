@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const Flights = require('../db/models/Flights');
+
 const Carts = require('../db/models/Cart');
 const axios = require('axios').default;
 const Users = require('../db/models/User');
+
 router.get('/', async (req, res, next) => {
   try {
     const flights = await Flights.findAll({
@@ -69,6 +71,7 @@ router.post('/', async (req, res, next) => {
     res.json(flight);
   } catch (error) {
     console.log('post flight', error);
+
   }
 });
 
