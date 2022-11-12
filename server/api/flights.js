@@ -65,7 +65,7 @@ router.post('/', async (req, res, next) => {
     });
     console.log(req.body.userId);
     const user = await Users.findByPk(req.body.userId);
-    const cart = await user.getCart();
+    // const cart = await user.getCart();
     console.log(cart);
     flight.addCart(cart.id);
     res.json(flight);
