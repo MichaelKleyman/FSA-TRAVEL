@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import AddFlight from './AddFlight';
 // import axios from 'axios';
 const luxon = require('luxon');
 // const selected_origin = 'MSY';
@@ -15,26 +16,26 @@ function AllFlights(props) {
   };
   console.log(flights);
   return (
-    <div className='card-container'>
+    <div className="card-container">
       {flights.map(([k, flight]) => {
         let dt = luxon.DateTime.fromISO(flight.departure_at);
         let rt = luxon.DateTime.fromISO(flight.return_at);
         return (
           <div key={k}>
-            <div className='card'>
-              <div className='card-date'>
+            <div className="card">
+              <div className="card-date">
                 <p>{dt.toLocaleString(luxon.DateTime.DATETIME_MED)}</p>
               </div>
-              <div className='card-direction-price'>
-                <p className='card-destination'>
+              <div className="card-direction-price">
+                <p className="card-destination">
                   {flight.origin} - {flight.destination}
                 </p>
-                <p className='card-price'>${flight.price}</p>
+                <p className="card-price">${flight.price}</p>
               </div>
-              <div className='card-buttons'>
-                <button className='card-btn1'>Add to cart</button>
+              <div className="card-buttons">
+                <AddFlight flight={flight} />
                 <button
-                  className='card-btn2'
+                  className="card-btn2"
                   onClick={() => changeContent(flight)}
                 >
                   Details
@@ -45,20 +46,20 @@ function AllFlights(props) {
         );
       })}
       {popUpToggle && (
-        <div className='pop-up-container' onClick={changeContent}>
-          <div className='pop-up-body' onClick={(e) => e.stopPropagation()}>
-            <div className='pop-up-header'>
-              <button className='pop-up-x' onClick={changeContent}>
+        <div className="pop-up-container" onClick={changeContent}>
+          <div className="pop-up-body" onClick={(e) => e.stopPropagation()}>
+            <div className="pop-up-header">
+              <button className="pop-up-x" onClick={changeContent}>
                 X
               </button>
             </div>
-            <div className='pop-up-content'>
+            <div className="pop-up-content">
               {popUpContent.map((flight) => {
                 let dt = luxon.DateTime.fromISO(flight.departure_at);
                 let rt = luxon.DateTime.fromISO(flight.return_at);
                 return (
-                  <div className='pop-up-card'>
-                    <h1 className='pop-up-title'>
+                  <div className="pop-up-card">
+                    <h1 className="pop-up-title">
                       Flight-{flight.flight_number}: {flight.origin} to{' '}
                       {flight.destination}
                     </h1>

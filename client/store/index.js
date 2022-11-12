@@ -6,8 +6,16 @@ import auth from './auth';
 import flightReducer from './flight';
 import signUp from './signUp';
 import admin from './admin';
+import addFlightReducer from './addFlight';
 
-const reducer = combineReducers({ auth, flightReducer, signUp, admin });
+const reducer = combineReducers({
+  auth,
+  flightReducer,
+  signUp,
+  admin,
+  addFlightReducer,
+});
+
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
 );

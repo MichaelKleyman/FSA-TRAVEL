@@ -4,7 +4,7 @@ const fs = require('fs/promises');
 const options = { header: true, skipEmptyLines: true };
 const {
   db,
-  models: { User, Orders, Airports, Airlines },
+  models: { User, Orders, Airports, Airlines, Carts, Flights },
 } = require('../server/db');
 const { default: tr } = require('date-fns/locale/tr');
 
@@ -55,6 +55,18 @@ const flights = {
   },
 };
 
+const dumOrders = [
+  {
+    date: '2022-11-11',
+    total: '999',
+  },
+];
+
+const dumCart = [
+  {
+    total: '999',
+  },
+];
 const dummy = [
   {
     IATA_CODE: 'VLD',
@@ -140,14 +152,49 @@ async function seed() {
   ]);
   //create an order test
   const orders = await Promise.all([
-    Orders.create({ completed: true, date: '2022-11-08', invoice: 200 }),
+    Orders.create({ completed: true, date: '2022-11-08', total: 200 }),
+    Orders.create({ date: '2022-11-11', total: 999 }),
+  ]);
+  //seed cart
+  const cart = await Promise.all([
+    Carts.create({
+      total: 999,
+    }),
+    Carts.create({
+      total: 444,
+    }),
   ]);
 
+  //seed flights
+  const flights = await Promise.all([
+    Flights.create({
+      date: '2022-11-11',
+      origin: 'IAD',
+      destination: 'WSY',
+      price: '999',
+      flight_number: '1234',
+      departure_at: 'NOV 11 5:52',
+      airline: 'FS',
+      travelers: 1,
+    }),
+    Flights.create({
+      date: '2022-11-12',
+      origin: 'WSY',
+      destination: 'IAD',
+      price: '222',
+      flight_number: '4321',
+      departure_at: 'NOV 11 5:52',
+      airline: 'AA',
+      travelers: 1,
+    }),
+  ]);
   //seeding airport table
   await parseAirports();
 
   //seeding airline table
   await parseAirlines();
+
+  await test();
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);
@@ -176,7 +223,7 @@ async function runSeed() {
     process.exitCode = 1;
   } finally {
     console.log('closing db connection');
-    await db.close();
+    // await db.close();
     console.log('db connection closed');
   }
 }
@@ -189,6 +236,12 @@ async function runSeed() {
 if (module === require.main) {
   runSeed();
 }
+async function test() {
+  const flight = await Flights.findByPk(1);
+  console.log(flight);
+  flight.addCart(1);
+}
 
+// console.log(Object.keys(Flights.prototype));
 // we export the seed function for testing purposes (see `./seed.spec.js`)
 module.exports = seed;
