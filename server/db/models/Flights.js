@@ -2,10 +2,10 @@ const Sequelize = require('sequelize');
 const db = require('../db');
 
 const Flights = db.define('flight', {
-  date: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
+  // date: {
+  //   type: Sequelize.STRING,
+  //   allowNull: false,
+  // },
   origin: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -30,12 +30,12 @@ const Flights = db.define('flight', {
     type: Sequelize.STRING,
     defaultValue: 'FS',
   },
-  travelers: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    min: 1,
-    max: 6,
-  },
+  // travelers: {
+  //   type: Sequelize.INTEGER,
+  //   allowNull: false,
+  //   min: 1,
+  //   max: 6,
+  // },
 });
 
 module.exports = Flights;

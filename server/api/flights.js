@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Flights = require('../db/models/Flights');
 
 router.get('/', async (req, res, next) => {
   try {
@@ -16,6 +17,16 @@ router.get('/:id', async (req, res, next) => {
   try {
     const flight = await Flights.findByPk(req.params.id);
     res.json(flight);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post('/', async (req, res, next) => {
+  try {
+    console.log('REQ BODY >>>>>', req.body);
+    const flight = await Flights.create(req.body);
+    res.status(201).json(flight);
   } catch (err) {
     next(err);
   }
