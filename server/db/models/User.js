@@ -54,10 +54,10 @@ const User = db.define('user', {
       len: [10],
     },
   },
-  // role: {
-  //   type: Sequelize.STRING,
-  //   defaultvalue: 'user',
-  // },
+  role: {
+    type: Sequelize.STRING,
+    defaultValue: 'user',
+  },
 });
 
 module.exports = User;

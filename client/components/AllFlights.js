@@ -1,5 +1,4 @@
 import React from 'react';
-import SingleFlight from './SingleFlight';
 import { useState } from 'react';
 // import axios from 'axios';
 const luxon = require('luxon');

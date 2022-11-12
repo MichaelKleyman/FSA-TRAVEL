@@ -126,6 +126,7 @@ async function seed() {
       lastName: 'Mcmillan',
       email: 'cm@gmail.com',
       phone: '1234567890',
+      role: 'user'
     }),
     User.create({
       username: 'murphy',
@@ -134,6 +135,7 @@ async function seed() {
       lastName: 'Cordova',
       email: 'mc@gmail.com',
       phone: '0123456789',
+      role: 'user'
     }),
   ]);
   //create an order test

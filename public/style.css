@@ -329,10 +329,7 @@ input:focus {
   color: red;
   padding: 10px;
 }
-/* .pop-up-card {
-  align-items: center;
-  justify-content: center;
-} */
+
 .pop-up-title {
   display: flex;
   align-items: center;
@@ -340,11 +337,12 @@ input:focus {
   padding: 10px;
 }
 
-.logout-link {
+.account-details {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15rem;
+  flex-direction: column;
+  margin: 5rem;
 }
 
 body.active-modal {
@@ -358,7 +356,8 @@ body.active-modal {
   font-size: 18px;
 }
 
-.modal, .overlay {
+.modal,
+.overlay {
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -369,7 +368,7 @@ body.active-modal {
 }
 
 .overlay {
-  background: rgba(49,49,49,0.8);
+  background: rgba(49, 49, 49, 0.8);
 }
 .modal-content {
   position: absolute;
@@ -389,4 +388,107 @@ body.active-modal {
   top: 10px;
   right: 10px;
   padding: 5px 7px;
+}
+
+.account-title {
+  color: black;
+  margin: 0;
+  font-size: 32px;
+  padding: 1rem 5rem 1rem 5rem;
+  border-bottom: 2px solid black;
+  text-align: center;
+}
+
+.user-details {
+  margin: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.user-info {
+  margin-top: 0.3rem;
+}
+
+.logout-button {
+  border: none;
+  border-radius: 30px;
+  width: 20%;
+  padding: 5px;
+  margin-right: 8rem;
+  background-color: lightblue;
+}
+
+.edit-button {
+  border: none;
+  border-radius: 30px;
+  width: 20%;
+  padding: 5px;
+  margin-top: -1.5rem;
+  margin-left: 8rem;
+  background-color: lightblue;
+}
+
+.logout-button:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+  color: white;
+}
+
+.profile-container {
+  display: inline-block;
+  margin: 10rem 20rem;
+  background-color: white;
+  background-size: 10%;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  flex-direction: column;
+  box-shadow: 2px 5px 5px 2px blue;
+}
+
+.admin-task {
+  font-size: 0.8rem;
+  color: blue;
+  font-weight: normal;
+}
+
+.admin-task:hover {
+  text-decoration: underline;
+}
+
+.task-title {
+  color: black;
+  margin: 0;
+  font-size: 32px;
+  padding: 1rem 5rem 1rem 5rem;
+  border-bottom: 2px solid black;
+  text-align: center;
+}
+
+.task-container {
+  display: inline-block;
+  margin: 10rem 20rem;
+  background-color: white;
+  background-size: 10%;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  flex-direction: column;
+  box-shadow: 2px 5px 5px 2px blue;
+}
+
+.users-list {
+  margin-right: 28rem;
+}
+
+.user {
+  margin: 1rem;
 }

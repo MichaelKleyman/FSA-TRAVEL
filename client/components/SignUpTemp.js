@@ -110,7 +110,7 @@ const AuthForm = (props) => {
           <div>
             <input
               name='phone'
-              type='phone'
+              type='tel'
               onChange={handleChange}
               placeholder='Your Phone Number'
             />

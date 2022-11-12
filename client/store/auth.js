@@ -35,16 +35,15 @@ export const authenticate = (info, method) => async (dispatch) => {
     const res = await axios.post(`/auth/${method}`, info);
     window.localStorage.setItem(TOKEN, res.data.token);
     dispatch(me());
-    history.push('/home');
   } catch (authError) {
     return dispatch(setAuth({ error: authError }));
   }
 };
 
-export const getUser = (username) => {
+export const getUser = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`/api/users/${username}`);
+      const { data } = await axios.get(`/api/users/${id}`);
       dispatch(_getUser(data));
     } catch (e) {
       console.error(e);

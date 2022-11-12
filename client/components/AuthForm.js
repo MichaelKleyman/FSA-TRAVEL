@@ -4,12 +4,13 @@ import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
 import Home from './Home';
 import { Link } from 'react-router-dom';
+import AccountProfile from './AccountProfile';
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const { name, displayName, error, isLoggedIn } = props;
+  const { name, displayName, error, isLoggedIn, role } = props;
   const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
@@ -53,9 +54,11 @@ const AuthForm = (props) => {
             </Link>
           </p>
         </form>
-      ) : (
+      ) : isLoggedIn && role === 'user' ? (
         <Home />
-      )}
+      ) : isLoggedIn && role === 'admin' ? (
+        <AccountProfile />
+      ) : <header>Page Cannot be Found</header>}
     </div>
   );
 };
@@ -73,8 +76,8 @@ const mapLogin = (state) => {
     displayName: 'Login',
     error: state.auth.error,
     isLoggedIn: !!state.auth.id,
+    role: state.auth.role,
   };
 };
 
 export const Login = connect(mapLogin)(AuthForm);
-// export const Signup = connect(mapSignup)(AuthForm);
