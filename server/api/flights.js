@@ -1,6 +1,10 @@
 const router = require('express').Router();
 const Flights = require('../db/models/Flights');
 
+const Carts = require('../db/models/Cart');
+const axios = require('axios').default;
+const Users = require('../db/models/User');
+
 router.get('/', async (req, res, next) => {
   try {
     const flights = await Flights.findAll({
@@ -22,13 +26,52 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+//the "correct way"
+
+// router.post('/', async (req, res, next) => {
+//   try {
+//     const flight = await Flights.create({
+//       date: req.body.date,
+//       origin: req.body.origin,
+//       destination: req.body.destination,
+//       price: req.body.price,
+//       flight_number: req.body.flight_number,
+//       departure_at: req.body.departure_at,
+//       airline: req.body.airline,
+//       travelers: req.body.travelers,
+//     });
+//     console.log(req.body.cartId);
+//     flight.addCart(req.body.cartId);
+//     await axios.post('/api/carts', { total: 111 });
+//     res.json(flight);
+//   } catch (error) {
+//     console.log('post flight', error);
+//   }
+// });
+
+//the "cheating way"
+
 router.post('/', async (req, res, next) => {
   try {
-    console.log('REQ BODY >>>>>', req.body);
-    const flight = await Flights.create(req.body);
-    res.status(201).json(flight);
-  } catch (err) {
-    next(err);
+    const flight = await Flights.create({
+      date: req.body.date,
+      origin: req.body.origin,
+      destination: req.body.destination,
+      price: req.body.price,
+      flight_number: req.body.flight_number,
+      departure_at: req.body.departure_at,
+      airline: req.body.airline,
+      travelers: req.body.travelers,
+    });
+    console.log(req.body.userId);
+    const user = await Users.findByPk(req.body.userId);
+    const cart = await user.getCart();
+    console.log(cart);
+    flight.addCart(cart.id);
+    res.json(flight);
+  } catch (error) {
+    console.log('post flight', error);
+
   }
 });
 

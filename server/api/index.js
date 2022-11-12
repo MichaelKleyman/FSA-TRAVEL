@@ -6,6 +6,7 @@ router.use('/flights', require('./flights'));
 router.use('/airports', require('./airports'));
 router.use('/airlines', require('./airlines'));
 router.use('/orders', require('./orders'));
+router.use('/carts', require('./carts'));
 
 router.use((req, res, next) => {
   const error = new Error('Not Found');
