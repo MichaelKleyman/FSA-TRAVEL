@@ -12,22 +12,26 @@ router.get('/', async (req, res, next) => {
       // explicitly select only the id and username fields - even though
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
-      attributes: ['id', 'username'],
-    });
-    console.log('in get');
-    res.json(users);
+
+      attributes: ['id', 'username', 'email', 'phone', 'firstName', 'lastName']
+    })
+    console.log("in get");
+    res.json(users)
+
+
   } catch (err) {
     next(err);
   }
 });
 
-router.get('/:username', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: {
-        username: req.params.username,
-      },
-    });
+        id: req.params.id
+      }
+    })
+
     res.send(user);
   } catch (e) {
     next(e);

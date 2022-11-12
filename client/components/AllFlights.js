@@ -1,5 +1,4 @@
 import React from 'react';
-import SingleFlight from './SingleFlight';
 import { useState } from 'react';
 import AddFlight from './AddFlight';
 // import axios from 'axios';

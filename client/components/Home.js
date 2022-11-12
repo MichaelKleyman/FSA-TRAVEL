@@ -59,10 +59,6 @@ export const Home = (props) => {
 
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  {
-  }
-  // console.log(Object.entries(flights).length);
-  // console.log(currentPosts);
   return (
     <div className='box-container'>
       <div className='booking-container'>

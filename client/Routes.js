@@ -9,6 +9,7 @@ import { me } from './store';
 import AllFlights from './components/AllFlights';
 import { AccountCreated } from './components/AccountCreated';
 import AccountProfile from './components/AccountProfile';
+import ManageUsers from './components/ManageUsers';
 
 /**
  * COMPONENT
@@ -31,7 +32,8 @@ class Routes extends Component {
           <Route path='/signup' component={Signup} />
           <Route path='/created' component={AccountCreated} />
           <Route path='/flights' component={AllFlights} />
-          <Route path='/profile/id' component={AccountProfile} />
+          <Route path='/profile/:id' component={AccountProfile} />
+          <Route path='/admin/manageusers' component={ManageUsers}/>
         </Switch>
       </div>
     );
