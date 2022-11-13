@@ -21,6 +21,9 @@ Orders.belongsTo(User);
 Carts.hasMany(Orders);
 Orders.belongsTo(Carts);
 
+Orders.hasMany(Flights);
+Flights.belongsTo(Orders);
+
 module.exports = {
   db,
   models: {
