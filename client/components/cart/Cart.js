@@ -14,18 +14,18 @@ function Cart() {
   }
 
   return (
-    <div className="cart-container">
-      <button onClick={toggleModal} className="cart float-cart">
+    <div className='cart-container'>
+      <button onClick={toggleModal} className='cart float-cart'>
         <FaShoppingCart size={35} />
       </button>
 
       {modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
+        <div className='modal'>
+          <div onClick={toggleModal} className='overlay'></div>
+          <div className='modal-content'>
             <h2>Cart</h2>
             <p>Cart Elements</p>
-            <button className="closeModal" onClick={toggleModal}>
+            <button className='closeModal' onClick={toggleModal}>
               X
             </button>
           </div>
