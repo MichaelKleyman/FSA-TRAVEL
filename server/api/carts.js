@@ -25,4 +25,12 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+//delete route to unassociate flight
+router.put('/', async (req, res, next) => {
+  //getting cart with user id for now, may update it to cart id
+  const cart = await Carts.findByPk(req.body.userId);
+  cart.removeFlights(req.body.flightId);
+  res.send(200);
+});
+
 module.exports = router;

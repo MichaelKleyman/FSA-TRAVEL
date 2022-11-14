@@ -138,7 +138,7 @@ async function seed() {
       lastName: 'Mcmillan',
       email: 'cm@gmail.com',
       phone: '1234567890',
-      role: 'user'
+      role: 'user',
     }),
     User.create({
       username: 'murphy',
@@ -147,7 +147,7 @@ async function seed() {
       lastName: 'Cordova',
       email: 'mc@gmail.com',
       phone: '0123456789',
-      role: 'user'
+      role: 'user',
     }),
   ]);
   //create an order test
@@ -195,6 +195,11 @@ async function seed() {
   await parseAirlines();
 
   await test();
+
+  const user1 = await User.findByPk(1);
+  user1.setCart(1);
+  const user2 = await User.findByPk(2);
+  user2.setCart(2);
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);
