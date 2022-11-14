@@ -13,12 +13,10 @@ router.get('/', async (req, res, next) => {
       // users' passwords are encrypted, it won't help if we just
       // send everything to anyone who asks!
 
-      attributes: ['id', 'username', 'email', 'phone', 'firstName', 'lastName']
-    })
-    console.log("in get");
-    res.json(users)
-
-
+      attributes: ['id', 'username', 'email', 'phone', 'firstName', 'lastName'],
+    });
+    console.log('in get');
+    res.json(users);
   } catch (err) {
     next(err);
   }
@@ -28,9 +26,9 @@ router.get('/:id', async (req, res, next) => {
   try {
     const user = await User.findOne({
       where: {
-        id: req.params.id
-      }
-    })
+        id: req.params.id,
+      },
+    });
 
     res.send(user);
   } catch (e) {
@@ -56,5 +54,35 @@ router.post('/', async (req, res, next) => {
     res.status(200).send(newUser);
   } catch (err) {
     next(err);
+  }
+});
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const { username, password, firstName, lastName, email, phone } = req.body;
+    const updated = await User.update(
+      {
+        username,
+        password,
+        firstName,
+        lastName,
+        email,
+        phone,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+        returning: true,
+      }
+    );
+    const [numRows, updatedUser] = updated;
+    if (!updatedUser) {
+      res.sendStatus(404);
+    } else {
+      res.status(200).send(updatedUser);
+    }
+  } catch (e) {
+    next(e);
   }
 });
