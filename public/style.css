@@ -86,7 +86,7 @@ nav {
 .float-cart {
   position: absolute;
   top: 35px;
-  right: 5px;
+  right: 15px;
 }
 
 form div {
@@ -163,7 +163,9 @@ h1 {
 .link:hover {
   color: blue;
 }
-
+.logo {
+  margin-left: 10px;
+}
 input {
   appearance: none;
   background: none;
@@ -301,6 +303,8 @@ input:focus {
   box-shadow: 1px 1px 1px 1px black;
 }
 
+/* PopUp Section */
+
 .pop-up-container {
   position: fixed;
   top: 0;
@@ -329,13 +333,47 @@ input:focus {
   color: red;
   padding: 10px;
 }
-
+.pop-up-card {
+  flex-direction: column;
+}
 .pop-up-title {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
 }
+.pop-up-airline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.pop-up-origin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.pop-up-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.pop-up-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 10px;
+}
+.pop-up-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* PopUp End Section  */
 
 .account-details {
   display: flex;
@@ -425,7 +463,7 @@ body.active-modal {
   border-radius: 30px;
   width: 20%;
   padding: 5px;
-  margin-top: -1.5rem;
+  margin-top: -1.6rem;
   margin-left: 8rem;
   background-color: lightblue;
 }
@@ -451,7 +489,7 @@ body.active-modal {
   align-items: center;
   justify-self: center;
   flex-direction: column;
-  box-shadow: 2px 5px 5px 2px blue;
+  box-shadow: 2px 5px 5px 2px black;
 }
 
 .admin-task {
@@ -482,7 +520,7 @@ body.active-modal {
   align-items: center;
   justify-self: center;
   flex-direction: column;
-  box-shadow: 2px 5px 5px 2px blue;
+  box-shadow: 2px 5px 5px 2px black;
 }
 
 .users-list {
