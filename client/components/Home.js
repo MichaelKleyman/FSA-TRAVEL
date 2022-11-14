@@ -20,9 +20,15 @@ export const Home = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(20);
   console.log(flights);
+  window;
 
   useEffect(() => {
     fetchCities();
+    console.log('local storage', localStorage.getItem('save'));
+    console.log(
+      'SDFSDFIUGHSEJKHHGBFLSEGILF',
+      window.localStorage.getItem('sadve')
+    );
   }, []);
 
   const handleSearchButton = (event) => {

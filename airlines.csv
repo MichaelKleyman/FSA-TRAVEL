@@ -1,16 +1,16 @@
-IATA_CODE,AIRLINE,Logo
-UA,United Airlines, ../airline-logos/United-Airlines.jpg
-AA,American Airlines, ../airline-logos/american-airlines.logo.png
-US,US Airways, ../airline-logos/US-Airways-Logo.jpg
-F9,Frontier Airlines, ../airline-logos/frontier-airlines.png
-B6,JetBlue Airways, ../airline-logos/jetblue-logo.jpeg
-OO,Skywest Airlines, ../airline-logos/SkyWest-Logo.png
-AS,Alaska Airlines, ../airline-logos/alaska-airlines-logo.jpg
-NK,Spirit Airines, ../airline-logos/spirit-airlines-logo.png
-WN,Southwest Airlines, ../airline-logos/southwest-logo.jpeg
-DL,Delta Airlines, ../airline-logos/Delta-Logo.jpg
-EV,Atlantic Southeast Airlines, ../airline-logos/Atlantic-Southeast-logo.jpg
-HA,Hawaiian Airlines, ../airline-logos/hawaiin-airlines.jpeg
-MQ,American Eagle Airlines, ../airline-logos/american-eagle-airlines.jpg
-VX,Virgin America Airlines, ../airline-logos/virgin-america-logo.jpg
-FS,Fullstack Airlines, ../airline-logos/fullstack-airlines.png
+IATA_CODE,AIRLINE,Logo,IMGUR URL,locally stored path
+UA,United Airlines,https://imgur.com/Dj5dTz6,https://imgur.com/Dj5dTz6, ../airline-logos/United-Airlines.jpg
+AA,American Airlines,https://imgur.com/9P2FIsu,https://imgur.com/9P2FIsu, ../airline-logos/american-airlines.logo.png
+US,US Airways,https://imgur.com/Nq1H8YP,https://imgur.com/Nq1H8YP, ../airline-logos/US-Airways-Logo.jpg
+F9,Frontier Airlines,https://imgur.com/TlRXw5W,https://imgur.com/TlRXw5W, ../airline-logos/frontier-airlines.png
+B6,JetBlue Airways,https://imgur.com/FQ8H3rn,https://imgur.com/FQ8H3rn, ../airline-logos/jetblue-logo.jpeg
+OO,Skywest Airlines,https://imgur.com/5kIJRpI,https://imgur.com/5kIJRpI, ../airline-logos/SkyWest-Logo.png
+AS,Alaska Airlines,https://imgur.com/Xyai0Ci,https://imgur.com/Xyai0Ci, ../airline-logos/alaska-airlines-logo.jpg
+NK,Spirit Airines,https://imgur.com/xA9sSDN,https://imgur.com/xA9sSDN, ../airline-logos/spirit-airlines-logo.png
+WN,Southwest Airlines,https://imgur.com/fuMFI7H,https://imgur.com/fuMFI7H, ../airline-logos/southwest-logo.jpeg
+DL,Delta Airlines,https://imgur.com/c2GmDa4,https://imgur.com/c2GmDa4, ../airline-logos/Delta-Logo.jpg
+EV,Atlantic Southeast Airlines,https://imgur.com/xa8YK97,https://imgur.com/xa8YK97, ../airline-logos/Atlantic-Southeast-logo.jpg
+HA,Hawaiian Airlines,https://imgur.com/Jo1BgQq,https://imgur.com/Jo1BgQq, ../airline-logos/hawaiin-airlines.jpeg
+MQ,American Eagle Airlines,https://imgur.com/Jp3eCgo,https://imgur.com/Jp3eCgo, ../airline-logos/american-eagle-airlines.jpg
+VX,Virgin America Airlines,https://imgur.com/ru7xkPV,https://imgur.com/ru7xkPV, ../airline-logos/virgin-america-logo.jpg
+FS,Fullstack Airlines,https://imgur.com/oxPTiW8,https://imgur.com/oxPTiW8, ../airline-logos/fullstack-airlines.png
