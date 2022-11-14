@@ -3,20 +3,29 @@ import { getAllUsers } from '../store/admin';
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-const ManageUsers = ({ users, allUsers }) => {
+const ManageUsers = ({ users, allUsers, role }) => {
+  console.log('>>>>', role);
   useEffect(() => {
     allUsers();
   }, []);
   return (
     <div className='task-container'>
-      <h1 className='task-title'>Admin Can Manage Users</h1>
-      <div>
-        <ul className='users-list'>
-          {users.map((user) => (
-            <li key={user.id} className='user'>{user.username}</li>
-          ))}
-        </ul>
-      </div>
+      {role === 'admin' ? (
+        <div>
+          <h1 className='task-title'>Admin Can Manage Users</h1>
+          <div>
+            <ul className='users-list'>
+              {users.map((user) => (
+                <li key={user.id} className='user'>
+                  {user.username}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ) : (
+        <div>Oops Page Not Found</div>
+      )}
     </div>
   );
 };
@@ -24,6 +33,7 @@ const ManageUsers = ({ users, allUsers }) => {
 const mapState = (state) => {
   return {
     users: state.admin,
+    role: state.auth.role,
   };
 };
 

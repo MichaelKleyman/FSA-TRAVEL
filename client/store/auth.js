@@ -8,12 +8,14 @@ const TOKEN = 'token';
  */
 const SET_AUTH = 'SET_AUTH';
 const GET_USER = 'GET_USER';
+const UPDATE_USER = 'UPDATE_USER';
 
 /**
  * ACTION CREATORS
  */
 const setAuth = (auth) => ({ type: SET_AUTH, auth });
 const _getUser = (user) => ({ type: GET_USER, user });
+const _updateUser = (user) => ({ type: UPDATE_USER, user });
 
 /**
  * THUNK CREATORS
@@ -44,9 +46,20 @@ export const getUser = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/users/${id}`);
-      dispatch(_getUser(data));
+      dispatch(setAuth(data));
     } catch (e) {
       console.error(e);
+    }
+  };
+};
+
+export const updateUser = (id, userInfo) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.put(`/api/users/${id}`, userInfo);
+      dispatch(setAuth(data[0]));
+    } catch (e) {
+      console.error('THERE IS AN ERROR', e);
     }
   };
 };
@@ -68,6 +81,8 @@ export default function (state = {}, action) {
     case SET_AUTH:
       return action.auth;
     case GET_USER:
+      return action.user;
+    case UPDATE_USER:
       return action.user;
     default:
       return state;
