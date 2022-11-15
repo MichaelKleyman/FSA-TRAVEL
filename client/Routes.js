@@ -10,6 +10,7 @@ import AllFlights from './components/AllFlights';
 import { AccountCreated } from './components/AccountCreated';
 import AccountProfile from './components/AccountProfile';
 import ManageUsers from './components/ManageUsers';
+import Checkout from './components/cart/Checkout';
 
 /**
  * COMPONENT
@@ -25,15 +26,18 @@ class Routes extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/home' component={Home} />
-          <Route path='/login' component={Login} />
+          <Route exact path="/" component={Home} />
+          <Route path="/home" component={Home} />
+          <Route path="/login" component={Login} />
           {/* <Route path="/signup" component={SignUp} /> */}
-          <Route path='/signup' component={Signup} />
-          <Route path='/created' component={AccountCreated} />
-          <Route path='/flights' component={AllFlights} />
-          <Route path='/profile/:id' component={AccountProfile} />
-          <Route path='/admin/manageusers/:id' component={ManageUsers}/>
+
+          <Route path="/signup" component={Signup} />
+          <Route path="/created" component={AccountCreated} />
+          <Route path="/flights" component={AllFlights} />
+          <Route path="/profile/:id" component={AccountProfile} />
+          <Route path="/admin/manageusers/:id" component={ManageUsers} />
+          <Route path="/checkout" component={Checkout} />
+
         </Switch>
       </div>
     );
