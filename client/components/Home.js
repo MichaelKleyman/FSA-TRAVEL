@@ -10,14 +10,11 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 /**
  * COMPONENT
  */
-//  const selected_origin = "MSY";
-//  const selected_destination = "IAD";
 
 export const Home = (props) => {
   const { username } = props;
   const [flights, setFlights] = useState([]);
   const [cities, setCities] = useState([]);
-  // const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(20);
   console.log(flights);
@@ -46,7 +43,6 @@ export const Home = (props) => {
     );
     if (Object.keys(data.data).length === 0) {
       window.alert('No Flights Available!');
-      // history.push('/login');
     }
     setFlights(data.data);
   };
@@ -63,17 +59,23 @@ export const Home = (props) => {
   return (
     <div className='box-container'>
       <div className='booking-container'>
-        <h3 className='title'>Book Your Flights {username}</h3>
+        <h3 className='booking-title'>Book Your Flights {username}</h3>
         {/* <div className='outer-form'> */}
+
         <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
         {/* </div> */}
+
       </div>
-      <AllFlights flights={currentPosts} />
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={Object.entries(flights).length}
-        paginate={paginate}
-      />
+      <div>
+        <AllFlights flights={currentPosts} />
+      </div>
+      <div>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={Object.entries(flights).length}
+          paginate={paginate}
+        />
+      </div>
     </div>
   );
 };
