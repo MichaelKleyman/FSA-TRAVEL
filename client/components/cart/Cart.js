@@ -4,29 +4,26 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { fetchCart, removeCart } from '../../store/addCart';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
+import Checkout from './Checkout';
 
-function Cart() {
+function Cart({ userId }) {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.addCartReducer);
-  const auth = useSelector((state) => state.auth.id);
-  const userId = auth;
 
   const toggleModal = () => {
     setModal(!modal);
+    dispatch(fetchCart(userId));
   };
 
   useEffect(() => {
-    dispatch(fetchCart(auth));
-  }, []);
-
-  console.log('CART >>>', cart);
-  console.log('AUTH >>>', auth);
-
-  //const allFlights = useSelector((state) => state.flights);
-
-  const removeFromCart = (flightId) => {};
+    if (userId) {
+      dispatch(fetchCart(userId));
+    } else {
+      console.log('loading');
+    }
+  }, [userId]);
 
   if (modal) {
     document.body.classList.add('active-modal');
@@ -45,13 +42,13 @@ function Cart() {
           <div className='modal-content'>
             <h2>Cart</h2>
 
-            <button className="closeModal" onClick={toggleModal}>
+            <button className='closeModal' onClick={toggleModal}>
               X
             </button>
             {cart.map((item) => (
               <CartItem
                 item={item}
-                id={auth}
+                id={userId}
                 fetchCart={fetchCart}
                 key={item.id}
               />

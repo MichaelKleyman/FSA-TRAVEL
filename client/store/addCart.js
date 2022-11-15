@@ -40,7 +40,7 @@ export const fetchCart = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/carts/${id}`);
-      console.log('FETCH >>>>>', data);
+      // console.log('FETCH >>>>>', data);
       dispatch(setCart(data));
     } catch (err) {
       console.error(err);

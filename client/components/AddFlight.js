@@ -11,9 +11,9 @@ function AddFlight(props) {
 
   const addFlightToCart = (flight) => {
     console.log(flight);
-
+    flight.userId = auth
     window.localStorage.setItem('save', JSON.stringify(flight));
-    console.log(addFlight(flight));
+    // console.log(addFlight(flight));
     dispatch(addFlight(flight));
     dispatch(fetchCart(auth));
 
