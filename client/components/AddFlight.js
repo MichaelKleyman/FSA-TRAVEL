@@ -11,13 +11,16 @@ function AddFlight(props) {
 
   const addFlightToCart = (flight) => {
     console.log(flight);
+
+    window.localStorage.setItem('save', JSON.stringify(flight));
     console.log(addFlight(flight));
     dispatch(addFlight(flight));
     dispatch(fetchCart(auth));
+
   };
 
   return (
-    <button className="card-btn2" onClick={() => addFlightToCart(props.flight)}>
+    <button className='card-btn2' onClick={() => addFlightToCart(props.flight)}>
       Add To Cart
     </button>
   );
