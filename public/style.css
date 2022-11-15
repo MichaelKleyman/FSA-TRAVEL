@@ -20,100 +20,102 @@ label {
   display: block;
 }
 
-.home-link {
-  display: flex;
-  align-items: left;
-  justify-content: left;
-}
-
-/* .sign-log-link {
-  flex: 0 0 64px;
-  display: flex;
-  align-items: right;
-  justify-content: right;
-  float: right;
-} */
-
-nav {
+/* Nav Bar */
+.nav-menu {
   display: block;
-  position: fixed;
   overflow: hidden;
   width: 100%;
-  display: flex;
-  align-items: center;
   background: #002530;
   height: 100px;
 }
-
-.nav-menu {
-  /* flex: 0 0 64px; */
-  display: flex;
-  /* align-items: right;
-  justify-content: right; */
+.navbar-cart {
+  float: right;
+  margin-top: 15px;
+  padding: 10px;
+}
+.float-logo {
+  margin-top: 5px;
+  font-size: 50px;
+  float: left;
+  padding: 10px;
 }
 .float-login {
+  margin-top: 15px;
   font-size: 25px;
-  position: absolute;
-  top: 35px;
-  right: 155px;
+  float: right;
+  padding: 10px;
 }
 .float-logout {
+  margin-top: 15px;
   font-size: 25px;
-  position: absolute;
-  top: 35px;
-  right: 155px;
+  float: right;
+  padding: 10px;
 }
 .float-signup {
+  margin-top: 15px;
   font-size: 25px;
-  position: absolute;
-  top: 35px;
-  right: 55px;
+  float: right;
+  padding: 10px;
 }
 .float-home {
+  margin-top: 15px;
   font-size: 25px;
-  position: absolute;
-  top: 35px;
-  right: 185px;
+  float: right;
+  padding: 10px;
 }
-
 .float-account {
+  margin-top: 15px;
   font-size: 25px;
-  position: absolute;
-  top: 35px;
-  right: 75px;
+  float: right;
+  padding: 10px;
+}
+/* Nav Bar End */
+
+.All-the-cards {
+  display: flex;
+  margin: auto;
 }
 
-.float-cart {
-  position: absolute;
-  top: 35px;
-  right: 5px;
-}
-
-form div {
-  margin: 1em;
-  display: inline-block;
-}
-
+/* Booking Section */
 .box-container {
-  display: block;
-  border-top: solid black 3px;
   background-size: 100%;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://i.imgur.com/iuI2gFd.jpeg);
   height: 500px;
-  background-image: url(https://www.macmillandictionaryblog.com/wp-content/uploads/2018/04/cloud--810x528.jpg);
 }
 .booking-container {
-  display: inline-block;
-  margin: 50px;
-  margin-top: 120px;
-  padding: 80px 50px;
-  background-color: white;
-  background-size: 100%;
   display: flex;
-  align-items: center;
-  justify-self: center;
   flex-direction: column;
-  box-shadow: 5px 5px 5px 5px black;
+  align-items: center;
+  justify-content: center;
 }
+.booking-title {
+  margin-top: 160px;
+  align-items: center;
+  justify-content: center;
+}
+.booking-search {
+  padding: 20px;
+  border-radius: 30px;
+  border: none;
+  width: 100%;
+
+  margin-bottom: 150px;
+}
+
+.booking-search:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+  color: white;
+}
+
+.booking-origin-destination {
+  padding: 30px;
+  display: flex;
+}
+/* Booking End */
 
 .login-container {
   display: inline-block;
@@ -141,19 +143,14 @@ form div {
   box-shadow: 5px 5px 5px 5px black;
 }
 
-.input-from-to {
+/* .input-from-to {
   display: flex;
 }
 
 .search {
   display: block;
   margin: 1rem;
-}
-
-.title,
-h1 {
-  font-family: Comic Sans MS, Comic Sans, cursive;
-}
+} */
 
 .link {
   margin: 12px;
@@ -182,32 +179,17 @@ input:focus {
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.382);
 }
 
-.form-button {
-  border: none;
-  border-radius: 30px;
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-}
-
-.form-button:hover {
-  background-color: darkgrey;
-  cursor: pointer;
-  color: white;
-}
-
 /* Start Card Css */
 .card-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 10px;
+  height: 800px;
 }
 .card {
   border: 1px solid;
   font-weight: bold;
   background-color: white;
-  /* background-image: linear-gradient(white, rgb(186, 177, 177)); */
   width: 300px;
   height: 125px;
   margin: 10px;
@@ -244,11 +226,7 @@ input:focus {
   padding: 5px;
   margin: 5px;
 }
-
 /* End Card Css */
-.logo {
-  font-size: 50px;
-}
 
 .card-login {
   align-items: center;
@@ -285,10 +263,10 @@ input:focus {
 .pagination {
   align-items: center;
   justify-content: center;
-
   display: flex;
   margin-bottom: 10px;
   list-style: none;
+  margin-top: 150px;
 }
 .page-item {
   padding: 10px;
@@ -300,6 +278,8 @@ input:focus {
   background-color: white;
   box-shadow: 1px 1px 1px 1px black;
 }
+
+/* PopUp Section */
 
 .pop-up-container {
   position: fixed;
@@ -329,14 +309,49 @@ input:focus {
   color: red;
   padding: 10px;
 }
-
+.pop-up-card {
+  flex-direction: column;
+}
 .pop-up-title {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 10px;
 }
+.pop-up-airline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.pop-up-origin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.pop-up-price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.pop-up-description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 10px;
+}
+.pop-up-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* PopUp End Section  */
 
+/* Details Modal */
 .account-details {
   display: flex;
   justify-content: center;
@@ -389,6 +404,8 @@ body.active-modal {
   right: 10px;
   padding: 5px 7px;
 }
+
+/* End Detail Modal */
 
 .account-title {
   color: black;
@@ -451,7 +468,7 @@ body.active-modal {
   align-items: center;
   justify-self: center;
   flex-direction: column;
-  box-shadow: 2px 5px 5px 2px blue;
+  box-shadow: 2px 5px 5px 2px black;
 }
 
 .admin-task {
@@ -482,7 +499,7 @@ body.active-modal {
   align-items: center;
   justify-self: center;
   flex-direction: column;
-  box-shadow: 2px 5px 5px 2px blue;
+  box-shadow: 2px 5px 5px 2px black;
 }
 
 .users-list {
@@ -491,4 +508,10 @@ body.active-modal {
 
 .user {
   margin: 1rem;
+}
+
+.user:hover {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
 }

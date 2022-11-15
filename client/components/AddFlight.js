@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 import { addFlight } from '../store/addFlight';
+import { fetchCart } from '../store/addCart';
 
 function AddFlight(props) {
   const dispatch = useDispatch();
 
+  const auth = useSelector((state) => state.auth.id);
+
   const addFlightToCart = (flight) => {
     console.log(flight);
 
-    // console.log(addFlight(flight));
-    // dispatch(addFlight(flight));
-
     window.localStorage.setItem('save', JSON.stringify(flight));
+    console.log(addFlight(flight));
+    dispatch(addFlight(flight));
+    dispatch(fetchCart(auth));
+
   };
 
   return (

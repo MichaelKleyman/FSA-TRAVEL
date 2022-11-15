@@ -3,12 +3,13 @@ const Carts = require('../db/models/Cart');
 
 //api/carts
 
-router.get('/', async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
-    const cart = await Carts.findAll({
-      //WHERE STATEMENT HERE THAT GETS cart BY DATE
-    });
-    res.json(cart);
+    const cart = await Carts.findByPk(req.params.id);
+    const flights = await cart.getFlights();
+    console.log('CARTS >>>', cart);
+    console.log('FLIGHTS >>>', flights);
+    res.json(flights);
   } catch (err) {
     next(err);
   }
@@ -31,6 +32,17 @@ router.put('/', async (req, res, next) => {
   const cart = await Carts.findByPk(req.body.userId);
   cart.removeFlights(req.body.flightId);
   res.send(200);
+});
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    console.log('REQ BODY >>>', req.body.id);
+    const cart = await Carts.findByPk(req.body.id);
+    await cart.removeFlights(req.params.id);
+    res.status(204).json('Delete');
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;
