@@ -42,30 +42,32 @@ const AccountProfile = ({ handleClick, user }) => {
   }, []);
 
   return (
-    <div className='profile-container'>
-      {user.role === 'user' ? (
-        <ProfileInfo
-          user={user}
-          userInfo={userInfo}
-          handleClick={handleClick}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          popUpToggle={popUpToggle}
-          changeContent={changeContent}
-          role={user.role}
-        />
-      ) : (
-        <ProfileInfo
-          user={user}
-          userInfo={userInfo}
-          handleClick={handleClick}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-          popUpToggle={popUpToggle}
-          changeContent={changeContent}
-          role={user.role}
-        />
-      )}
+    <div className='account-container'>
+      <div className='profile-container'>
+        {user.role === 'user' ? (
+          <ProfileInfo
+            user={user}
+            userInfo={userInfo}
+            handleClick={handleClick}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            popUpToggle={popUpToggle}
+            changeContent={changeContent}
+            role={user.role}
+          />
+        ) : (
+          <ProfileInfo
+            user={user}
+            userInfo={userInfo}
+            handleClick={handleClick}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            popUpToggle={popUpToggle}
+            changeContent={changeContent}
+            role={user.role}
+          />
+        )}
+      </div>
     </div>
   );
 };

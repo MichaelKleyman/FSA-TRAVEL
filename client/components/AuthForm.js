@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import Home from './Home';
 import { Link } from 'react-router-dom';
 import AccountProfile from './AccountProfile';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 /**
  * COMPONENT
@@ -23,15 +24,15 @@ const AuthForm = (props) => {
   };
 
   return (
-    <div>
+    <div className='login-signup-container'>
       {!isLoggedIn ? (
         <form onSubmit={handleSubmit} name={name} className='login-container'>
-          <h2>{displayName}</h2>
-          <div>
+          <h2 className='login-elements'>{displayName}</h2>
+          <div className='login-elements'>
             <label htmlFor='username'></label>
             <input name='username' type='text' placeholder='Your Username' />
           </div>
-          <div>
+          <div className='login-elements'>
             <label htmlFor='password'></label>
             <input
               name='password'
@@ -39,7 +40,7 @@ const AuthForm = (props) => {
               placeholder='Your Password'
             />
           </div>
-          <div>
+          <div className='login-elements'>
             <button type='submit' className='form-button'>
               {displayName}
             </button>
@@ -53,12 +54,19 @@ const AuthForm = (props) => {
               Sign up
             </Link>
           </p>
+          <div className='pop-up-icons'>
+            <FaFacebook size={35} />
+            <FaTwitter size={35} />
+            <FaInstagram size={35} />
+          </div>
         </form>
       ) : isLoggedIn && role === 'user' ? (
         <Home />
       ) : isLoggedIn && role === 'admin' ? (
         <AccountProfile />
-      ) : <header>Page Cannot be Found</header>}
+      ) : (
+        <header>Page Cannot be Found</header>
+      )}
     </div>
   );
 };

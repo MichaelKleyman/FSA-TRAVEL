@@ -34,6 +34,7 @@ function Cart({ userId }) {
   return (
     <div className='navbar-cart'>
       <button onClick={toggleModal}>
+        {/* <img src='https://i.imgur.com/vmj1zg7.jpg' className='cart image' /> */}
         <FaShoppingCart size={35} />
       </button>
       {modal && (
