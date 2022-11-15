@@ -63,26 +63,24 @@ export const Home = (props) => {
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
-    <div className='box-container'>
-      <div className='booking-container'>
-        <h3 className='booking-title'>Book Your Flights {username}</h3>
-        {/* <div className='outer-form'> */}
-
+    <React.Fragment>
+      <div className='box-container'>
+        <div className='booking-container'>
+          <h3 className='booking-title'>Book Your Flights {username}</h3>
         <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
-        {/* </div> */}
-
       </div>
-      <div>
+      </div>
+      <div className='cards-background'>
         <AllFlights flights={currentPosts} />
       </div>
-      <div>
+      <div className='page'>
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={Object.entries(flights).length}
           paginate={paginate}
         />
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
