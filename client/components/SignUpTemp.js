@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Home from './Home';
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 /**
  * COMPONENT
@@ -48,11 +49,11 @@ const AuthForm = (props) => {
   };
 
   return (
-    <div>
+    <div className='login-signup-container'>
       {!isLoggedIn ? (
         <form onSubmit={handleSubmit} name={name} className='signup-container'>
           <h2>{displayName}</h2>
-          <div>
+          <div className='signup-elements'>
             <input
               name='username'
               type='text'
@@ -63,7 +64,7 @@ const AuthForm = (props) => {
             <div className="auth-error">*Username is Required</div>
           ) : null} */}
           </div>
-          <div>
+          <div className='signup-elements'>
             <input
               name='password'
               type='password'
@@ -74,7 +75,7 @@ const AuthForm = (props) => {
             <div className="auth-error">*Password is Required</div>
           ) : null} */}
           </div>
-          <div>
+          <div className='signup-elements'>
             <input
               name='firstName'
               type='firstName'
@@ -85,7 +86,7 @@ const AuthForm = (props) => {
             <div className="auth-error">*First name is Required</div>
           ) : null} */}
           </div>
-          <div>
+          <div className='signup-elements'>
             <input
               name='lastName'
               type='lastName'
@@ -96,7 +97,7 @@ const AuthForm = (props) => {
             <div className="auth-error">*Last name is Required</div>
           ) : null} */}
           </div>
-          <div>
+          <div className='signup-elements'>
             <input
               name='email'
               type='email'
@@ -107,7 +108,7 @@ const AuthForm = (props) => {
             <div className="auth-error">*Email is Required</div>
           ) : null} */}
           </div>
-          <div>
+          <div className='signup-elements'>
             <input
               name='phone'
               type='tel'
@@ -118,7 +119,7 @@ const AuthForm = (props) => {
             <div className="auth-error">*Phone number is Required</div>
           ) : null} */}
           </div>
-          <div>
+          <div className='signup-elements'>
             <button type='submit' className='form-button'>
               {displayName}
             </button>
@@ -132,6 +133,11 @@ const AuthForm = (props) => {
               Log in
             </Link>
           </p>
+          <div className='pop-up-icons'>
+            <FaFacebook size={35} />
+            <FaTwitter size={35} />
+            <FaInstagram size={35} />
+          </div>
         </form>
       ) : (
         <Home />

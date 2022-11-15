@@ -37,6 +37,7 @@ function Cart() {
   return (
     <div className='navbar-cart'>
       <button onClick={toggleModal}>
+        {/* <img src='https://i.imgur.com/vmj1zg7.jpg' className='cart image' /> */}
         <FaShoppingCart size={35} />
       </button>
       {modal && (
@@ -45,7 +46,7 @@ function Cart() {
           <div className='modal-content'>
             <h2>Cart</h2>
 
-            <button className="closeModal" onClick={toggleModal}>
+            <button className='closeModal' onClick={toggleModal}>
               X
             </button>
             {cart.map((item) => (
