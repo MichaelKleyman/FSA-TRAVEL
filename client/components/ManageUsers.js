@@ -22,6 +22,7 @@ const ManageUsers = ({ users, allUsers, role }) => {
   const changeContent = (user) => {
     setUserInfo(user);
     setPopUpToggle(!popUpToggle);
+    allUsers();
   };
 
   useEffect(() => {
