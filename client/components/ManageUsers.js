@@ -3,7 +3,8 @@ import { getAllUsers } from '../store/admin';
 import { useEffect, useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import UserInfoModal from './AccountProfile/UserInfoModal';
-import { updateUser } from '../store';
+// import { updateUser } from '../store';
+import { deleteUser } from '../store/admin';
 import axios from 'axios';
 
 const ManageUsers = ({ users, allUsers, role }) => {
@@ -32,7 +33,6 @@ const ManageUsers = ({ users, allUsers, role }) => {
   async function handleClick(user) {
     const result = await axios.get(`/api/users/${user.id}`);
     setUserInfo(result.data);
-    // console.log(result.data);
     changeContent(user);
   }
 
@@ -43,9 +43,7 @@ const ManageUsers = ({ users, allUsers, role }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(userInfo);
     const updated = await axios.put(`/api/users/${userInfo.id}`, userInfo);
-    console.log(updated);
   }
 
   return (
@@ -57,8 +55,18 @@ const ManageUsers = ({ users, allUsers, role }) => {
             <ul className='users-list'>
               {users.map((user) => (
                 <div key={user.id}>
-                  <li className='user'>
-                    <ul onClick={() => handleClick(user)}>{user.username}</ul>
+                  <li>
+                    <ul className='user' onClick={() => handleClick(user)}>
+                      {user.username}
+                    </ul>
+                    <button
+                      onClick={() => {
+                        dispatch(deleteUser(user.id));
+                        allUsers();
+                      }}
+                    >
+                      Remove
+                    </button>
                   </li>
                 </div>
               ))}

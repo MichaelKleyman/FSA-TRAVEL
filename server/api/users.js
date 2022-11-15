@@ -87,3 +87,16 @@ router.put('/:id', async (req, res, next) => {
     next(e);
   }
 });
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const deletedUser = await User.findByPk(req.params.id);
+    if (!deletedUser) {
+      res.status(404).send('User not found!');
+    } else {
+      await deletedUser.destroy();
+    }
+  } catch (e) {
+    next(e);
+  }
+});
