@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
 import Home from './Home';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import AccountProfile from './AccountProfile';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
@@ -11,7 +11,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
  * COMPONENT
  */
 const AuthForm = (props) => {
-  const { name, displayName, error, isLoggedIn, role } = props;
+  const { name, displayName, error, isLoggedIn, role, id } = props;
   const dispatch = useDispatch();
 
   const handleSubmit = (evt) => {
@@ -61,9 +61,9 @@ const AuthForm = (props) => {
           </div>
         </form>
       ) : isLoggedIn && role === 'user' ? (
-        <Home />
+        <Redirect to='/home' />
       ) : isLoggedIn && role === 'admin' ? (
-        <AccountProfile />
+        <Redirect to={`/profile/${id}`} />
       ) : (
         <header>Page Cannot be Found</header>
       )}
@@ -85,6 +85,7 @@ const mapLogin = (state) => {
     error: state.auth.error,
     isLoggedIn: !!state.auth.id,
     role: state.auth.role,
+    id: state.auth.id,
   };
 };
 

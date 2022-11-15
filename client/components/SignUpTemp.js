@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Home from './Home';
@@ -140,7 +140,7 @@ const AuthForm = (props) => {
           </div>
         </form>
       ) : (
-        <Home />
+        <Redirect to='/home' />
       )}
     </div>
   );
