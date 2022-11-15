@@ -14,11 +14,10 @@ function Cart() {
   }
 
   return (
-    <div className='cart-container'>
-      <button onClick={toggleModal} className='cart float-cart'>
+    <div className='navbar-cart'>
+      <button onClick={toggleModal}>
         <FaShoppingCart size={35} />
       </button>
-
       {modal && (
         <div className='modal'>
           <div onClick={toggleModal} className='overlay'></div>
