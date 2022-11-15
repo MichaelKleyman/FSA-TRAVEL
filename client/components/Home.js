@@ -9,14 +9,11 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 /**
  * COMPONENT
  */
-//  const selected_origin = "MSY";
-//  const selected_destination = "IAD";
 
 export const Home = (props) => {
   const { username } = props;
   const [flights, setFlights] = useState([]);
   const [cities, setCities] = useState([]);
-  // const history = useHistory();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(20);
   console.log(flights);
@@ -45,7 +42,6 @@ export const Home = (props) => {
     );
     if (Object.keys(data.data).length === 0) {
       window.alert('No Flights Available!');
-      // history.push('/login');
     }
     setFlights(data.data);
   };
@@ -61,50 +57,52 @@ export const Home = (props) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div className='box-container'>
-      {/* <div className='booking-container'> */}
-      <h3 className='title'>Book Your Flights {username}</h3>
-      {/* <div className='outer-form'> */}
-      <form onSubmit={handleSearchButton}>
-        <div className='input-from-to'>
-          <label htmlFor='from'></label>
-          <input
-            list='data1'
-            name='from'
-            type='text'
-            placeholder='Leaving from...'
-          />
-          <datalist id='data1'>
-            {cities.map((obj) => {
-              return (
-                <option key={obj.id}>
-                  {obj.city}-{obj.IATA}
-                </option>
-              );
-            })}
-          </datalist>
+      <div className='booking-container'>
+        <h3 className='booking-title'>Book Your Flights {username}</h3>
+        {/* <div className='outer-form'> */}
+        <form onSubmit={handleSearchButton}>
+          <div className='booking-origin-destination'>
+            <label htmlFor='from'></label>
+            <input
+              list='data1'
+              name='from'
+              type='text'
+              placeholder='Leaving from...'
+            />
+            <datalist id='data1'>
+              {cities.map((obj) => {
+                return (
+                  <option key={obj.id}>
+                    {obj.city}-{obj.IATA}
+                  </option>
+                );
+              })}
+            </datalist>
 
-          <BsFillArrowRightCircleFill size={70} />
-          <label htmlFor='destination'></label>
-          <input
-            list='data1'
-            name='destination'
-            type='text'
-            placeholder='Going to...'
-          />
-        </div>
-        <button type='submit' className='form-button'>
-          Search
-        </button>
-      </form>
-      {/* </div> */}
-      {/* </div> */}
-
-      <AllFlights flights={currentPosts} />
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={Object.entries(flights).length}
-        paginate={paginate}
-      />
+            <BsFillArrowRightCircleFill size={70} />
+            <label htmlFor='destination'></label>
+            <input
+              list='data1'
+              name='destination'
+              type='text'
+              placeholder='Going to...'
+            />
+          </div>
+          <button type='submit' className='booking-search'>
+            Search
+          </button>
+        </form>
+      </div>
+      <div>
+        <AllFlights flights={currentPosts} />
+      </div>
+      <div>
+        <Pagination
+          postsPerPage={postsPerPage}
+          totalPosts={Object.entries(flights).length}
+          paginate={paginate}
+        />
+      </div>
     </div>
   );
 };
