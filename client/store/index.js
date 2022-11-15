@@ -7,6 +7,7 @@ import flightReducer from './flight';
 import signUp from './signUp';
 import admin from './admin';
 import addFlightReducer from './addFlight';
+import addCartReducer from './addCart';
 
 const reducer = combineReducers({
   auth,
@@ -14,6 +15,7 @@ const reducer = combineReducers({
   signUp,
   admin,
   addFlightReducer,
+  addCartReducer,
 });
 
 const middleware = composeWithDevTools(
