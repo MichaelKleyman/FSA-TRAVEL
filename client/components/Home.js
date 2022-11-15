@@ -67,8 +67,8 @@ export const Home = (props) => {
       <div className='box-container'>
         <div className='booking-container'>
           <h3 className='booking-title'>Book Your Flights {username}</h3>
-        <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
-      </div>
+          <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
+        </div>
       </div>
       <div className='cards-background'>
         <AllFlights flights={currentPosts} />

@@ -8,7 +8,7 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 export const SearchBar = ({ handleSearchButton, cities }) => {
   return (
     <form onSubmit={handleSearchButton}>
-      <div className='input-from-to'>
+      <div className='booking-origin-destination'>
         <label htmlFor='from'></label>
         <input
           list='data1'
@@ -26,7 +26,7 @@ export const SearchBar = ({ handleSearchButton, cities }) => {
           })}
         </datalist>
 
-        <BsFillArrowRightCircleFill size={70} />
+        <BsFillArrowRightCircleFill size={60} />
         <label htmlFor='destination'></label>
         <input
           list='data1'
@@ -35,7 +35,7 @@ export const SearchBar = ({ handleSearchButton, cities }) => {
           placeholder='Going to...'
         />
       </div>
-      <button type='submit' className='form-button'>
+      <button type='submit' className='booking-search'>
         Search
       </button>
     </form>
