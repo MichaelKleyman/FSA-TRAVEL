@@ -21,14 +21,24 @@ const CartItem = (props) => {
   //item.variable comes from flights table
   return (
     <div>
-      <h3>
+      {id ? (
+        <h3>
+          {item.origin}
+          {item.destination}
+          <button type='button' onClick={handleClick}>
+            {console.log('clicked')}
+            Remove Item
+          </button>
+        </h3>
+      ) : null}
+      {/* <h3>
         {item.origin}
         {item.destination}
         <button type="button" onClick={handleClick}>
           {console.log('clicked')}
           Remove Item
         </button>
-      </h3>
+      </h3> */}
     </div>
   );
 };

@@ -38,6 +38,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
+    console.log('created user');
     const newUser = await User.create({
       //creating a new user to the database, I am assuming the body sent will be the same as the database fields
       username: req.body.username,
@@ -48,8 +49,8 @@ router.post('/', async (req, res, next) => {
       phone: req.body.phone,
     });
     const cart = await Carts.create({});
+    console.log('caaaaaaaaaaaaaaaaaaaaaaaaaa', cart);
     cart.setUser(newUser.id);
-    //axios.post("api/cart")
 
     res.status(200).send(newUser);
   } catch (err) {

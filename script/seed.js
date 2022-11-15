@@ -138,7 +138,7 @@ async function seed() {
       lastName: 'Mcmillan',
       email: 'cm@gmail.com',
       phone: '1234567890',
-      role: 'user',
+      role: 'admin',
     }),
     User.create({
       username: 'murphy',

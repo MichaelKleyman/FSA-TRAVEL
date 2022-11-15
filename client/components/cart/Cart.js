@@ -14,7 +14,11 @@ function Cart({ userId }) {
 
   const toggleModal = () => {
     setModal(!modal);
-    dispatch(fetchCart(userId));
+    if (userId) {
+      dispatch(fetchCart(userId));
+    } else {
+      console.log('no cart');
+    }
   };
 
   useEffect(() => {
