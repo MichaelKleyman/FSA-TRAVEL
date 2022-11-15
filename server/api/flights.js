@@ -63,10 +63,10 @@ router.post('/', async (req, res, next) => {
       // travelers: req.body.travelers,
     });
     console.log(req.body.userId);
-    // const user = await Users.findByPk(req.body.userId);
-    // const cart = await user.getCart();
+    const user = await Users.findByPk(req.body.userId);
+    const cart = await user.getCart();
     // console.log('...........', cart);
-    // flight.addCart(cart.id);
+    flight.addCart(cart.id);
     res.json(flight);
   } catch (error) {
     console.log('post flight', error);

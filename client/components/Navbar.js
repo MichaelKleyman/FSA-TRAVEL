@@ -9,7 +9,7 @@ const Navbar = ({ isLoggedIn, userId }) => (
         <Link to='/home' className='nav-link float-logo'>
           FSA-TRAVEL
         </Link>
-        <Cart />
+        <Cart userId={userId} />
         <Link to='/home' className='nav-link float-home'>
           Home
         </Link>
@@ -22,7 +22,7 @@ const Navbar = ({ isLoggedIn, userId }) => (
         <Link to='/home' className='nav-link float-logo'>
           FSA-TRAVEL
         </Link>
-        <Cart />
+        <Cart userId={userId} />
         <Link to='/login' className='nav-link float-login'>
           Login
         </Link>

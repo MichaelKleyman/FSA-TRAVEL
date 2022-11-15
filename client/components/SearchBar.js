@@ -35,7 +35,7 @@ export const SearchBar = ({ handleSearchButton, cities }) => {
           placeholder='Going to...'
         />
       </div>
-      <button type='submit' className='form-button'>
+      <button type='submit' className='booking-search'>
         Search
       </button>
     </form>

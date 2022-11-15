@@ -13,7 +13,6 @@ const CartItem = (props) => {
     const something = await axios.delete(`/api/carts/${item.id}`, {
       data: { id: id },
     });
-    console.log(something);
     dispatch(fetchCart(id));
   };
 

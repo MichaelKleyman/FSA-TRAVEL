@@ -25,7 +25,7 @@ export const Home = (props) => {
     console.log('local storage', localStorage.getItem('save'));
     console.log(
       'SDFSDFIUGHSEJKHHGBFLSEGILF',
-      window.localStorage.getItem('sadve')
+      window.localStorage.getItem('save')
     );
   }, []);
 
