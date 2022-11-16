@@ -72,6 +72,7 @@ const UserInfoModal = ({
                         <div>Flying from: {cartItem.origin}</div>
                         <div>Landing at: {cartItem.destination}</div>
                         <div>Price: ${cartItem.price}</div>
+                        <div>Travelers: {cartItem.travelers}</div>
                         <button onClick={() => handleClick(cartItem.id)}>
                           x
                         </button>
