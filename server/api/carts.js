@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Carts = require('../db/models/Cart');
+const Flights = require('../db/models/Flights');
 
 //api/carts
 
@@ -34,6 +35,21 @@ router.put('/', async (req, res, next) => {
   res.send(200);
 });
 
+//delete all flights from cart
+router.delete('/all', async (req, res, next) => {
+  try {
+    console.log('REQ BODY >>>', req.body.id);
+    const cart = await Carts.findByPk(req.body.id);
+    const flights = await cart.getFlights();
+    console.log(flights);
+    await cart.removeFlights(flights);
+    res.status(204).json('Delete');
+  } catch (err) {
+    next(err);
+  }
+});
+
+//delete singular flights
 router.delete('/:id', async (req, res, next) => {
   try {
     //body is user id

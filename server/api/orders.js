@@ -25,9 +25,10 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
+    const timestamp = new Date().toDateString();
     const order = await Orders.create({
       completed: true,
-      date: req.body.date,
+      date: timestamp,
       userId: req.body.userId,
       //work around for now
       cartId: req.body.userId,
