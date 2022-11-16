@@ -7,3 +7,4 @@ yarn-error.log
 package-lock.json
 .~lock.airlines.csv#
 parse.js
+.env
