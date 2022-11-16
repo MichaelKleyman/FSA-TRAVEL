@@ -10,13 +10,14 @@ function AddFlight(props) {
   const auth = useSelector((state) => state.auth.id);
 
   const addFlightToCart = (flight) => {
-    console.log(flight);
-    flight.userId = auth
+    flight.userId = auth;
     window.localStorage.setItem('save', JSON.stringify(flight));
     // console.log(addFlight(flight));
+    const trav = document.getElementById('travelers-num');
+    flight.travelers = parseInt(trav.innerHTML);
+    console.log(flight);
     dispatch(addFlight(flight));
     dispatch(fetchCart(auth));
-
   };
 
   return (

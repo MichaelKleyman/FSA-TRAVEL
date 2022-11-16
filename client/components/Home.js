@@ -36,7 +36,6 @@ export const Home = (props) => {
       num--;
     }
     trav.innerHTML = num;
-    console.log(trav.innerHTML);
   };
 
   const handleIncrementTravelers = (event) => {
@@ -46,7 +45,6 @@ export const Home = (props) => {
       num++;
     }
     trav.innerHTML = num;
-    console.log(trav.innerHTML);
   };
 
   const handleSearchButton = (event) => {

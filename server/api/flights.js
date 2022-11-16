@@ -60,7 +60,7 @@ router.post('/', async (req, res, next) => {
       flight_number: req.body.flight_number,
       departure_at: req.body.departure_at,
       airline: req.body.airline,
-      // travelers: req.body.travelers,
+      travelers: req.body.travelers,
     });
     console.log(req.body.userId);
     const user = await Users.findByPk(req.body.userId);
