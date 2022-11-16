@@ -6,6 +6,7 @@ import Pagination from './Pagination';
 import axios from 'axios';
 import { SearchBar } from './SearchBar';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi';
 
 /**
  * COMPONENT
@@ -84,10 +85,19 @@ export const Home = (props) => {
       <div className='box-container'>
         <div className='booking-container'>
           <h3 className='booking-title'>Book Your Flights {username}</h3>
-          <button onClick={handleDecrementTravelers}>{'<'}</button>
-          <p id='travelers'>Travelers</p>
-          <p id='travelers-num'>1</p>
-          <button onClick={handleIncrementTravelers}>{'>'}</button>
+          <div className='booking-travelers'>
+            <div onClick={handleDecrementTravelers} className='traveler-button'>
+              <FiMinusCircle className='add-minus-button' />
+            </div>
+            <p id='travelers'>Travelers</p>
+
+            <div onClick={handleIncrementTravelers} className='traveler-button'>
+              <FiPlusCircle className='add-minus-button' />
+            </div>
+          </div>
+          <p id='travelers-num' className='traveler-number'>
+            1
+          </p>
           <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
         </div>
       </div>
