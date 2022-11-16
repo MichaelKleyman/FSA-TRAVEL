@@ -6,7 +6,6 @@ const {
   db,
   models: { User, Orders, Airports, Airlines, Carts, Flights },
 } = require('../server/db');
-const { default: tr } = require('date-fns/locale/tr');
 
 const flights = {
   '2022-11-07': {
@@ -196,11 +195,6 @@ async function seed() {
 
   await test();
 
-  const user1 = await User.findByPk(1);
-  user1.setCart(1);
-  const user2 = await User.findByPk(2);
-  user2.setCart(2);
-
   console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);
   return {
@@ -228,7 +222,7 @@ async function runSeed() {
     process.exitCode = 1;
   } finally {
     console.log('closing db connection');
-    // await db.close();
+    await db.close();
     console.log('db connection closed');
   }
 }
@@ -243,8 +237,13 @@ if (module === require.main) {
 }
 async function test() {
   const flight = await Flights.findByPk(1);
-  console.log(flight);
-  flight.addCart(1);
+  await flight.addCart(1);
+  console.log('associated flight');
+
+  const user1 = await User.findByPk(1);
+  await user1.setCart(1);
+  const user2 = await User.findByPk(2);
+  await user2.setCart(2);
 }
 
 // console.log(Object.keys(Flights.prototype));
