@@ -459,7 +459,7 @@ body.active-modal {
 }
 
 .close-modal {
-  position: absolute;
+  float: right;
   top: 10px;
   right: 10px;
   padding: 5px 7px;
@@ -601,4 +601,24 @@ body.active-modal {
   background-color: darkgrey;
   cursor: pointer;
   color: white;
+}
+
+.cart-card {
+  /* overflow: hidden; */
+  flex-wrap: wrap;
+  border: 1px solid;
+  font-weight: bold;
+  background-color: white;
+  width: 300px;
+  height: 125px;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 2px 2px 2px 2px black;
+}
+.modal-inside{
+  text-align: center;
+}
+
+.cart-close{
+  text-align: right;
 }
