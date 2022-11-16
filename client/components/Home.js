@@ -64,16 +64,16 @@ export const Home = (props) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <React.Fragment>
-      <div className='box-container'>
-        <div className='booking-container'>
-          <h3 className='booking-title'>Book Your Flights {username}</h3>
+      <div className="box-container">
+        <div className="booking-container">
+          <h3 className="booking-title">Book Your Flights {username}</h3>
           <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
         </div>
       </div>
-      <div className='cards-background'>
+      <div className="cards-background">
         <AllFlights flights={currentPosts} />
       </div>
-      <div className='page'>
+      <div className="page">
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={Object.entries(flights).length}

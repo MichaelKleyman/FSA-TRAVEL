@@ -62,7 +62,9 @@ function Cart({ userId }) {
                 />
               ))}
 
-              <Link to={`/checkout`}>Checkout</Link>
+              <Link onClick={toggleModal} to={'/checkout'}>
+                Checkout
+              </Link>
             </div>
           </div>
         </div>
