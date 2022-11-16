@@ -32,9 +32,9 @@ export const Home = (props) => {
   const handleSearchButton = (event) => {
     event.preventDefault();
     const fromFull = event.target.from.value;
-    const fromSlice = fromFull.indexOf('-');
+    const fromSlice = fromFull.lastIndexOf('-');
     const destinationFull = event.target.destination.value;
-    const destSlice = destinationFull.indexOf('-');
+    const destSlice = destinationFull.lastIndexOf('-');
     const from = fromFull.slice(fromSlice + 1) || 'empty';
     const destination = destinationFull.slice(destSlice + 1) || 'empty';
     fetchData(from, destination);
