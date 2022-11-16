@@ -29,6 +29,26 @@ export const Home = (props) => {
     );
   }, []);
 
+  const handleDecrementTravelers = (event) => {
+    const trav = document.getElementById('travelers-num');
+    let num = parseInt(trav.innerHTML);
+    if (num > 1) {
+      num--;
+    }
+    trav.innerHTML = num;
+    console.log(trav.innerHTML);
+  };
+
+  const handleIncrementTravelers = (event) => {
+    const trav = document.getElementById('travelers-num');
+    let num = parseInt(trav.innerHTML);
+    if (num < 6) {
+      num++;
+    }
+    trav.innerHTML = num;
+    console.log(trav.innerHTML);
+  };
+
   const handleSearchButton = (event) => {
     event.preventDefault();
     const fromFull = event.target.from.value;
@@ -67,6 +87,10 @@ export const Home = (props) => {
       <div className='box-container'>
         <div className='booking-container'>
           <h3 className='booking-title'>Book Your Flights {username}</h3>
+          <button onClick={handleDecrementTravelers}>{'<'}</button>
+          <p id='travelers'>Travelers</p>
+          <p id='travelers-num'>1</p>
+          <button onClick={handleIncrementTravelers}>{'>'}</button>
           <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
         </div>
       </div>
