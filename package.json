@@ -1,9 +1,8 @@
 {
   "name": "FSA-TRAVEL",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
+    "node": "16.15.1"
   },
   "description": "Some boilerplate code to get you started - get shakin'!",
   "main": "index.js",
