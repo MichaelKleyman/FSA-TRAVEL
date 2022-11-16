@@ -20,6 +20,8 @@
   "author": "Fullstack Academy of Code",
   "license": "MIT",
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.15.0",
+    "@stripe/stripe-js": "^1.44.1",
     "bcrypt": "^5.0.0",
     "compression": "^1.7.3",
     "cors": "^2.8.5",

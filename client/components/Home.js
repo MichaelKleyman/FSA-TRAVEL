@@ -101,10 +101,10 @@ export const Home = (props) => {
           <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
         </div>
       </div>
-      <div className='cards-background'>
+      <div className="cards-background">
         <AllFlights flights={currentPosts} />
       </div>
-      <div className='page'>
+      <div className="page">
         <Pagination
           postsPerPage={postsPerPage}
           totalPosts={Object.entries(flights).length}
