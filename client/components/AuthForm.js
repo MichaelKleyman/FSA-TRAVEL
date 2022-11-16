@@ -1,4 +1,6 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
+import jwtDecode from 'jwt-decode';
 import { connect } from 'react-redux';
 import { authenticate } from '../store';
 import { useDispatch } from 'react-redux';
@@ -7,12 +9,36 @@ import { Link, Redirect } from 'react-router-dom';
 import AccountProfile from './AccountProfile';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-/**
- * COMPONENT
- */
 const AuthForm = (props) => {
   const { name, displayName, error, isLoggedIn, role, id } = props;
+  // const [user, setUser] = useState({});
   const dispatch = useDispatch();
+
+  function handleCallbackResponse(response) {
+    //gives successful web token: very bare bones
+    console.log('Encoded JWT id token', response.credential);
+    const userObj = jwtDecode(response.credential);
+    console.log('Decoded Info', userObj);
+    // setUser(userObj);
+    const formName = 'login';
+    dispatch(authenticate(userObj, formName));
+  }
+
+  useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id:
+        '53771139103-07bg91j6j0tt69k4n60b374sd0ugpm4g.apps.googleusercontent.com',
+      callback: handleCallbackResponse,
+    });
+
+    google.accounts.id.renderButton(document.getElementById('logInDiv'), {
+      theme: 'outline',
+      size: 'large',
+    });
+
+    // google.accounts.id.prompt();
+  }, []);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -44,6 +70,7 @@ const AuthForm = (props) => {
             <button type='submit' className='form-button'>
               {displayName}
             </button>
+            <div id='logInDiv'></div>
           </div>
           {error && error.response && (
             <div className='auth-error'>*{error.response.data}</div>
@@ -71,13 +98,6 @@ const AuthForm = (props) => {
   );
 };
 
-/**
- * CONTAINER
- *   Note that we have two different sets of 'mapStateToProps' functions -
- *   one for Login, and one for Signup. However, they share the same 'mapDispatchToProps'
- *   function, and share the same Component. This is a good example of how we
- *   can stay DRY with interfaces that are very similar to each other!
- */
 const mapLogin = (state) => {
   return {
     name: 'login',

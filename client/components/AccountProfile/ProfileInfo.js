@@ -64,6 +64,7 @@ const ProfileInfo = ({
         handleSubmit={handleSubmit}
         popUpToggle={popUpToggle}
         changeContent={changeContent}
+        role={role}
       />
     </div>
   );

@@ -9,27 +9,26 @@ const CartItem = (props) => {
   const dispatch = useDispatch();
 
   const handleClick = async () => {
-    console.log('id >>>>', id);
     const something = await axios.delete(`/api/carts/${item.id}`, {
       data: { id: id },
     });
     dispatch(fetchCart(id));
   };
 
-  //dispatch(removeCart(item.id))
-
   //item.variable comes from flights table
   return (
     <div>
       {id ? (
-        <h3>
-          {item.origin}
-          {item.destination}
+        <div className='cart-item'>
+          <br />
+          <h3>Leaving From: {item.origin}</h3>
+          <h3>Landing At: {item.destination}</h3>
           <button type='button' onClick={handleClick}>
             {console.log('clicked')}
             Remove Item
           </button>
-        </h3>
+          <br />
+        </div>
       ) : null}
       {/* <h3>
         {item.origin}

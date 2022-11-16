@@ -7,8 +7,8 @@ router.get('/:id', async (req, res, next) => {
   try {
     const cart = await Carts.findByPk(req.params.id);
     const flights = await cart.getFlights();
-    console.log('CARTS >>>', cart);
-    console.log('FLIGHTS >>>', flights);
+    // console.log('CARTS >>>', cart);
+    // console.log('FLIGHTS >>>', flights);
     res.json(flights);
   } catch (err) {
     next(err);
@@ -36,8 +36,11 @@ router.put('/', async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   try {
-    console.log('REQ BODY >>>', req.body.id);
+    //body is user id
+    //params is flight id
+    console.log('REQ BODY >>>', req.body);
     const cart = await Carts.findByPk(req.body.id);
+    console.log('REQ PARAMS>>>>', req.params);
     await cart.removeFlights(req.params.id);
     res.status(204).json('Delete');
   } catch (err) {

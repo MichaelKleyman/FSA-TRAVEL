@@ -273,6 +273,13 @@ input:focus {
   padding: 5px;
   margin: 5px;
 }
+
+.card-btn3 {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  background-color: lightblue;
+}
 /* End Card Css */
 
 .card-login {
@@ -332,6 +339,10 @@ input:focus {
 
 /* PopUp Section */
 
+.pop-up-content {
+  margin: 1rem;
+}
+
 .pop-up-container {
   position: fixed;
   top: 0;
@@ -349,11 +360,13 @@ input:focus {
   background-image: 100%;
   background-image: 100%;
   width: 70%;
-  height: 70%;
+  height: 75%;
   font-weight: bold;
   font-size: 20px;
-
+  /* padding: 1rem; */
   margin: auto;
+  overflow: scroll;
+  border-radius: 30px;
 }
 .pop-up-header {
   padding: 10px;
@@ -361,12 +374,24 @@ input:focus {
   text-align: right;
   background-color: black;
 }
+
+.admin-popup-header {
+  padding: 10px;
+  width: 100%;
+  background-color: black;
+}
+
 .pop-up-x {
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
-  color: red;
+  color: white;
   padding: 10px;
+  /* float: right; */
+}
+
+.pop-up-x:hover {
+  color: blue;
 }
 
 .pop-up-card {
@@ -452,15 +477,28 @@ body.active-modal {
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  padding: 14px 28px;
+  padding: 3rem 6rem;
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
 }
 
+/* .modal-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding-top: 15%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  margin-top: 12rem;
+  margin-left: 52rem;
+} */
+
 .close-modal {
   position: absolute;
-  top: 10px;
   right: 10px;
   padding: 5px 7px;
 }
@@ -544,8 +582,24 @@ body.active-modal {
   font-weight: normal;
 }
 
+.admin-task2 {
+  position: relative;
+  bottom: 2rem;
+  font-size: 1rem;
+  color: blue;
+  font-weight: normal;
+  margin-left: 5rem;
+}
+
 .admin-task:hover {
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.admin-task2:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: whitesmoke;
 }
 
 .task-title {
@@ -571,6 +625,7 @@ body.active-modal {
 
 .users-list {
   margin-right: 28rem;
+  margin-bottom: 1.2rem;
 }
 
 .user {
@@ -601,4 +656,55 @@ body.active-modal {
   background-color: darkgrey;
   cursor: pointer;
   color: white;
+}
+
+.remove-button {
+  border: none;
+  border-radius: 30px;
+  width: 60%;
+  padding: 5px;
+  margin-right: 8rem;
+  background-color: lightblue;
+}
+
+.remove-button:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+  color: white;
+}
+
+.cart-item {
+  margin: 1rem;
+  border: lightgray solid;
+  padding: 1rem;
+  width: 100%;
+}
+
+#logInDiv {
+  margin: 1rem;
+}
+
+.users-cart {
+  float: right;
+  margin-right: 7rem;
+  background-color: white;
+  width: 40%;
+  padding: 2rem;
+  border-radius: 30px;
+  border: black solid;
+  overflow: scroll;
+}
+
+.admin-cart-item {
+  border: lightgray solid;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.cart-button {
+  color: white;
+}
+
+.cart-button:hover {
+  color: blue;
 }
