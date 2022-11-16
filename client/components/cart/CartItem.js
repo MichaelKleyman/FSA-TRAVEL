@@ -24,14 +24,15 @@ const CartItem = (props) => {
   return (
     <div>
       {id ? (
-        <div className="card-container">
-          <div className="cart-card">
-            <h3 className="pop-up-title">Flight-{item.flight_number}</h3>
+        <div className='card-container'>
+          <div className='cart-card'>
+            <h3 className='pop-up-title'>Flight-{item.flight_number}</h3>
             <p>
               From: {item.origin} To: {item.destination}
             </p>
+            <p>Travelers {item.travelers}</p>
             <p>{dt.toLocaleString(luxon.DateTime.DATETIME_MED)}</p>
-            <button type="button" onClick={handleClick}>
+            <button type='button' onClick={handleClick}>
               {console.log('clicked')}
               Remove Item
             </button>
