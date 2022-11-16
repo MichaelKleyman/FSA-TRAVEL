@@ -36,36 +36,35 @@ function Cart({ userId }) {
   }
 
   return (
-    <div className="navbar-cart">
-      <button onClick={toggleModal}>
+    <div className='navbar-cart'>
+      <div onClick={toggleModal}>
         {/* <img src='https://i.imgur.com/vmj1zg7.jpg' className='cart image' /> */}
-        <FaShoppingCart size={35} />
-      </button>
+        <FaShoppingCart size={35} className='cart-button' />
+      </div>
       {modal && (
-        <div className="modal">
-          <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content">
-            <div className="cart-close">
-              <button className="closeModal" onClick={toggleModal}>
-                X
-              </button>
-            </div>
-            <div className="modal-inside">
-              <h2>Cart</h2>
+        <div className='modal'>
+          <div onClick={toggleModal} className='overlay'></div>
+          <div className='modal-content'>
+            <button className='closeModal' onClick={toggleModal}>
+              X
+            </button>
+            <h2>Cart</h2>
 
-              {cart.map((item) => (
+            {cart.length ? (
+              cart.map((item) => (
                 <CartItem
                   item={item}
                   id={userId}
                   fetchCart={fetchCart}
                   key={item.id}
                 />
-              ))}
-
-              <Link onClick={toggleModal} to={'/checkout'}>
-                Checkout
-              </Link>
-            </div>
+              ))
+            ) : (
+              <div>No flights in the cart</div>
+            )}
+            <Link to={`/checkout`} className='logout-button'>
+              Checkout
+            </Link>
           </div>
         </div>
       )}

@@ -60,12 +60,13 @@ const ManageUsers = ({ users, allUsers, role }) => {
                       {user.username}
                     </ul>
                     <button
+                      className='remove-button'
                       onClick={() => {
                         dispatch(deleteUser(user.id));
                         allUsers();
                       }}
                     >
-                      Remove
+                      Remove User
                     </button>
                   </li>
                 </div>
@@ -77,6 +78,7 @@ const ManageUsers = ({ users, allUsers, role }) => {
                 popUpToggle={popUpToggle}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
+                role={role}
               />
             </ul>
           </div>
