@@ -23,10 +23,7 @@ export const Home = (props) => {
   useEffect(() => {
     fetchCities();
     console.log('local storage', localStorage.getItem('save'));
-    console.log(
-      'SDFSDFIUGHSEJKHHGBFLSEGILF',
-      window.localStorage.getItem('save')
-    );
+    console.log(window.localStorage.getItem('save'));
   }, []);
 
   const handleSearchButton = (event) => {
