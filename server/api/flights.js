@@ -16,6 +16,23 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.get('/travelapi/:from/:destination', async (req, res, next) => {
+  try {
+    console.log('flights api body', req);
+    const { data } = await axios.get(
+      `http://api.travelpayouts.com/v1/prices/calendar?depart_date=2022-11&currency=USD&origin=${req.params.from}&destination=${req.params.destination}`,
+      {
+        headers: {
+          'x-access-token': 'ed36fb1a96dc9c4593b94a42e1a6825a',
+        },
+      }
+    );
+    res.send(data);
+  } catch (error) {
+    console.log('flights api error', error);
+  }
+});
+
 router.get('/:id', async (req, res, next) => {
   try {
     const flight = await Flights.findByPk(req.params.id);

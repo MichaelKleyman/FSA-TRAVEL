@@ -55,15 +55,17 @@ export const Home = (props) => {
     const destSlice = destinationFull.indexOf('-');
     const from = fromFull.slice(fromSlice + 1) || 'empty';
     const destination = destinationFull.slice(destSlice + 1) || 'empty';
+
     fetchData(from, destination);
   };
   const fetchCities = async () => {
     const { data } = await axios.get('/api/airports');
+
     setCities(data);
   };
   const fetchData = async (from, destination) => {
     const { data } = await axios.get(
-      `http://api.travelpayouts.com/v1/prices/calendar?depart_date=2022-11&currency=USD&origin=${from}&destination=${destination}&token=ed36fb1a96dc9c4593b94a42e1a6825a`
+      `/api/flights/travelapi/${from}/${destination}`
     );
     if (Object.keys(data.data).length === 0) {
       window.alert('No Flights Available!');
