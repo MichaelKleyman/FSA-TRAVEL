@@ -6,6 +6,7 @@ import Pagination from './Pagination';
 import axios from 'axios';
 import { SearchBar } from './SearchBar';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi';
 
 /**
  * COMPONENT
@@ -23,29 +24,46 @@ export const Home = (props) => {
   useEffect(() => {
     fetchCities();
     console.log('local storage', localStorage.getItem('save'));
-    console.log(
-      'SDFSDFIUGHSEJKHHGBFLSEGILF',
-      window.localStorage.getItem('save')
-    );
+    console.log(window.localStorage.getItem('save'));
   }, []);
+
+  const handleDecrementTravelers = (event) => {
+    const trav = document.getElementById('travelers-num');
+    let num = parseInt(trav.innerHTML);
+    if (num > 1) {
+      num--;
+    }
+    trav.innerHTML = num;
+  };
+
+  const handleIncrementTravelers = (event) => {
+    const trav = document.getElementById('travelers-num');
+    let num = parseInt(trav.innerHTML);
+    if (num < 6) {
+      num++;
+    }
+    trav.innerHTML = num;
+  };
 
   const handleSearchButton = (event) => {
     event.preventDefault();
     const fromFull = event.target.from.value;
-    const fromSlice = fromFull.indexOf('-');
+    const fromSlice = fromFull.lastIndexOf('-');
     const destinationFull = event.target.destination.value;
-    const destSlice = destinationFull.indexOf('-');
+    const destSlice = destinationFull.lastIndexOf('-');
     const from = fromFull.slice(fromSlice + 1) || 'empty';
     const destination = destinationFull.slice(destSlice + 1) || 'empty';
+
     fetchData(from, destination);
   };
   const fetchCities = async () => {
     const { data } = await axios.get('/api/airports');
+
     setCities(data);
   };
   const fetchData = async (from, destination) => {
     const { data } = await axios.get(
-      `http://api.travelpayouts.com/v1/prices/calendar?depart_date=2022-11&currency=USD&origin=${from}&destination=${destination}&token=ed36fb1a96dc9c4593b94a42e1a6825a`
+      `/api/flights/travelapi/${from}/${destination}`
     );
     if (Object.keys(data.data).length === 0) {
       window.alert('No Flights Available!');
@@ -64,9 +82,22 @@ export const Home = (props) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <React.Fragment>
-      <div className="box-container">
-        <div className="booking-container">
-          <h3 className="booking-title">Book Your Flights {username}</h3>
+      <div className='box-container'>
+        <div className='booking-container'>
+          <h3 className='booking-title'>Book Your Flights {username}</h3>
+          <div className='booking-travelers'>
+            <div onClick={handleDecrementTravelers} className='traveler-button'>
+              <FiMinusCircle className='add-minus-button' />
+            </div>
+            <p id='travelers'>Travelers</p>
+
+            <div onClick={handleIncrementTravelers} className='traveler-button'>
+              <FiPlusCircle className='add-minus-button' />
+            </div>
+          </div>
+          <p id='travelers-num' className='traveler-number'>
+            1
+          </p>
           <SearchBar handleSearchButton={handleSearchButton} cities={cities} />
         </div>
       </div>
