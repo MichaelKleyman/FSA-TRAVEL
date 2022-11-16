@@ -6,7 +6,7 @@ const luxon = require('luxon');
 function FlightCard({ flight, k, changeContent }) {
   let dt = luxon.DateTime.fromISO(flight.departure_at);
   return (
-    <div key={k}>
+    <div>
       <div className='card'>
         <div className='card-date'>
           <p>{dt.toLocaleString(luxon.DateTime.DATETIME_MED)}</p>
