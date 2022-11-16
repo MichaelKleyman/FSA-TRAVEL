@@ -12,9 +12,17 @@ function AddFlight(props) {
   const addFlightToCart = (flight) => {
     flight.userId = auth;
     window.localStorage.setItem('save', JSON.stringify(flight));
+
     dispatch(addFlight(flight));
     dispatch(fetchCart(auth));
     setAdded({ added: !added });
+
+
+    const trav = document.getElementById('travelers-num');
+    flight.travelers = parseInt(trav.innerHTML);
+
+   
+
   };
 
   return (

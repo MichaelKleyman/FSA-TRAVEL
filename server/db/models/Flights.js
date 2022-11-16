@@ -30,12 +30,12 @@ const Flights = db.define('flight', {
     type: Sequelize.STRING,
     defaultValue: 'FS',
   },
-  // travelers: {
-  //   type: Sequelize.INTEGER,
-  //   allowNull: false,
-  //   min: 1,
-  //   max: 6,
-  // },
+  travelers: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+    min: 1,
+    max: 6,
+  },
 });
 
 module.exports = Flights;
