@@ -7,7 +7,7 @@ const Navbar = ({ isLoggedIn, userId }) => (
     {isLoggedIn ? (
       <div className='navbar-links'>
         <Link to='/home' className='nav-link float-logo'>
-          FSA-TRAVEL
+          <img src='https://i.imgur.com/yNx0KW5.png' className='nav-logo' />
         </Link>
         <Cart userId={userId} />
         <Link to='/home' className='nav-link float-home'>
@@ -20,7 +20,7 @@ const Navbar = ({ isLoggedIn, userId }) => (
     ) : (
       <div className='navbar-links'>
         <Link to='/home' className='nav-link float-logo'>
-          FSA-TRAVEL
+          <img src='https://i.imgur.com/yNx0KW5.png' className='nav-logo' />
         </Link>
         <Cart userId={userId} />
         <Link to='/login' className='nav-link float-login'>
