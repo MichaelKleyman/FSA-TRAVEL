@@ -537,6 +537,7 @@ body.active-modal {
   background: rgba(49, 49, 49, 0.8);
 }
 .modal-content {
+  display: block;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -545,8 +546,12 @@ body.active-modal {
   background: #f1f1f1;
   padding: 3rem 6rem;
   border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
+  /* max-width: 100%;
+  min-width: 300px; */
+  overflow: auto;
+}
+.cart-modal-card {
+  display: block;
 }
 
 /* .modal-container {
@@ -571,6 +576,14 @@ body.active-modal {
 
   right: 10px;
   padding: 5px 7px;
+}
+.closeModal {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+}
+.closeModal:hover {
+  color: red;
 }
 
 /* End Detail Modal */

@@ -46,9 +46,9 @@ function Cart({ userId }) {
           <div onClick={toggleModal} className='overlay'></div>
           <div className='modal-content'>
             <div className='cart-close'>
-              <button className='closeModal' onClick={toggleModal}>
+              <div className='closeModal' onClick={toggleModal}>
                 X
-              </button>
+              </div>
             </div>
             <div className='modal-inside'>
               <h2>Cart</h2>
