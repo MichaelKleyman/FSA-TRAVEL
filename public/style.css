@@ -903,19 +903,17 @@ body.active-modal {
   margin-top: 5%;
   margin-right: 25%;
 }
-/* 
+/*
 h1,
 h3 {
   text-align: center;
 } */
 
-
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
-} */
-
-.dropdown {
+}
+*/ .dropdown {
   overflow: hidden;
 }
 
@@ -937,9 +935,10 @@ h3 {
 }
 
 /* Add a red background color to navbar links on hover */
-.navbar a:hover, .dropdown:hover .dropbtn {
+.navbar a:hover,
+.dropdown:hover .dropbtn {
   background-color: black;
-  color: blue
+  color: blue;
 }
 
 /* Dropdown content (hidden by default) */
@@ -949,7 +948,7 @@ h3 {
   position: absolute;
   background-color: black;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -973,7 +972,6 @@ h3 {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 
 .checkout {
   display: flex;
@@ -1012,4 +1010,3 @@ h3 {
 /* .checkout-title{
   margin-left: 50%;
 } */
-
