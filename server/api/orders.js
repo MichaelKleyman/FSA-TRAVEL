@@ -40,6 +40,7 @@ router.post('/', async (req, res, next) => {
     const cart = await Carts.findByPk(req.body.userId);
     const flights = await cart.getFlights();
     await order.setFlights(flights);
+    await cart.removeOrders(order);
     res.json(order);
   } catch (error) {
     console.log('orders post', error);

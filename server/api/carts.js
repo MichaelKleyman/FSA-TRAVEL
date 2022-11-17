@@ -58,6 +58,7 @@ router.delete('/:id', async (req, res, next) => {
     const cart = await Carts.findByPk(req.body.id);
     console.log('REQ PARAMS>>>>', req.params);
     await cart.removeFlights(req.params.id);
+
     res.status(204).json('Delete');
   } catch (err) {
     next(err);
