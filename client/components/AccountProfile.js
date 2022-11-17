@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { updateUser } from '../store';
 import ProfileInfo from './AccountProfile/ProfileInfo';
-
+import OrderHistory from './OrderHistory';
 const AccountProfile = ({ handleClick, user }) => {
   const dispatch = useDispatch();
   const [userInfo, setUserInfo] = useState({

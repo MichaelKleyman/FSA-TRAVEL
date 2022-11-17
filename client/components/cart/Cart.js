@@ -66,7 +66,11 @@ function Cart({ userId }) {
                 <div>No flights in the cart</div>
               )}
               {cart.length ? (
-                <Link to={`/checkout`} className='checkout-button'>
+                <Link
+                  to={`/checkout`}
+                  onClick={toggleModal}
+                  className='checkout-button'
+                >
                   Checkout
                 </Link>
               ) : null}

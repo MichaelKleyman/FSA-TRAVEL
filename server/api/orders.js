@@ -5,11 +5,7 @@ const stripe = require('stripe')(process.env.SECRET_KEY);
 const Carts = require('../db/models/Cart');
 router.get('/', async (req, res, next) => {
   try {
-    const orders = await Orders.findAll({
-      where: {
-        id: req.params.id,
-      },
-    });
+    const orders = await Orders.findAll();
     res.json(orders);
   } catch (err) {
     next(err);

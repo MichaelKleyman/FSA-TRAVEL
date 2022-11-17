@@ -36,6 +36,26 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+router.get('/orderhistory/:id', async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    const orders = await user.getOrders();
+    const flightarr = [];
+    for (let i = 0; i < orders.length; i++) {
+      const insideFlights = await orders[i].getFlights();
+      for (let k = 0; k < insideFlights.length; k++) {
+        console.log(orders[i].date);
+        flightarr.push(insideFlights[k]);
+      }
+    }
+    // const flightone = await orders[0].getFlights();
+    // const flights = await orders.getFlights();
+    res.json(flightarr);
+  } catch (error) {
+    console.log('orderhistory error', error);
+  }
+});
+
 router.post('/', async (req, res, next) => {
   try {
     console.log('created user');
