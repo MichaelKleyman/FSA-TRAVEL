@@ -17,6 +17,7 @@ router.get('/', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   try {
     const order = await Orders.findByPk(req.params.id);
+    console.log('test');
     res.json(order);
   } catch (err) {
     next(err);
@@ -25,6 +26,7 @@ router.get('/:id', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
+    console.log(req.body);
     const timestamp = new Date().toDateString();
     const order = await Orders.create({
       completed: true,
@@ -35,9 +37,9 @@ router.post('/', async (req, res, next) => {
 
       total: req.body.total,
     });
-
-    order.setFlights(req.body.flightId);
-
+    const cart = await Carts.findByPk(req.body.userId);
+    const flights = await cart.getFlights();
+    await order.setFlights(flights);
     res.json(order);
   } catch (error) {
     console.log('orders post', error);

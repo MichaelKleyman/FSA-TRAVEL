@@ -36,10 +36,10 @@ router.put('/', async (req, res, next) => {
 });
 
 //delete all flights from cart
-router.delete('/all', async (req, res, next) => {
+router.delete('/all/:id', async (req, res, next) => {
   try {
-    console.log('REQ BODY >>>', req.body.id);
-    const cart = await Carts.findByPk(req.body.id);
+    console.log('REQ BODY >>>', req.params.id);
+    const cart = await Carts.findByPk(req.params.id);
     const flights = await cart.getFlights();
     console.log(flights);
     await cart.removeFlights(flights);
