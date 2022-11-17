@@ -141,7 +141,13 @@ label {
 }
 .add-minus-button {
   margin: 10px;
+  cursor: pointer;
 }
+
+.add-minus-button:hover {
+  color: white;
+}
+
 .traveler-number {
   font-size: 25px;
   font-weight: bold;
@@ -289,6 +295,27 @@ input:focus {
   padding: 5px;
   margin: 5px;
 }
+
+.card-btn3 {
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  background-color: lightblue;
+}
+.details-card-btn2 {
+  float: right;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+}
+.details-card-btn3 {
+  float: right;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  background-color: lightblue;
+}
+
 /* End Card Css */
 
 .card-login {
@@ -348,6 +375,10 @@ input:focus {
 
 /* PopUp Section */
 
+.pop-up-content {
+  margin: 1rem;
+}
+
 .pop-up-container {
   position: fixed;
   top: 0;
@@ -365,24 +396,51 @@ input:focus {
   background-image: 100%;
   background-image: 100%;
   width: 70%;
-  height: 70%;
+  height: 75%;
   font-weight: bold;
   font-size: 20px;
-
+  /* padding: 1rem; */
   margin: auto;
+  overflow: scroll;
+  border-radius: 30px;
+}
+.pop-up-body-details {
+  background-image: url(https://i.imgur.com/u4XyqW3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: 100%;
+  width: 70%;
+  height: 60%;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 20px;
 }
 .pop-up-header {
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   text-align: right;
   background-color: black;
 }
+
+.admin-popup-header {
+  padding: 10px;
+  width: 100%;
+  background-color: black;
+}
+
 .pop-up-x {
   cursor: pointer;
   font-size: 20px;
   font-weight: bold;
-  color: red;
+  color: white;
   padding: 10px;
+  /* float: right; */
+}
+
+.pop-up-x:hover {
+  color: blue;
 }
 
 .pop-up-card {
@@ -468,15 +526,32 @@ body.active-modal {
   transform: translate(-50%, -50%);
   line-height: 1.4;
   background: #f1f1f1;
-  padding: 14px 28px;
+  padding: 3rem 6rem;
   border-radius: 3px;
   max-width: 600px;
   min-width: 300px;
 }
 
+/* .modal-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding-top: 15%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  margin-top: 12rem;
+  margin-left: 52rem;
+} */
+
 .close-modal {
-  float: right;
-  top: 10px;
+  position: absolute;
+
+  /*float: right;*/
+  /*top: 10px;*/
+
   right: 10px;
   padding: 5px 7px;
 }
@@ -560,8 +635,24 @@ body.active-modal {
   font-weight: normal;
 }
 
+.admin-task2 {
+  position: relative;
+  bottom: 2rem;
+  font-size: 1rem;
+  color: blue;
+  font-weight: normal;
+  margin-left: 5rem;
+}
+
 .admin-task:hover {
   text-decoration: underline;
+  cursor: pointer;
+}
+
+.admin-task2:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: whitesmoke;
 }
 
 .task-title {
@@ -587,6 +678,7 @@ body.active-modal {
 
 .users-list {
   margin-right: 28rem;
+  margin-bottom: 1.2rem;
 }
 
 .user {
@@ -619,6 +711,57 @@ body.active-modal {
   color: white;
 }
 
+.remove-button {
+  border: none;
+  border-radius: 30px;
+  width: 60%;
+  padding: 5px;
+  margin-right: 8rem;
+  background-color: lightblue;
+}
+
+.remove-button:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+  color: white;
+}
+
+.cart-item {
+  margin: 1rem;
+  border: lightgray solid;
+  padding: 1rem;
+  width: 100%;
+}
+
+#logInDiv {
+  margin: 1rem;
+}
+
+.users-cart {
+  float: right;
+  margin-right: 7rem;
+  background-color: white;
+  width: 40%;
+  padding: 2rem;
+  border-radius: 30px;
+  border: black solid;
+  overflow: scroll;
+}
+
+.admin-cart-item {
+  border: lightgray solid;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.cart-button {
+  color: white;
+}
+
+.cart-button:hover {
+  color: blue;
+}
+
 .cart-card {
   /* overflow: hidden; */
   flex-wrap: wrap;
@@ -639,11 +782,11 @@ body.active-modal {
   text-align: right;
 }
 
-.checkout-items{
- justify-content: right;
+.checkout-items {
+  justify-content: right;
 }
 
-.checkout-card{
+.checkout-card {
   flex-wrap: wrap;
   border: 1px solid;
   font-weight: bold;
@@ -655,69 +798,71 @@ body.active-modal {
   box-shadow: 2px 2px 2px 2px black;
 }
 
-.checkout-container{
+.checkout-container {
   display: flex;
   justify-content: right;
   flex-wrap: wrap;
   height: auto;
 }
 
-
 .FormGroup {
-	margin: 0 15px 20px;
-	padding: 0;
-	border-style: none;
-	background-color: #7795f8;
-	will-change: opacity, transform;
-	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
-	border-radius: 4px;
+  margin: 0 15px 20px;
+  padding: 0;
+  border-style: none;
+  background-color: #7795f8;
+  will-change: opacity, transform;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #829fff;
+  border-radius: 4px;
 }
 
 .FormRow {
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-align: center;
-	align-items: center;
-	margin-left: 15px;
-	border-top: 1px solid #819efc;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-left: 15px;
+  border-top: 1px solid #819efc;
 }
 
 .StripeElement--webkit-autofill {
-	background: transparent !important;
+  background: transparent !important;
 }
 
 .StripeElement {
-	width: 100%;
-	padding: 11px 15px 11px 0;
+  width: 100%;
+  padding: 11px 15px 11px 0;
 }
 
 .stripe-button {
-	display: block;
-	font-size: 16px;
-	width: calc(100% - 30px);
-	height: 40px;
-	margin: 40px 15px 0;
-	background-color: #f6a4eb;
-	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #ffb9f6;
-	border-radius: 4px;
-	color: #fff;
-	font-weight: 600;
-	cursor: pointer;
-	transition: all 100ms ease-in-out;
-	will-change: transform, background-color, box-shadow;
-	border: none;
+  display: block;
+  font-size: 16px;
+  width: calc(100% - 30px);
+  height: 40px;
+  margin: 40px 15px 0;
+  background-color: #f6a4eb;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #ffb9f6;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  will-change: transform, background-color, box-shadow;
+  border: none;
 }
 
 .stripe-button:active {
-	background-color: #d782d9;
-	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #e298d8;
-	transform: scale(0.99);
+  background-color: #d782d9;
+  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #e298d8;
+  transform: scale(0.99);
 }
 
 .App {
-	margin-left: 25%;
-	margin-top: 5%;
-	margin-right: 25%;
+  margin-left: 25%;
+  margin-top: 5%;
+  margin-right: 25%;
 }
 /* 
 h1,

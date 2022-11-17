@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Carts = require('../db/models/Cart');
+const Flights = require('../db/models/Flights');
 
 //api/carts
 
@@ -7,8 +8,8 @@ router.get('/:id', async (req, res, next) => {
   try {
     const cart = await Carts.findByPk(req.params.id);
     const flights = await cart.getFlights();
-    console.log('CARTS >>>', cart);
-    console.log('FLIGHTS >>>', flights);
+    // console.log('CARTS >>>', cart);
+    // console.log('FLIGHTS >>>', flights);
     res.json(flights);
   } catch (err) {
     next(err);
@@ -34,10 +35,28 @@ router.put('/', async (req, res, next) => {
   res.send(200);
 });
 
+//delete all flights from cart
+router.delete('/all/:id', async (req, res, next) => {
+  try {
+    console.log('REQ BODY >>>', req.params.id);
+    const cart = await Carts.findByPk(req.params.id);
+    const flights = await cart.getFlights();
+    console.log(flights);
+    await cart.removeFlights(flights);
+    res.status(204).json('Delete');
+  } catch (err) {
+    next(err);
+  }
+});
+
+//delete singular flights
 router.delete('/:id', async (req, res, next) => {
   try {
-    console.log('REQ BODY >>>', req.body.id);
+    //body is user id
+    //params is flight id
+    console.log('REQ BODY >>>', req.body);
     const cart = await Carts.findByPk(req.body.id);
+    console.log('REQ PARAMS>>>>', req.params);
     await cart.removeFlights(req.params.id);
     res.status(204).json('Delete');
   } catch (err) {

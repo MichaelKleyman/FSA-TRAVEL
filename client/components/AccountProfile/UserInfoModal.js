@@ -1,4 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
+import { fetchCart } from '../../store/addCart';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 
 const UserInfoModal = ({
   user,
@@ -7,16 +11,77 @@ const UserInfoModal = ({
   handleChange,
   popUpToggle,
   changeContent,
+  role,
 }) => {
+  const [viewCart, setViewCart] = useState(false);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.addCartReducer);
+  const totalPrice = cart.reduce((accum, item) => {
+    return accum + item.price;
+  }, 0);
+
+  function usersCart() {
+    setViewCart(!viewCart);
+    dispatch(fetchCart(userInfo.id));
+    console.log('>>>>CART', cart);
+  }
+
+  async function handleClick(itemId) {
+    const something = await axios.delete(`/api/carts/${itemId}`, {
+      data: { id: userInfo.id },
+    });
+    dispatch(fetchCart(userInfo.id));
+  }
+
   return (
     <div>
       {popUpToggle && (
         <div className='pop-up-container'>
           <div className='pop-up-body' onClick={(e) => e.stopPropagation()}>
-            <div className='pop-up-header'>
-              <button className='pop-up-x' onClick={changeContent}>
-                X
-              </button>
+            <div className='admin-popup-header'>
+              <div className='pop-up-card'>
+                <div
+                  className='pop-up-x'
+                  onClick={() => {
+                    changeContent();
+                    setViewCart(!viewCart);
+                  }}
+                >
+                  X
+                </div>
+
+                {role === 'admin' ? (
+                  <p className='admin-task2' onClick={usersCart}>
+                    Users Cart
+                  </p>
+                ) : null}
+
+                {role === 'admin' && viewCart ? (
+                  <div className='users-cart'>
+                    <header
+                      style={{
+                        fontWeight: 'lighter',
+                        textDecoration: 'underline',
+                      }}
+                    >
+                      {userInfo.username}'s Cart Info
+                    </header>
+                    <small>Quantity: {cart.length}</small>
+                    {cart.map((cartItem) => (
+                      <h6 key={cartItem.id} className='admin-cart-item'>
+                        <div>Flying from: {cartItem.origin}</div>
+                        <div>Landing at: {cartItem.destination}</div>
+                        <div>Price: ${cartItem.price}</div>
+                        <div>Travelers: {cartItem.travelers}</div>
+                        <button onClick={() => handleClick(cartItem.id)}>
+                          x
+                        </button>
+                      </h6>
+                    ))}
+                    <small>Total Price: ${totalPrice}</small>
+                  </div>
+                ) : null}
+              </div>
             </div>
             <div className='pop-up-content'>
               <div className='pop-up-card'>

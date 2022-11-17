@@ -8,7 +8,7 @@ const Orders = db.define('order', {
   },
   //date purchased
   date: {
-    type: Sequelize.DATEONLY,
+    type: Sequelize.STRING,
     allowNull: false,
   },
   total: {

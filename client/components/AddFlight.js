@@ -6,24 +6,32 @@ import { fetchCart } from '../store/addCart';
 
 function AddFlight(props) {
   const dispatch = useDispatch();
-
+  const [added, setAdded] = useState(false);
   const auth = useSelector((state) => state.auth.id);
 
   const addFlightToCart = (flight) => {
     flight.userId = auth;
     window.localStorage.setItem('save', JSON.stringify(flight));
-    // console.log(addFlight(flight));
     const trav = document.getElementById('travelers-num');
     flight.travelers = parseInt(trav.innerHTML);
-    console.log(flight);
     dispatch(addFlight(flight));
     dispatch(fetchCart(auth));
+    setAdded({ added: !added });
   };
 
   return (
-    <button className='card-btn2' onClick={() => addFlightToCart(props.flight)}>
-      Add To Cart
-    </button>
+    <>
+      {!added ? (
+        <button
+          className='card-btn2'
+          onClick={() => addFlightToCart(props.flight)}
+        >
+          Add To Cart
+        </button>
+      ) : (
+        <button className='card-btn3'>Added</button>
+      )}
+    </>
   );
 }
 
