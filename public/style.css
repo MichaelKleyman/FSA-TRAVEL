@@ -391,6 +391,7 @@ input:focus {
 
 .pop-up-body {
   background-image: url(https://i.imgur.com/iuI2gFd.jpeg);
+  background-color: white;
   background-size: cover;
   background-repeat: no-repeat;
   background-image: 100%;
@@ -401,7 +402,23 @@ input:focus {
   font-size: 20px;
   /* padding: 1rem; */
   margin: auto;
-  overflow: scroll;
+  overflow: auto;
+  border-radius: 30px;
+}
+.admin-pop-up-body {
+  /* background-image: url(https://i.imgur.com/iuI2gFd.jpeg); */
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: 100%;
+  background-image: 100%;
+  width: 70%;
+  height: 75%;
+  font-weight: bold;
+  font-size: 20px;
+  /* padding: 1rem; */
+  margin: auto;
+  overflow: auto;
   border-radius: 30px;
 }
 .pop-up-body-details {
@@ -584,7 +601,7 @@ body.active-modal {
   border-radius: 30px;
   width: 20%;
   padding: 5px;
-  margin-right: 18rem;
+  margin-right: 8rem;
   background-color: lightblue;
 }
 
@@ -602,18 +619,8 @@ body.active-modal {
   border-radius: 30px;
   width: 20%;
   padding: 5px;
-  margin-top: -1.83rem;
-  margin-left: 1rem;
-  background-color: lightblue;
-}
-
-.order-button {
-  border: none;
-  border-radius: 30px;
-  width: 20%;
-  padding: 5px;
-  margin-top: -1.8rem;
-  margin-left: 18rem;
+  margin-top: -1.63rem;
+  margin-left: 8rem;
   background-color: lightblue;
 }
 
@@ -630,11 +637,6 @@ body.active-modal {
 }
 
 .edit-button:hover {
-  background-color: darkgrey;
-  cursor: pointer;
-  color: white;
-}
-.order-button:hover {
   background-color: darkgrey;
   cursor: pointer;
   color: white;
@@ -768,22 +770,26 @@ body.active-modal {
 }
 
 .users-cart {
+  align-items: center;
+  justify-content: center;
   float: right;
-  margin-right: 7rem;
+  margin: auto;
   background-color: white;
   width: 40%;
-  padding: 2rem;
-  border-radius: 30px;
+  padding: 1rem;
+  border-radius: 20px;
   border: black solid;
-  overflow: scroll;
 }
 
 .admin-cart-item {
   border: lightgray solid;
+  box-shadow: 2px 5px 5px 2px black;
   margin: 1rem;
-  padding: 1rem;
+  padding: 2rem;
 }
-
+.remove-flight {
+  float: right;
+}
 .cart-button {
   color: white;
 }
@@ -897,17 +903,83 @@ body.active-modal {
   margin-top: 5%;
   margin-right: 25%;
 }
-/*
+/* 
 h1,
 h3 {
-	text-align: center;
+  text-align: center;
 } */
 
-.checkout{
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+} */
+
+.dropdown {
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  margin-top: 25px;
+  font-size: 25px;
+  float: right;
+  padding: 10px;
+  color: white;
+  border-color: black;
+  background-color: black;
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: black;
+  color: blue
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  margin-top: 75px;
+  display: none;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: white;
+  background-color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: black;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+.checkout {
   display: flex;
   justify-content: space-between;
 }
-.checkout-item{
+.checkout-item {
   width: 50%;
   height: 700px;
   border: 1px solid black;
@@ -918,10 +990,26 @@ h3 {
   border-radius: 30px;
 }
 
-.checkout-payment{
+.checkout-payment {
   margin-top: 3rem;
 }
 
+.order-item {
+  margin: 1 rem;
+  margin-left: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px black solid;
+  width: 45%;
+  padding: 1 rem;
+}
+
+.order-detail {
+  width: 20%;
+  padding: 1rem;
+}
 /* .checkout-title{
   margin-left: 50%;
 } */
+

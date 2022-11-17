@@ -7,25 +7,34 @@ function OrderHistory(props) {
   const [orders, setOrders] = useState([]);
   const userId = useSelector((state) => state.auth.id);
 
+  const user = useSelector((state) => state.auth);
+
   useEffect(() => {
     fetchHistory();
   }, []);
   const fetchHistory = async () => {
-    const orders = await axios.get(`/api/users/orderhistory/${userId}`);
+    const orders = await axios.get(`/api/users/orderhistory/${user.id}`);
     console.log('testtttttt', orders.data);
     setOrders(orders.data);
   };
 
   return (
     <div>
-      {orders.map((orderObj) => {
+      <h2>{user.username}'s order history</h2>
+      <h5>Order quantity:{orders.length}</h5>
+      {orders.map((orderObj, k) => {
         return (
-          <div>
-            <div>origin {orderObj.origin}</div>
-            <div>destination {orderObj.destination}</div>
-            <div>airline {orderObj.airline}</div>
-            <div>flight number {orderObj.flight_number}</div>
-            <div>travelers {orderObj.travelers}</div>
+          <div className='order-item'>
+            <div className='order-detail'>order #{k + 1}</div>
+            <div className='order-detail'>origin {orderObj.origin}</div>
+            <div className='order-detail'>
+              destination {orderObj.destination}
+            </div>
+            <div className='order-detail'>airline {orderObj.airline}</div>
+            <div className='order-detail'>
+              flight number {orderObj.flight_number}
+            </div>
+            <div className='order-detail'>travelers {orderObj.travelers}</div>
           </div>
         );
       })}

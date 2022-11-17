@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-
+import { useHistory } from 'react-router-dom';
 const CARD_OPTIONS = {
   iconStyle: 'solid',
   style: {
@@ -27,7 +27,7 @@ function PaymentForm() {
   const [success, setSuccess] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-
+  const history = useHistory();
   const userId = useSelector((state) => state.auth.id);
 
   const handleSubmit = async (event) => {
@@ -49,6 +49,7 @@ function PaymentForm() {
         if (response.data.success) {
           console.log('Success');
           setSuccess(true);
+          history.push('/home');
         }
       } catch (err) {
         console.log('Error', err);
