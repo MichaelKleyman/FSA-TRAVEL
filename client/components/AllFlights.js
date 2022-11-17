@@ -35,7 +35,10 @@ function AllFlights(props) {
       })}
       {popUpToggle && (
         <div className='pop-up-container' onClick={changeContent}>
-          <div className='pop-up-body' onClick={(e) => e.stopPropagation()}>
+          <div
+            className='pop-up-body-details'
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className='pop-up-header'>
               <div className='pop-up-x' onClick={changeContent}>
                 X

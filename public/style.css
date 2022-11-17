@@ -390,8 +390,19 @@ input:focus {
   overflow: scroll;
   border-radius: 30px;
 }
+.pop-up-body-details {
+  background-image: url(https://i.imgur.com/u4XyqW3.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: 100%;
+  width: 70%;
+  height: 70%;
+  font-weight: bold;
+  font-size: 20px;
+  margin: auto;
+}
 .pop-up-header {
-  padding: 10px;
+  padding: 5px;
   width: 100%;
   text-align: right;
   background-color: black;
