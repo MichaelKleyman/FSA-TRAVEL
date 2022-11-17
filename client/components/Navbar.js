@@ -19,7 +19,7 @@ const Navbar = ({ isLoggedIn, userId }) => (
             <Link to={`/profile/${userId}`} className='nav-link float-account'>
               My Information
             </Link>
-            <Link to={`/profile/${userId}`} className='nav-link float-account'>
+            <Link to={`/orderhistory`} className='nav-link float-account'>
               Order History
             </Link>
           </div>

@@ -47,45 +47,47 @@ const ManageUsers = ({ users, allUsers, role }) => {
   }
 
   return (
-    <div className='task-container'>
-      {role === 'admin' ? (
-        <div>
-          <h1 className='task-title'>Admin Can Manage Users</h1>
+    <div className='manage'>
+      <div className='task-container'>
+        {role === 'admin' ? (
           <div>
-            <ul className='users-list'>
-              {users.map((user) => (
-                <div key={user.id}>
-                  <li>
-                    <ul className='user' onClick={() => handleClick(user)}>
-                      {user.username}
-                    </ul>
-                    <button
-                      className='remove-button'
-                      onClick={() => {
-                        dispatch(deleteUser(user.id));
-                        allUsers();
-                      }}
-                    >
-                      Remove User
-                    </button>
-                  </li>
-                </div>
-              ))}
-              <UserInfoModal
-                user={userInfo}
-                userInfo={userInfo}
-                changeContent={changeContent}
-                popUpToggle={popUpToggle}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                role={role}
-              />
-            </ul>
+            <h1 className='task-title'>Admin Can Manage Users</h1>
+            <div>
+              <ul className='users-list'>
+                {users.map((user) => (
+                  <div key={user.id}>
+                    <li>
+                      <ul className='user' onClick={() => handleClick(user)}>
+                        {user.username}
+                      </ul>
+                      <button
+                        className='remove-button'
+                        onClick={() => {
+                          dispatch(deleteUser(user.id));
+                          allUsers();
+                        }}
+                      >
+                        Remove User
+                      </button>
+                    </li>
+                  </div>
+                ))}
+                <UserInfoModal
+                  user={userInfo}
+                  userInfo={userInfo}
+                  changeContent={changeContent}
+                  popUpToggle={popUpToggle}
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                  role={role}
+                />
+              </ul>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div>Oops Page Not Found</div>
-      )}
+        ) : (
+          <div>Oops Page Not Found</div>
+        )}
+      </div>
     </div>
   );
 };
