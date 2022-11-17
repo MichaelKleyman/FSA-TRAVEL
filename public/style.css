@@ -588,6 +588,15 @@ body.active-modal {
   background-color: lightblue;
 }
 
+.checkout-button {
+  border: none;
+  border-radius: 30px;
+  width: 20%;
+  padding: 5px;
+  align-items: center;
+  background-color: lightblue;
+}
+
 .edit-button {
   border: none;
   border-radius: 30px;
@@ -599,6 +608,12 @@ body.active-modal {
 }
 
 .logout-button:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+  color: white;
+}
+
+.checkout-button:hover {
   background-color: darkgrey;
   cursor: pointer;
   color: white;
@@ -769,8 +784,8 @@ body.active-modal {
   font-weight: bold;
   background-color: white;
   width: 300px;
-  height: 125px;
-  margin: 5px;
+  height: 155px;
+  margin: 15px;
   padding: 5px;
   box-shadow: 2px 2px 2px 2px black;
 }

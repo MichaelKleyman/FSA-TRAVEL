@@ -32,7 +32,7 @@ const CartItem = (props) => {
             <p>{dt.toLocaleString(luxon.DateTime.DATETIME_MED)}</p>
             <button type='button' onClick={handleClick}>
               {console.log('clicked')}
-              Remove Item
+              Remove Flight
             </button>
           </div>
 
