@@ -18,9 +18,9 @@ function OrderHistory(props) {
   };
 
   return (
-    <div>
-      <h2>{user.username}'s order history</h2>
-      <h5>Order quantity:{orders.length}</h5>
+    <div className='order-history'>
+      <h2 className='order-header'>{user.username}'s order history</h2>
+      <h5 className='order-quantity'>Order quantity:{orders.length}</h5>
       {orders.map((orderObj, k) => {
         return (
           <div className='order-item'>

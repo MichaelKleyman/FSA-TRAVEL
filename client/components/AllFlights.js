@@ -30,7 +30,11 @@ function AllFlights(props) {
     <div className='card-container'>
       {flights.map(([k, flight]) => {
         return (
-          <FlightCard flight={flight} key={k} changeContent={changeContent} />
+          <FlightCard
+            flight={flight}
+            key={k + flight.flight_number}
+            changeContent={changeContent}
+          />
         );
       })}
       {popUpToggle && (
