@@ -44,7 +44,6 @@ const AccountProfile = ({ handleClick, user }) => {
   return (
     <div className='account-container'>
       <div className='profile-container'>
-        <OrderHistory />
         {user.role === 'user' ? (
           <ProfileInfo
             user={user}
