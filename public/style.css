@@ -557,7 +557,7 @@ body.active-modal {
   border-radius: 30px;
   width: 20%;
   padding: 5px;
-  margin-right: 8rem;
+  margin-right: 18rem;
   background-color: lightblue;
 }
 
@@ -566,8 +566,18 @@ body.active-modal {
   border-radius: 30px;
   width: 20%;
   padding: 5px;
-  margin-top: -1.63rem;
-  margin-left: 8rem;
+  margin-top: -1.83rem;
+  margin-left: 1rem;
+  background-color: lightblue;
+}
+
+.order-button {
+  border: none;
+  border-radius: 30px;
+  width: 20%;
+  padding: 5px;
+  margin-top: -1.8rem;
+  margin-left: 18rem;
   background-color: lightblue;
 }
 
@@ -578,6 +588,11 @@ body.active-modal {
 }
 
 .edit-button:hover {
+  background-color: darkgrey;
+  cursor: pointer;
+  color: white;
+}
+.order-button:hover {
   background-color: darkgrey;
   cursor: pointer;
   color: white;
@@ -837,7 +852,7 @@ body.active-modal {
   margin-top: 5%;
   margin-right: 25%;
 }
-/* 
+/*
 h1,
 h3 {
 	text-align: center;

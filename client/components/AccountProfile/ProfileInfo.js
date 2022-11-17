@@ -56,6 +56,10 @@ const ProfileInfo = ({
       >
         Edit
       </button>
+
+      <button className='order-button' onClick={() => changeContent({ user })}>
+        Order History
+      </button>
       <UserInfoModal
         user={user}
         userInfo={userInfo}

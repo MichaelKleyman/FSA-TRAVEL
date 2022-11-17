@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { updateUser } from '../store';
 import ProfileInfo from './AccountProfile/ProfileInfo';
-
+import OrderHistory from './OrderHistory';
 const AccountProfile = ({ handleClick, user }) => {
   const dispatch = useDispatch();
   const [userInfo, setUserInfo] = useState({
@@ -44,6 +44,7 @@ const AccountProfile = ({ handleClick, user }) => {
   return (
     <div className='account-container'>
       <div className='profile-container'>
+        <OrderHistory />
         {user.role === 'user' ? (
           <ProfileInfo
             user={user}
