@@ -10,11 +10,11 @@ const Navbar = ({ isLoggedIn, userId }) => (
           <img src='https://i.imgur.com/yNx0KW5.png' className='nav-logo' />
         </Link>
         <Cart userId={userId} />
-        <Link to='/home' className='nav-link float-home'>
-          Home
-        </Link>
         <Link to={`/profile/${userId}`} className='nav-link float-account'>
           Account
+        </Link>
+        <Link to='/home' className='nav-link float-home'>
+          Home
         </Link>
       </div>
     ) : (
