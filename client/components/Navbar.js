@@ -10,9 +10,20 @@ const Navbar = ({ isLoggedIn, userId }) => (
           <img src='https://i.imgur.com/yNx0KW5.png' className='nav-logo' />
         </Link>
         <Cart userId={userId} />
-        <Link to={`/profile/${userId}`} className='nav-link float-account'>
-          Account
-        </Link>
+        <div className='dropdown'>
+          <button className='dropbtn'>
+            Account
+            <i class='fa fa-caret-down'></i>
+          </button>
+          <div className='dropdown-content'>
+            <Link to={`/profile/${userId}`} className='nav-link float-account'>
+              My Information
+            </Link>
+            <Link to={`/profile/${userId}`} className='nav-link float-account'>
+              Order History
+            </Link>
+          </div>
+        </div>
         <Link to='/home' className='nav-link float-home'>
           Home
         </Link>
