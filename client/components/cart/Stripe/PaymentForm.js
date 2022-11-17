@@ -56,12 +56,12 @@ function PaymentForm() {
     <>
       {!success ? (
         <form onSubmit={handleSubmit}>
-          <fieldset className="FormGroup">
-            <div className="FormRow">
+          <fieldset className='FormGroup'>
+            <div className='FormRow'>
               <CardElement options={CARD_OPTIONS} />
             </div>
           </fieldset>
-          <button className="stripe-button">Pay</button>
+          <button className='stripe-button'>Pay</button>
         </form>
       ) : (
         <div>
