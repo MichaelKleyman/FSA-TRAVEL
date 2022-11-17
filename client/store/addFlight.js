@@ -15,9 +15,8 @@ const _addFlight = (flight) => {
 export const addFlight = (flight) => {
   try {
     return async (dispatch) => {
-      //console.log('STORE >>>', flight);
       const { data } = await axios.post('/api/flights', flight);
-      console.log('ADD FLIGHT>>>', data);
+
       dispatch(_addFlight(data));
     };
   } catch (err) {

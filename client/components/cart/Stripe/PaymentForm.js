@@ -68,7 +68,9 @@ function PaymentForm() {
               <CardElement options={CARD_OPTIONS} />
             </div>
           </fieldset>
-          <button className='stripe-button'>Pay</button>
+          <button className='stripe-button'>
+            Pay
+          </button>
         </form>
       ) : (
         <div>

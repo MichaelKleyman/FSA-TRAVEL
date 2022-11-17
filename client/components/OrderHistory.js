@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import { useHistory } from 'react-router-dom';
-import { connect, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 function OrderHistory(props) {
@@ -13,7 +13,6 @@ function OrderHistory(props) {
   }, []);
   const fetchHistory = async () => {
     const orders = await axios.get(`/api/users/orderhistory/${user.id}`);
-    console.log('testtttttt', orders.data);
     setOrders(orders.data);
   };
 

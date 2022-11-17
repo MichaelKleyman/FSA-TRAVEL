@@ -12,29 +12,29 @@ const User = db.define('user', {
     unique: true,
     allowNull: false,
     validate: {
-      notEmpty: true,
-    },
+      notEmpty: true
+    }
   },
   password: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true,
-    },
+      notEmpty: true
+    }
   },
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true,
-    },
+      notEmpty: true
+    }
   },
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
     validate: {
-      notEmpty: true,
-    },
+      notEmpty: true
+    }
   },
   email: {
     type: Sequelize.STRING,
@@ -42,7 +42,7 @@ const User = db.define('user', {
     allowNull: false,
     validate: {
       isEmail: true,
-      notEmpty: true,
+      notEmpty: true
     },
   },
   phone: {
@@ -50,6 +50,7 @@ const User = db.define('user', {
     allowNull: false,
     validate: {
       isNumeric: true,
+      notEmpty: true,
       len: [10, 10],
       notEmpty: true,
     },

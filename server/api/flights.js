@@ -79,39 +79,15 @@ router.post('/', async (req, res, next) => {
       airline: req.body.airline,
       travelers: req.body.travelers,
     });
-    console.log(req.body.userId);
+
     const user = await Users.findByPk(req.body.userId);
     const cart = await user.getCart();
-    // console.log('...........', cart);
+
     flight.addCart(cart.id);
     res.json(flight);
   } catch (error) {
     console.log('post flight', error);
   }
 });
-
-//MAY NOT NEED THIS AND INSTEAD JUST NOT GET FLIGHTS THAT ARE IN THE PAST
-// router.delete('/:id', async (req, res, next) => {
-//   try {
-//     let id = Number(req.params.id);
-//     if (!id) {
-//       res.status(400).send('Not a number!');
-//     } else {
-//       let flight = await Flights.findByPk(id);
-//       if (!flight) {
-//         res.status(404).send('Flight not found!');
-//       } else {
-//         await Flights.destroy({
-//           where: {
-//             id: id,
-//           },
-//         });
-//         res.status(204).send('Deleted flight!');
-//       }
-//     }
-//   } catch (err) {
-//     next(err);
-//   }
-// });
 
 module.exports = router;

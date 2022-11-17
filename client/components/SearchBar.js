@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-// import { useHistory } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from 'react';
 import AllFlights from './AllFlights';
 import Pagination from './Pagination';
-import axios from 'axios';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 export const SearchBar = ({ handleSearchButton, cities }) => {
   return (

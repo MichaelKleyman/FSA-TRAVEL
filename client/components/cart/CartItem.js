@@ -38,14 +38,6 @@ const CartItem = (props) => {
 
         </div>
       ) : null}
-      {/* <h3>
-        {item.origin}
-        {item.destination}
-        <button type="button" onClick={handleClick}>
-          {console.log('clicked')}
-          Remove Item
-        </button>
-      </h3> */}
     </div>
   );
 };
