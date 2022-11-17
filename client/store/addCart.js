@@ -40,7 +40,7 @@ export const fetchCart = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(`/api/carts/${id}`);
-      // console.log('FETCH >>>>>', data);
+
       dispatch(setCart(data));
     } catch (err) {
       console.error(err);
@@ -52,7 +52,7 @@ export const removeCart = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.delete('/api/carts');
-      console.log('REMOVE >>>>>', data);
+
       dispatch(_removeCart(data));
     } catch (err) {
       throw new Error(err);
@@ -64,7 +64,7 @@ export const updateQuantity = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.put('/api/carts');
-      console.log('UPDATE >>>>>', data);
+
       dispatch(_updateQuantity(data));
     } catch (err) {
       throw new Error(err);
@@ -76,7 +76,7 @@ export const addCart = () => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post('/api/carts');
-      console.log('ADD >>>>>', data);
+
       dispatch(_addCart(data));
     } catch (err) {
       throw new Error(err);
@@ -91,7 +91,6 @@ const initialState = [];
 const addCartReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_CART:
-      console.log('ACTION >>>>', action.cart);
       return action.cart;
     case REMOVE_CART:
       return state.filter((item) => item.id !== action.item.id);

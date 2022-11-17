@@ -18,7 +18,6 @@ export const Home = (props) => {
   const [cities, setCities] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(20);
-  console.log(flights);
   window;
 
   useEffect(() => {

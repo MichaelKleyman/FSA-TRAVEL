@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
 
       attributes: ['id', 'username', 'email', 'phone', 'firstName', 'lastName'],
     });
-    console.log('in get');
+
     res.json(users);
   } catch (err) {
     next(err);
@@ -44,12 +44,10 @@ router.get('/orderhistory/:id', async (req, res, next) => {
     for (let i = 0; i < orders.length; i++) {
       const insideFlights = await orders[i].getFlights();
       for (let k = 0; k < insideFlights.length; k++) {
-        console.log(orders[i].date);
         flightarr.push(insideFlights[k]);
       }
     }
-    // const flightone = await orders[0].getFlights();
-    // const flights = await orders.getFlights();
+
     res.json(flightarr);
   } catch (error) {
     console.log('orderhistory error', error);
@@ -69,7 +67,7 @@ router.post('/', async (req, res, next) => {
       phone: req.body.phone,
     });
     const cart = await Carts.create({});
-    console.log('caaaaaaaaaaaaaaaaaaaaaaaaaa', cart);
+
     cart.setUser(newUser.id);
 
     res.status(200).send(newUser);

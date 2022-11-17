@@ -86,9 +86,6 @@ const AuthForm = (props) => {
               onChange={handleChange}
               placeholder='Your Username'
             />
-            {/* {!user.username && error ? (
-            <div className="auth-error">*Username is Required</div>
-          ) : null} */}
           </div>
           <div className='signup-elements'>
             <input
@@ -97,9 +94,6 @@ const AuthForm = (props) => {
               onChange={handleChange}
               placeholder='Your Password'
             />
-            {/* {!user.password && error ? (
-            <div className="auth-error">*Password is Required</div>
-          ) : null} */}
           </div>
           <div className='signup-elements'>
             <input
@@ -108,9 +102,6 @@ const AuthForm = (props) => {
               onChange={handleChange}
               placeholder='Your First Name'
             />
-            {/* {!user.firstName && error ? (
-            <div className="auth-error">*First name is Required</div>
-          ) : null} */}
           </div>
           <div className='signup-elements'>
             <input
@@ -119,9 +110,6 @@ const AuthForm = (props) => {
               onChange={handleChange}
               placeholder='Your Last Name'
             />
-            {/* {!user.lastName && error ? (
-            <div className="auth-error">*Last name is Required</div>
-          ) : null} */}
           </div>
           <div className='signup-elements'>
             <input
@@ -130,9 +118,6 @@ const AuthForm = (props) => {
               onChange={handleChange}
               placeholder='Your Email'
             />
-            {/* {!user.email && error ? (
-            <div className="auth-error">*Email is Required</div>
-          ) : null} */}
           </div>
           <div className='signup-elements'>
             <input
@@ -141,9 +126,6 @@ const AuthForm = (props) => {
               onChange={handleChange}
               placeholder='Your Phone Number'
             />
-            {/* {!user.phone && error ? (
-            <div className="auth-error">*Phone number is Required</div>
-          ) : null} */}
           </div>
           <div className='signup-elements'>
             <button type='submit' className='form-button'>
@@ -172,14 +154,6 @@ const AuthForm = (props) => {
     </div>
   );
 };
-
-/**
- * CONTAINER
- *   Note that we have two different sets of 'mapStateToProps' functions -
- *   one for Login, and one for Signup. However, they share the same 'mapDispatchToProps'
- *   function, and share the same Component. This is a good example of how we
- *   can stay DRY with interfaces that are very similar to each other!
- */
 
 const mapSignup = (state) => {
   return {

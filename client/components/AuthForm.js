@@ -11,7 +11,6 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const AuthForm = (props) => {
   const { name, displayName, error, isLoggedIn, role, id } = props;
-  // const [user, setUser] = useState({});
   const dispatch = useDispatch();
 
   function handleCallbackResponse(response) {
@@ -19,7 +18,6 @@ const AuthForm = (props) => {
     console.log('Encoded JWT id token', response.credential);
     const userObj = jwtDecode(response.credential);
     console.log('Decoded Info', userObj);
-    // setUser(userObj);
     const formName = 'login';
     dispatch(authenticate(userObj, formName));
   }

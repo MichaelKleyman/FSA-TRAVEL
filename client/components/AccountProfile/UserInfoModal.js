@@ -23,7 +23,6 @@ const UserInfoModal = ({
   function usersCart() {
     setViewCart(!viewCart);
     dispatch(fetchCart(userInfo.id));
-    console.log('>>>>CART', cart);
   }
 
   async function handleClick(itemId) {
