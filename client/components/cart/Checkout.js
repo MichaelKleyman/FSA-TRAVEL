@@ -21,21 +21,26 @@ const Checkout = () => {
   // }, []);
 
   return (
-    <div className="checkout">
-      <h1>Checkout</h1>
-      <div className="checkout-form">
-        <StripeContainer />
+    <div className='checkout'>
+      <h1 className='checkout-title'>Checkout</h1>
+      <div className='checkout-item'>
+        <h2>Please enter your payment info:</h2>
+        <div className='checkout-payment'>
+          <StripeContainer />
+        </div>
       </div>
-
-      <div className="checkout-items">
-        {cart.map((item) => (
-          <CheckoutItem
-            item={item}
-            id={userId}
-            fetchCart={fetchCart}
-            key={item.id}
-          />
-        ))}
+      <div className='checkout-item'>
+        <h2>Your Flights:</h2>
+        <div className='checkout-items'>
+          {cart.map((item) => (
+            <CheckoutItem
+              item={item}
+              id={userId}
+              fetchCart={fetchCart}
+              key={item.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
