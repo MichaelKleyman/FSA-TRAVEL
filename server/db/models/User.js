@@ -36,7 +36,7 @@ const User = db.define('user', {
     allowNull: false,
     validate: {
       isNumeric: true,
-      len: [10],
+      len: [10, 10],
     },
   },
 
@@ -44,7 +44,6 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     defaultValue: 'user',
   },
-
 });
 
 module.exports = User;
