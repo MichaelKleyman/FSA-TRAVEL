@@ -45,26 +45,32 @@ function Cart({ userId }) {
         <div className='modal'>
           <div onClick={toggleModal} className='overlay'></div>
           <div className='modal-content'>
-            <button className='closeModal' onClick={toggleModal}>
-              X
-            </button>
-            <h2>Cart</h2>
+            <div className='cart-close'>
+              <button className='closeModal' onClick={toggleModal}>
+                X
+              </button>
+            </div>
+            <div className='modal-inside'>
+              <h2>Cart</h2>
 
-            {cart.length ? (
-              cart.map((item) => (
-                <CartItem
-                  item={item}
-                  id={userId}
-                  fetchCart={fetchCart}
-                  key={item.id}
-                />
-              ))
-            ) : (
-              <div>No flights in the cart</div>
-            )}
-            <Link to={`/checkout`} className='logout-button'>
-              Checkout
-            </Link>
+              {cart.length ? (
+                cart.map((item) => (
+                  <CartItem
+                    item={item}
+                    id={userId}
+                    fetchCart={fetchCart}
+                    key={item.id}
+                  />
+                ))
+              ) : (
+                <div>No flights in the cart</div>
+              )}
+              {cart.length ? (
+                <Link to={`/checkout`} className='checkout-button'>
+                  Checkout
+                </Link>
+              ) : null}
+            </div>
           </div>
         </div>
       )}

@@ -29,12 +29,6 @@ function PaymentForm() {
   const elements = useElements();
 
   const userId = useSelector((state) => state.auth.id);
-  // const handleclick = async (event) => {
-  //   console.log('clicked pay');
-
-  //   await axios.post('/api/orders', { total: 500, userId: userId });
-  //   await axios.delete(`/api/carts/all/${userId}`);
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -45,14 +39,10 @@ function PaymentForm() {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        // const response = await axios.post('http://localhost:8080/payment', {
-        //   amount: 1000,
-        //   id,
-        // });
-        console.log('in complete');
         const response = await axios.post('/api/orders', {
           total: 500,
           userId: userId,
+          paymentId: id,
         });
         await axios.delete(`/api/carts/all/${userId}`);
 
