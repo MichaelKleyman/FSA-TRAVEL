@@ -37,7 +37,10 @@ const UserInfoModal = ({
     <div>
       {popUpToggle && (
         <div className='pop-up-container'>
-          <div className='pop-up-body' onClick={(e) => e.stopPropagation()}>
+          <div
+            className='admin-pop-up-body'
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className='admin-popup-header'>
               <div className='pop-up-card'>
                 <div
@@ -64,17 +67,20 @@ const UserInfoModal = ({
                         textDecoration: 'underline',
                       }}
                     >
-                      {userInfo.username}'s Cart Info
+                      Cart Info
                     </header>
                     <small>Quantity: {cart.length}</small>
                     {cart.map((cartItem) => (
                       <h6 key={cartItem.id} className='admin-cart-item'>
-                        <div>Flying from: {cartItem.origin}</div>
-                        <div>Landing at: {cartItem.destination}</div>
-                        <div>Price: ${cartItem.price}</div>
-                        <div>Travelers: {cartItem.travelers}</div>
-                        <button onClick={() => handleClick(cartItem.id)}>
-                          x
+                        <p>Flying from: {cartItem.origin}</p>
+                        <p>Landing at: {cartItem.destination}</p>
+                        <p>Price: ${cartItem.price}</p>
+                        <p>Travelers: {cartItem.travelers}</p>
+                        <button
+                          onClick={() => handleClick(cartItem.id)}
+                          className='remove-flight'
+                        >
+                          Remove Flight
                         </button>
                       </h6>
                     ))}
