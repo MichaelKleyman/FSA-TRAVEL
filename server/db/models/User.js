@@ -11,17 +11,30 @@ const User = db.define('user', {
     type: Sequelize.STRING,
     unique: true,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   password: {
     type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+    },
   },
   email: {
     type: Sequelize.STRING,
@@ -29,6 +42,7 @@ const User = db.define('user', {
     allowNull: false,
     validate: {
       isEmail: true,
+      notEmpty: true,
     },
   },
   phone: {
@@ -37,6 +51,7 @@ const User = db.define('user', {
     validate: {
       isNumeric: true,
       len: [10, 10],
+      notEmpty: true,
     },
   },
 
