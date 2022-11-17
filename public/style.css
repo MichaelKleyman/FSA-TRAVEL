@@ -302,6 +302,20 @@ input:focus {
   margin: 5px;
   background-color: lightblue;
 }
+.details-card-btn2 {
+  float: right;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+}
+.details-card-btn3 {
+  float: right;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  background-color: lightblue;
+}
+
 /* End Card Css */
 
 .card-login {
@@ -396,10 +410,12 @@ input:focus {
   background-repeat: no-repeat;
   background-image: 100%;
   width: 70%;
-  height: 70%;
+  height: 60%;
   font-weight: bold;
   font-size: 20px;
   margin: auto;
+  overflow: hidden;
+  border-radius: 20px;
 }
 .pop-up-header {
   padding: 5px;

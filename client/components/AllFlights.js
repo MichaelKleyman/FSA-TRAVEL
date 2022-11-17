@@ -50,13 +50,13 @@ function AllFlights(props) {
                   <DetailsCard flight={flight} />
                   {!added ? (
                     <button
-                      className='card-btn2'
+                      className='details-card-btn2'
                       onClick={() => addFlightToCart(flight)}
                     >
                       Add To Cart
                     </button>
                   ) : (
-                    <button className='card-btn3'>Added</button>
+                    <button className='details-card-btn3'>Added</button>
                   )}
                 </div>
               ))}
