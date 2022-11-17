@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
@@ -27,6 +28,14 @@ function PaymentForm() {
   const stripe = useStripe();
   const elements = useElements();
 
+  const userId = useSelector((state) => state.auth.id);
+  // const handleclick = async (event) => {
+  //   console.log('clicked pay');
+
+  //   await axios.post('/api/orders', { total: 500, userId: userId });
+  //   await axios.delete(`/api/carts/all/${userId}`);
+  // };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -36,10 +45,17 @@ function PaymentForm() {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        const response = await axios.post('http://localhost:8080/payment', {
-          amount: 1000,
-          id,
+        // const response = await axios.post('http://localhost:8080/payment', {
+        //   amount: 1000,
+        //   id,
+        // });
+        console.log('in complete');
+        const response = await axios.post('/api/orders', {
+          total: 500,
+          userId: userId,
         });
+        await axios.delete(`/api/carts/all/${userId}`);
+
         if (response.data.success) {
           console.log('Success');
           setSuccess(true);
@@ -48,7 +64,7 @@ function PaymentForm() {
         console.log('Error', err);
       }
     } else {
-      console.log(error.message);
+      console.log('somewhere incomplete', error.message);
     }
   };
 
@@ -56,12 +72,12 @@ function PaymentForm() {
     <>
       {!success ? (
         <form onSubmit={handleSubmit}>
-          <fieldset className="FormGroup">
-            <div className="FormRow">
+          <fieldset className='FormGroup'>
+            <div className='FormRow'>
               <CardElement options={CARD_OPTIONS} />
             </div>
           </fieldset>
-          <button className="stripe-button">Pay</button>
+          <button className='stripe-button'>Pay</button>
         </form>
       ) : (
         <div>
