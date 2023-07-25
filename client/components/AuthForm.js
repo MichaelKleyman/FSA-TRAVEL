@@ -77,7 +77,7 @@ const AuthForm = (props) => {
             <div className='recruiter-login' onClick={quickLogin}>
               Recruiter or Guest?
             </div>
-            // <div id='logInDiv'></div>
+            /* <div id='logInDiv'></div> */
           </div>
           {error && error.response && (
             <div className='auth-error'>*{error.response.data}</div>
