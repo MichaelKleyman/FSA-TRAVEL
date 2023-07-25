@@ -47,6 +47,12 @@ const AuthForm = (props) => {
     dispatch(authenticate({ username, password }, formName));
   };
 
+  const quickLogin = (evt) => {
+    evt.preventDefault();
+    const formName = 'login';
+    dispatch(authenticate({ username: 'cody', password: '123' }, formName));
+  };
+
   return (
     <div className='login-signup-container'>
       {!isLoggedIn ? (
@@ -68,7 +74,10 @@ const AuthForm = (props) => {
             <button type='submit' className='form-button'>
               {displayName}
             </button>
-            <div id='logInDiv'></div>
+            <div className='recruiter-login' onClick={quickLogin}>
+              Recruiter or Guest?
+            </div>
+            // <div id='logInDiv'></div>
           </div>
           {error && error.response && (
             <div className='auth-error'>*{error.response.data}</div>
