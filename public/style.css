@@ -10,6 +10,22 @@ body {
   background-color: rgb(226, 235, 237);
 }
 
+.recruiter-login {
+  cursor: pointer;
+  background: rgb(242, 236, 236);
+  padding: 10px 10px 10px 10px;
+  border-radius: 30px;
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.recruiter-login:hover {
+  background-color: rgb(199, 175, 175);
+  color: white;
+}
+
 a {
   text-decoration: none;
 }
